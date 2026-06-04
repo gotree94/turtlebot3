@@ -1,5 +1,3 @@
-# Quick Start Guide
-
 > **Source**: [https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start](https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start)
 
 ---
@@ -20,34 +18,46 @@
 | Machine Learning | X | X | X |
 
 
-# Quick Start Guide
+# 3. Quick Start Guide
+
+   * https://youtu.be/2I_29m_Z3WA?si=zKCmMYpevv3eIiGR
+
+## 3.1 PC Setup
+
+> **WARNING** : The content in this chapter is for the initialization of the `Remote PC` (your desktop or laptop PC) which will be used to control the TurtleBot3. Do not complete these instructions on the TurtleBot3 platform itself.
+
+> **Compatibility WARNING**
+> - The `Jetson Nano` does not support native Ubuntu 20.04. Please refer to the [NVIDIA developer forum](https://forums.developer.nvidia.com/t/when-will-jetpack-move-to-ubuntu-20-04/142517) for more details.
+
+> **NOTE** : This instruction was tested on the `Ubuntu 22.04` linux distribution running `ROS 2 Humble Hawksbill` .
+
+### 3.1.1 Download and Install Ubuntu on Remote PC
+   * 1. Download the `Ubuntu 22.04 LTS Desktop` image for your PC from the link below.
+     * [Ubuntu 22.04 LTS Desktop image (64-bit)](https://releases.ubuntu.com/22.04/)
+   * 2. Follow the instructions below to install Ubuntu.
+     * [Install Ubuntu desktop](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview)
 
 
-## PC Setup
+### 3.1.2 Install ROS 2 on Remote PC
+   * Please follow [the official ROS 2 documentation](https://docs.ros.org/en/humble/Installation.html) to install ROS 2 Humble.
+   * For most Linux users, the [Debian package installation method](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html) is strongly recommended.
 
-**WARNING** : The content in this chapter is for the initialization of the `Remote PC` (your desktop or laptop PC) which will be used to control the TurtleBot3. Do not complete these instructions on the TurtleBot3 platform itself.
+**Details about How to install ROS 2.**
 
-**Compatibility WARNING**
+1. Visit the [Debian package](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html) installation page.
 
-- The `Jetson Nano` does not support native Ubuntu 20.04. Please refer to the [NVIDIA developer forum](https://forums.developer.nvidia.com/t/when-will-jetpack-move-to-ubuntu-20-04/142517) for more details.
+2. Copy the CLI commands located in the green box and paste into your terminal with ctrl + shift + v
 
-**NOTE** : This instruction was tested on the `Ubuntu 22.04` linux distribution running `ROS 2 Humble Hawksbill` .
+3. Generally, ros-humble-desktop is recommended for the Remote PC
 
+4. Add a line sourcing your environment to your bashrc. [Remote PC]
 
-### Download and Install Ubuntu on Remote PC
+```
+echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc  
+source ~/.bashrc  
+```
 
-1. Download the `Ubuntu 22.04 LTS Desktop` image for your PC from the link below. Ubuntu 22.04 LTS Desktop image (64-bit)
-2. Follow the instructions below to install Ubuntu. Install Ubuntu desktop
-
-
-### Install ROS 2 on Remote PC
-
-Please follow [the official ROS 2 documentation](https://docs.ros.org/en/humble/Installation.html) to install ROS 2 Humble.
-
-For most Linux users, the [Debian package installation method](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html) is strongly recommended.
-
-
-### Install Dependent ROS 2 Packages
+### 3.1.3 Install Dependent ROS 2 Packages
 
 1. Open the terminal with `Ctrl` + `Alt` + `T` on the **Remote PC** .
 2. Install Gazebo  **[Remote PC]** $sudoaptinstallros-humble-gazebo-*
