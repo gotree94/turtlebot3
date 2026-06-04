@@ -82,7 +82,7 @@ $ rpi-imager
    * d. Connect the power (either USB or OpenCR) to turn on the Raspberry Pi.
    * e. Login with ID ubuntu and PASSWORD ubuntu. Once logged in, you’ll be asked to change the password.
 
-    ![](sbc_setup3.png)
+    ![](img/sbc_setup3.png)
    
 2. Open the network configuration file with the command below.  **[TurtleBot3 SBC]** $sudonano /etc/netplan/50-cloud-init.yaml
 3. Edit the content to match the image below while replacingWIFI_SSIDandWIFI_PASSWORDwith your actual wifi SSID and password.
