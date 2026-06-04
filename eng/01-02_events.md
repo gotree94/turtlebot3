@@ -40,9 +40,9 @@ For more information about it or if you want to launch it in your remote PC, ple
 
 #### 1.2.2.1 TurtleBot3 Maze Solving @ FIRA Malaysia 2018
 
-https://youtu.be/5XERzM6ZfJg?si=iYM8Hwcg5P2yVncd
+   * https://youtu.be/5XERzM6ZfJg?si=iYM8Hwcg5P2yVncd
 
-https://youtu.be/AamHifhvNMs?si=MHeZjNFvX88mbOnU
+   * https://youtu.be/AamHifhvNMs?si=MHeZjNFvX88mbOnU
 
 - Video#1 [https://youtu.be/5XERzM6ZfJg](https://youtu.be/5XERzM6ZfJg)
 - Video#2 [https://youtu.be/AamHifhvNMs](https://youtu.be/AamHifhvNMs)
@@ -117,21 +117,21 @@ https://youtu.be/OdLsbAMy7m0?si=gtBscBXyjaqX7rSE
 #### 1.2.3.4 TurtleBot3 AutoRace 2017 Teaser
 
 - Official Teaser #1
-https://youtu.be/9Wnu8If1eS4?si=7NcEL0F_5SDhsVNh
+   * https://youtu.be/9Wnu8If1eS4?si=7NcEL0F_5SDhsVNh
 
 - Official Teaser #2
-https://youtu.be/47YnSBAssOM?si=yI7T1vCR6DW6pQHz
+   * https://youtu.be/47YnSBAssOM?si=yI7T1vCR6DW6pQHz
 
 - Official Final Video
-https://youtu.be/DWDBAHHQi_k?si=F73ab5UEEqw8URfh
+   * https://youtu.be/DWDBAHHQi_k?si=F73ab5UEEqw8URfh
 
 #### 1.2.3.5 TurtleBot3 AutoRace 2017 Challengers
 
 - Video - Team RealRiceThief (1st Place)
-https://youtu.be/szhllE1T_cg?si=S8wpNa9vKVE0eBQd
+   * https://youtu.be/szhllE1T_cg?si=S8wpNa9vKVE0eBQd
 
 - TurtleBot3 was tested its driving autonomy under the open source from MIT DuckieTown engineering.
-https://youtu.be/1V33iEu4ylw?si=n1MVRZzwEdAritU4
+   * https://youtu.be/1V33iEu4ylw?si=n1MVRZzwEdAritU4
 
 
 #### 1.2.3.6 AutoRace RBIZ Challenge 2018
