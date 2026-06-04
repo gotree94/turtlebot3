@@ -96,68 +96,29 @@ Install the required TurtleBot3 Packages.
 **[Remote PC]**
 
 ```
-$ 
-source
- /opt/ros/humble/setup.bash
-
-$ 
-mkdir
- 
--p
- ~/turtlebot3_ws/src
-
-$ 
-cd
- ~/turtlebot3_ws/src/
-
-$ 
-git clone 
--b
- humble https://github.com/ROBOTIS-GIT/DynamixelSDK.git
-
-$ 
-git clone 
--b
- humble https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
-
-$ 
-git clone 
--b
- humble https://github.com/ROBOTIS-GIT/turtlebot3.git
-
-$ 
-sudo 
-apt 
-install 
-python3-colcon-common-extensions
-
-$ 
-cd
- ~/turtlebot3_ws
-
-$ 
-colcon build 
---symlink-install
-
-
-$ 
-echo
- 
-'source ~/turtlebot3_ws/install/setup.bash'
- 
->>
- ~/.bashrc
-
-$ 
-source
- ~/.bashrc
-
+$ source /opt/ros/humble/setup.bash
+$ mkdir -p ~/turtlebot3_ws/src
+$ cd ~/turtlebot3_ws/src/
+$ git clone -b humble https://github.com/ROBOTIS-GIT/DynamixelSDK.git
+$ git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
+$ git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3.git
+$ sudo apt install python3-colcon-common-extensions
+$ cd ~/turtlebot3_ws
+$ colcon build --symlink-install
+$ echo 'source ~/turtlebot3_ws/install/setup.bash' >> ~/.bashrc
+$ source ~/.bashrc
 ```
-
 
 ### Environment Configuration
 
-1. Setup your ROS environment for the Remote PC.  **[Remote PC]** $echo'export ROS_DOMAIN_ID=30 #TURTLEBOT3'>>~/.bashrc$echo'source /usr/share/gazebo/setup.sh'>>~/.bashrc$echo'source /opt/ros/humble/setup.bash'>>~/.bashrc$source~/.bashrc
+1. Setup your ROS environment for the Remote PC.  **[Remote PC]**
+
+```
+$echo 'export ROS_DOMAIN_ID=30 #TURTLEBOT3' >>~/.bashrc
+$echo 'source /usr/share/gazebo/setup.sh' >>~/.bashrc
+$echo 'source /opt/ros/humble/setup.bash' >>~/.bashrc
+$source ~/.bashrc
+```
 
 
 # Quick Start Guide
