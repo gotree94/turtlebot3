@@ -156,7 +156,6 @@ $ ifconfig
 $ ssh ubuntu@{IP Address of Raspberry PI}
 ```
 
-
 ### 3.2.5 Install packages on Raspberry PI
 
 * If you are using the TurtleBot3 2GB, make sure to create swap memory for building packages. Otherwise, you may run out of memory and package building may fail.
@@ -168,24 +167,26 @@ $ sudo chmod 600 /swapfile
 $ sudo mkswap /swapfile
 $ sudo swapon /swapfile
 ```
+
 * The following command ensures that the swap file is automatically activated when the system is rebooted.
 ```
 $ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 ```
+
 * Check swap memory.
 ```
 $ free -h
 ```
-~[](img/swap.png)
+
+![](img/swap.png)
 
 * 1. Install ROS2 Humble Hawksbill <br>
-  [TurtleBot3 SBC] <br>
-  Follow the instructions fromthe official ROS2 Humble installation guide.  Installing ROS-Base(Bare Bones) is recommended.
+**[TurtleBot3 SBC]** <br>
+  Follow the instructions from [the official ROS2 Humble installation guide](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).  Installing ROS-Base(Bare Bones) is recommended.
 
 * 2. Install and Build ROS Packages.  <br>
   Building the `turtlebot3` package may take longer than an hour. Please use a wall plug power supply to ensure the system is always powered.  
-
-**[TurtleBot3 SBC]** 
+**[TurtleBot3 SBC]**  <br>
 ```
 $ sudo apt install python3-argcomplete python3-colcon-common-extensions libboost-system-dev build-essential
 $ sudo apt install ros-humble-hls-lfcd-lds-driver
@@ -208,7 +209,7 @@ $ source ~/.bashrc
 ```
 
 3. USB Port Settings for OpenCR  
-**[TurtleBot3 SBC]** 
+**[TurtleBot3 SBC]**  <br>
 ```
 $ sudo cp `ros2 pkg prefix turtlebot3_bringup`/share/turtlebot3_bringup/script/99-turtlebot3-cdc.rules /etc/udev/rules.d/
 $ sudo udevadm control --reload-rules
@@ -218,7 +219,7 @@ $ sudo udevadm trigger
 4. ROS Domain ID Setting In ROS2 DDS communication, `ROS_DOMAIN_ID` must match between the **Remote PC** and **TurtleBot3** for communication in the same network environment.The following commands show how to assign a `ROS_DOMAIN_ID` to the SBC of the TurtleBot3. 
    * The default ID of theTurtleBot3 is `30`.
    * Configuring the `ROS_DOMAIN_ID` for the Remote PC and SBC of the TurtleBot3 to `30` is recommended.
-**[TurtleBot3 SBC]**
+**[TurtleBot3 SBC]** <br>
 ```
 $ echo 'export ROS_DOMAIN_ID=30 #TURTLEBOT3' >> ~/.bashrc
 $ source ~/.bashrc
@@ -275,14 +276,14 @@ $ sudo apt install ros-humble-camera-ros
 
 2. Clone libcamera Source
 This step clones the official Raspberry Pi fork of libcamera, which provides full compatibility and optimized support for Raspberry Pi camera modules.
-[TurtleBot3 SBC]
+**[TurtleBot3 SBC]**
 ```
 $ git clone -b v0.5.2 https://github.com/raspberrypi/libcamera.git
 ```
 
 3. Build and Install libcamera
 This installs libcamera to /usr/local and makes it available system-wide.
-[TurtleBot3 SBC]
+**[TurtleBot3 SBC]**
 ```
 $ cd libcamera
 $ meson setup build --buildtype=release -Dpipelines=rpi/vc4,rpi/pisp -Dipas=rpi/vc4,rpi/pisp -Dv4l2=true -Dgstreamer=enabled -Dtest=false -Dlc-compliance=disabled -Dcam=disabled -Dqcam=disabled -Ddocumentation=disabled -Dpycamera=enabled
@@ -297,14 +298,14 @@ $ export LD_LIBRARY_PATH=/usr/local/lib/aarch64-linux-gnu:$LD_LIBRARY_PATH
 
 4. Launch the Camera Node
 You can now launch the camera node using the provided launch file.
-[TurtleBot3 SBC]
+**[TurtleBot3 SBC]**
 ```
 $ ros2 launch turtlebot3_bringup camera.launch.py
 ```
 
 5. View Camera Input
 You can verify that the camera node is publishing image data correctly using rqt_image_view, a GUI tool for displaying ROS 2 image topics.
-[Remote PC]
+**[Remote PC]**
 ```
 $ rqt_image_view
 ```
@@ -316,7 +317,7 @@ $ rqt_image_view
 * NOTE: These instructions are specifically for Raspberry Pi devices running Ubuntu 22.04.
 
 1. Install ros-humble-v4l2-camera, raspi-config, ros-humble-image-transport-plugins, v4l-utils.
-[TurtleBot3 SBC]
+**[TurtleBot3 SBC]**
 ```
 $ sudo apt-get install ros-humble-v4l2-camera raspi-config ros-humble-image-transport-plugins v4l-utils
 ```
@@ -327,7 +328,7 @@ $ sudo apt-get install ros-humble-v4l2-camera raspi-config ros-humble-image-tran
 
 2. Run raspi-config
 `v4l2-camera` package uses the legacy driver. So we must configure the use of the legacy driver. If this step is completed, the camera node of the camera-ros package will no longer be able to detect the camera. To use the camera-ros package after this step, you must disable the legacy driver again.
-[TurtleBot3 SBC]
+**[TurtleBot3 SBC]**
 ```
 $ sudo raspi-config
 ```
@@ -341,7 +342,7 @@ Select `I1` and set enable legacy camera support. This allows the use of the leg
 
 3. Enable Legacy Camera Stack
 Open the configuration file `/boot/firmware/config.txt`.
-[TurtleBot3 SBC]
+**[TurtleBot3 SBC]**
 ```
 $ sudo nano /boot/firmware/config.txt
 ```
@@ -357,7 +358,7 @@ $ sudo nano /boot/firmware/config.txt
 If you plan to use the camera-ros package after this step, make sure to remove or comment out the lines camera_auto_detect=0, start_x=1, dtoverlay=imx219 in your configuration file.
 
 5. Reboot the System
-[TurtleBot3 SBC]
+**[TurtleBot3 SBC]**
 ```
 $ sudo reboot
 ```
@@ -381,7 +382,7 @@ $ ros2 run v4l2_camera v4l2_camera_node
 
 8. View Camera Input
 You can verify that the camera node is publishing image data correctly using rqt_image_view, a GUI tool for displaying ROS 2 image topics.
-[Remote PC]
+**[Remote PC]**
 
 ```
 $ rqt_image_view
