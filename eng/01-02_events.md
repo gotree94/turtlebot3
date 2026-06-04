@@ -106,10 +106,10 @@ https://youtu.be/OdLsbAMy7m0?si=gtBscBXyjaqX7rSE
 | 7 | FastAndFurious | Github | 
 | 8 | BonoBono | Github | 
 | 9 | BeginAgain | Github | 
-| 10 | Hanzo | Github | 
+| 10 | Hanzo | [Github](https://github.com/DeokYun/autorace) | 
 | 11 | Codis | will be released soon | 
-| 12 | Zero | Github | 
-| 13 | CanDynamix| Github | 
+| 12 | Zero | [Github](https://github.com/dongwan123/zero_turtlebot_competition) | 
+| 13 | CanDynamix| [Github](https://github.com/candynamix/can_dynamix) | 
 | 14 | Cena | retire | 
 | 15 | TogetherChaChaCha | retire | 
 
