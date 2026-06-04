@@ -40,9 +40,9 @@ For more information about it or if you want to launch it in your remote PC, ple
 
 #### 1.2.2.1 TurtleBot3 Maze Solving @ FIRA Malaysia 2018
 
-https://youtu.be/5XERzM6ZfJg?si=iYM8Hwcg5P2yVncd
+[](https://youtu.be/5XERzM6ZfJg?si=iYM8Hwcg5P2yVncd)
 
-https://youtu.be/AamHifhvNMs?si=MHeZjNFvX88mbOnU
+[](https://youtu.be/AamHifhvNMs?si=MHeZjNFvX88mbOnU)
 
 - Video#1 [https://youtu.be/5XERzM6ZfJg](https://youtu.be/5XERzM6ZfJg)
 - Video#2 [https://youtu.be/AamHifhvNMs](https://youtu.be/AamHifhvNMs)
