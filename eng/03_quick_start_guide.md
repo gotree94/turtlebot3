@@ -46,9 +46,13 @@
 
 1. Visit the [Debian package](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html) installation page.
 
-2. Copy the CLI commands located in the green box and paste into your terminal with ctrl + shift + v
+2. Copy the CLI commands located in the green box and paste into your terminal with (ctrl + shift + v)
+
+ros2_install1-.png
 
 3. Generally, ros-humble-desktop is recommended for the Remote PC
+
+ros2_install2-.png
 
 4. Add a line sourcing your environment to your bashrc. [Remote PC]
 
@@ -60,9 +64,26 @@ source ~/.bashrc
 ### 3.1.3 Install Dependent ROS 2 Packages
 
 1. Open the terminal with `Ctrl` + `Alt` + `T` on the **Remote PC** .
-2. Install Gazebo  **[Remote PC]** $sudoaptinstallros-humble-gazebo-*
-3. Install Cartographer  **[Remote PC]** $sudoaptinstallros-humble-cartographer$sudoaptinstallros-humble-cartographer-ros
-4. Install Navigation2  **[Remote PC]** $sudoaptinstallros-humble-navigation2$sudoaptinstallros-humble-nav2-bringup
+
+2. Install Gazebo  **[Remote PC]**
+
+```
+$sudoaptinstallros-humble-gazebo-*
+```
+
+4. Install Cartographer  **[Remote PC]** 
+
+```
+$sudoaptinstallros-humble-cartographer
+$sudoaptinstallros-humble-cartographer-ros
+```
+
+5. Install Navigation2  **[Remote PC]** 
+
+```
+$sudoaptinstallros-humble-navigation2
+$sudoaptinstallros-humble-nav2-bringup
+```
 
 
 ### Install TurtleBot3 Packages
