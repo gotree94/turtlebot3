@@ -84,18 +84,53 @@ $ rpi-imager
 
     ![](img/sbc_setup3.png)
    
-2. Open the network configuration file with the command below.  **[TurtleBot3 SBC]** $sudonano /etc/netplan/50-cloud-init.yaml
+2. Open the network configuration file with the command below.  
+**[TurtleBot3 SBC]** 
+```
+$sudonano /etc/netplan/50-cloud-init.yaml
+```
+
 3. Edit the content to match the image below while replacingWIFI_SSIDandWIFI_PASSWORDwith your actual wifi SSID and password.
 4. Save the file withCtrl+Sand exit withCtrl+X.
-5. Enter the command below to edit the automatic update settings file.  **[TurtleBot3 SBC]** $sudonano /etc/apt/apt.conf.d/20auto-upgrades
-6. Change the update settings to match those below.  **[TurtleBot3 SBC]** APT::Periodic::Update-Package-Lists"0";APT::Periodic::Unattended-Upgrade"0";
-7. Save the file withCtrl+Sand exit withCtrl+X.
-8. Set `systemd` to prevent boot-up delay even if there is no network at startup. Run the command below to set mask for the `systemd` process using the following command.  **[TurtleBot3 SBC]** $systemctl mask systemd-networkd-wait-online.service
-9. Disable Suspend and Hibernation  **[TurtleBot3 SBC]** $sudosystemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
-10. Reboot the Raspberry Pi.  **[TurtleBot3 SBC]** $sudoreboot
-11. After rebooting the Raspberry Pi, if you wish to work from a Remote PC using SSH, use the command below from the remote PC terminal. Make sure to use the password you set in `Step 1` .  **[Remote PC]** $ssh ubuntu@{IP Address of Raspberry PI}
+5. Enter the command below to edit the automatic update settings file.  
+**[TurtleBot3 SBC]** 
+```
+$sudonano /etc/apt/apt.conf.d/20auto-upgrades
+```
 
-### Install packages on Raspberry PI
+6. Change the update settings to match those below.  
+**[TurtleBot3 SBC]** 
+```
+APT::Periodic::Update-Package-Lists"0";
+APT::Periodic::Unattended-Upgrade"0";
+```
+
+7. Save the file withCtrl+Sand exit withCtrl+X.
+8. Set `systemd` to prevent boot-up delay even if there is no network at startup. Run the command below to set mask for the `systemd` process using the following command.  
+**[TurtleBot3 SBC]** 
+```
+$systemctl mask systemd-networkd-wait-online.service
+```
+
+9. Disable Suspend and Hibernation  
+**[TurtleBot3 SBC]** 
+```
+$sudosystemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+```
+
+10. Reboot the Raspberry Pi.  
+**[TurtleBot3 SBC]** 
+```
+$sudoreboot
+```
+
+11. After rebooting the Raspberry Pi, if you wish to work from a Remote PC using SSH, use the command below from the remote PC terminal. Make sure to use the password you set in `Step 1` .  
+**[Remote PC]** 
+```
+$ssh ubuntu@{IP Address of Raspberry PI}
+```
+
+### 3.2.5 Install packages on Raspberry PI
 
 1. Install ROS2 Humble Hawksbill[TurtleBot3 SBC]Follow the instructions fromthe official ROS2 Humble installation guide.  Installing ROS-Base(Bare Bones) is recommended.
 2. Install and Build ROS Packages.  Building the `turtlebot3` package may take longer than an hour. Please use a wall plug power supply to ensure the system is always powered.  **[TurtleBot3 SBC]** $sudoaptinstallpython3-argcomplete python3-colcon-common-extensions libboost-system-dev build-essential$sudoaptinstallros-humble-hls-lfcd-lds-driver$sudoaptinstallros-humble-turtlebot3-msgs$sudoaptinstallros-humble-dynamixel-sdk$sudoaptinstallros-humble-xacro$sudoaptinstalllibudev-dev$mkdir-p~/turtlebot3_ws/src&&cd~/turtlebot3_ws/src$git clone-bhumble https://github.com/ROBOTIS-GIT/turtlebot3.git$git clone-bhumble https://github.com/ROBOTIS-GIT/ld08_driver.git$git clone-bhumble https://github.com/ROBOTIS-GIT/coin_d4_driver$cd~/turtlebot3_ws/src/turtlebot3$rm-rturtlebot3_cartographer turtlebot3_navigation2$cd~/turtlebot3_ws/$echo'source /opt/ros/humble/setup.bash'>>~/.bashrc$source~/.bashrc$colcon build--symlink-install--parallel-workers1$echo'source ~/turtlebot3_ws/install/setup.bash'>>~/.bashrc$source~/.bashrc
