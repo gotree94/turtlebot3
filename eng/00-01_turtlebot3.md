@@ -36,15 +36,15 @@ The most important part of the TurtleBot3 collaboration project is the open sour
 If you are interested in partnership with us to continue to further the development of open source robotics, please fill out this form to learn more about how we can work together.
 
 TurtleBot3 Providers
-
+![](logo_platform_providers.png)
 
 TurtleBot3 Partners and Research Collaborators
-
+![](logo_platform_sponsors.png)
 
 * Each collaboration member’s web page can be found here.
 
 TurtleBot3 Distributors
-
+![](logo_platform_players.png)
 
 * Each collaboration member’s web page can be found here.
 
