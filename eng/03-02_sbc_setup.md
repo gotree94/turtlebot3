@@ -28,9 +28,9 @@
 
 **about How to install Raspberry Pi Imager**
 
-Install either the deb or apt rpi-imager release.
+Install either the `deb` or `apt` rpi-imager release.
 
-1. deb
+1. `deb`
   * Download deb file <br>
 ![](img/sbc_setup1.png) <br>
 
@@ -46,7 +46,7 @@ $ sudo apt-get install -f
 $ rpi-imager
 ```
 
-2. apt
+2. `apt`
 
 ```
 $ sudo apt install rpi-imager
@@ -80,7 +80,7 @@ $ rpi-imager
    * b. Connect input devices (generally keyboard) to the USB port of the Raspberry Pi.
    * c. Insert the microSD card into Raspberry Pi.
    * d. Connect the power (either USB or OpenCR) to turn on the Raspberry Pi.
-   * e. Login with ID ubuntu and PASSWORD ubuntu. Once logged in, you’ll be asked to change the password.
+   * e. Login with ID `ubuntu` and PASSWORD `ubuntu`. Once logged in, you’ll be asked to change the password.
 
     ![](img/sbc_setup3.png)
    
@@ -129,6 +129,31 @@ $sudoreboot
 ```
 $ssh ubuntu@{IP Address of Raspberry PI}
 ```
+
+**about how to connect through ssh**
+
+1. Edit the SSH configuration files
+**[TurtleBot3 SBC]**
+```
+$ sudo nano /etc/ssh/sshd_config.d/50-cloud-init.conf
+```
+
+2. Install net-tools and check your ip.
+**[TurtleBot3 SBC]**
+```
+$ reboot
+$ sudo apt update
+$ sudo apt install net-tools
+$ ifconfig
+```
+![](img/sshd_config3.png)
+
+3. Enter the command below on the remote PC and use your password for the Ubuntu system.
+**[Remote PC]**
+```
+$ ssh ubuntu@{IP Address of Raspberry PI}
+```
+
 
 ### 3.2.5 Install packages on Raspberry PI
 
@@ -188,9 +213,9 @@ $ sudo udevadm control --reload-rules
 $ sudo udevadm trigger
 ```
 
-4. ROS Domain ID Setting
-In ROS2 DDS communication, `ROS_DOMAIN_ID` must match between the **Remote PC** and **TurtleBot3** for communication in the same network environment.The following commands show how to assign a `ROS_DOMAIN_ID` to the SBC of the TurtleBot3. The default ID of theTurtleBot3is30.Configuring theROS_DOMAIN_IDfor the Remote PC and SBC of the TurtleBot3 to30is recommended.
-
+4. ROS Domain ID Setting In ROS2 DDS communication, `ROS_DOMAIN_ID` must match between the **Remote PC** and **TurtleBot3** for communication in the same network environment.The following commands show how to assign a `ROS_DOMAIN_ID` to the SBC of the TurtleBot3. 
+   * The default ID of theTurtleBot3 is `30`.
+   * Configuring the `ROS_DOMAIN_ID` for the Remote PC and SBC of the TurtleBot3 to `30` is recommended.
 **[TurtleBot3 SBC]**
 ```
 $ echo 'export ROS_DOMAIN_ID=30 #TURTLEBOT3' >> ~/.bashrc
@@ -206,18 +231,16 @@ $ source ~/.bashrc
 | --- | --- | --- |
 | ![](img/lds_small.png) | ![](img/lds_ld08_small.png) |  ![](img/lds_coind4_small.png) |
 
-Depending on your LDS model, use the appropriate model: LDS-01, LDS-02, or LDS-03.  
+* Depending on your LDS model, use the appropriate model: LDS-01, LDS-02, or LDS-03.  
 **[TurtleBot3 SBC]**
-
 ```
 $ echo 'export LDS_MODEL=LDS-01' >> ~/.bashrc # If you are using LDS-01
 $ echo 'export LDS_MODEL=LDS-02' >> ~/.bashrc # If you are using LDS-02
 $ echo 'export LDS_MODEL=LDS-03' >> ~/.bashrc # If you are using LDS-03
 ```
 
-Apply changes with the command below.  
+* Apply changes with the command below.  
 **[TurtleBot3 SBC]**
-
 ```
 $ source ~/.bashrc
 ```
@@ -226,7 +249,7 @@ $ source ~/.bashrc
 
 ![](img/Pi-Camera-front.jpg)
 
-Introducing how to use the RPi camera with TurtleBot3 running Ubuntu 22.04 on a Raspberry Pi. There are various ways to publish the output of a RPi camera as a topic.  One method is to use the `camera-ros` package, and another method is to use the `v4l2-camera` package.
+* Introducing how to use the RPi camera with TurtleBot3 running Ubuntu 22.04 on a Raspberry Pi. There are various ways to publish the output of a RPi camera as a topic.  One method is to use the `camera-ros` package, and another method is to use the `v4l2-camera` package.
 
 **Method 1. Using the camera-ros package**
 
@@ -251,87 +274,116 @@ $ sudo apt install ros-humble-camera-ros
 2. Clone libcamera Source
 This step clones the official Raspberry Pi fork of libcamera, which provides full compatibility and optimized support for Raspberry Pi camera modules.
 [TurtleBot3 SBC]
-
+```
 $ git clone -b v0.5.2 https://github.com/raspberrypi/libcamera.git
+```
+
 3. Build and Install libcamera
 This installs libcamera to /usr/local and makes it available system-wide.
 [TurtleBot3 SBC]
-
+```
 $ cd libcamera
 $ meson setup build --buildtype=release -Dpipelines=rpi/vc4,rpi/pisp -Dipas=rpi/vc4,rpi/pisp -Dv4l2=true -Dgstreamer=enabled -Dtest=false -Dlc-compliance=disabled -Dcam=disabled -Dqcam=disabled -Ddocumentation=disabled -Dpycamera=enabled
 $ ninja -C build -j 1
 $ sudo ninja -C build install -j 1
 $ sudo ldconfig
+```
 After installation, add the installation path of the built libcamera to LD_LIBRARY_PATH so that it is used.
-
+```
 $ export LD_LIBRARY_PATH=/usr/local/lib/aarch64-linux-gnu:$LD_LIBRARY_PATH
+```
+
 4. Launch the Camera Node
 You can now launch the camera node using the provided launch file.
 [TurtleBot3 SBC]
-
+```
 $ ros2 launch turtlebot3_bringup camera.launch.py
+```
+
 5. View Camera Input
 You can verify that the camera node is publishing image data correctly using rqt_image_view, a GUI tool for displaying ROS 2 image topics.
 [Remote PC]
-
+```
 $ rqt_image_view
+```
 
 **Method 2. Using the v4l2-camera package**
 
-This method is better suited for USB cameras and legacy Raspberry Pi camera setups. It relies on the V4L2 (Video4Linux2) framework, making it simpler to set up and compatible with a broader range of devices. For more information about v4l2_camera, see the v4l2_camera website.
+* This method is better suited for USB cameras and legacy Raspberry Pi camera setups. It relies on the V4L2 (Video4Linux2) framework, making it simpler to set up and compatible with a broader range of devices. For more information about v4l2_camera, see the v4l2_camera website.
 
-NOTE: These instructions are specifically for Raspberry Pi devices running Ubuntu 22.04.
+* NOTE: These instructions are specifically for Raspberry Pi devices running Ubuntu 22.04.
 
 1. Install ros-humble-v4l2-camera, raspi-config, ros-humble-image-transport-plugins, v4l-utils.
 [TurtleBot3 SBC]
-
+```
 $ sudo apt-get install ros-humble-v4l2-camera raspi-config ros-humble-image-transport-plugins v4l-utils
-ros-humble-v4l2-camera: A package that publishes camera output as a topic.
-raspi-config: A tool for configuring camera device connections on Raspberry Pi.
-ros-humble-image-transport-plugins: Converts image_raw to compressed images for smoother transmission.
-v4l-utils: A utility that assists with connection.
+```
+* `ros-humble-v4l2-camera` : A package that publishes camera output as a topic.
+* `raspi-config` : A tool for configuring camera device connections on Raspberry Pi.
+* `ros-humble-image-transport-plugins` : Converts image_raw to compressed images for smoother transmission.
+* `v4l-utils` : A utility that assists with connection.
+
 2. Run raspi-config
-v4l2-camera package uses the legacy driver. So we must configure the use of the legacy driver. If this step is completed, the camera node of the camera-ros package will no longer be able to detect the camera. To use the camera-ros package after this step, you must disable the legacy driver again.
+`v4l2-camera` package uses the legacy driver. So we must configure the use of the legacy driver. If this step is completed, the camera node of the camera-ros package will no longer be able to detect the camera. To use the camera-ros package after this step, you must disable the legacy driver again.
 [TurtleBot3 SBC]
-
+```
 $ sudo raspi-config
-Select Interface Options.
+```
+Select `Interface Options`.
 
-Select I1 and set enable legacy camera support. This allows the use of the legacy driver, bcm2835 MMAL. 
+![](img/rpi_config1.png)
+
+Select `I1` and set enable legacy camera support. This allows the use of the legacy driver, bcm2835 MMAL. 
+
+![](img/rpi_config2.png)
 
 3. Enable Legacy Camera Stack
-Open the configuration file /boot/firmware/config.txt.
+Open the configuration file `/boot/firmware/config.txt`.
 [TurtleBot3 SBC]
-
+```
 $ sudo nano /boot/firmware/config.txt
-4. Modify or add the following lines
+```
 
+4. Modify or add the following lines
+```
   # Disable libcamera auto detect
   camera_auto_detect=0
   # Enable legacy camera stack for bcm2835-v4l2
   start_x=1
+```
+
 If you plan to use the camera-ros package after this step, make sure to remove or comment out the lines camera_auto_detect=0, start_x=1, dtoverlay=imx219 in your configuration file.
 
 5. Reboot the System
 [TurtleBot3 SBC]
-
+```
 $ sudo reboot
+```
+
 6. You can check camera_name by this command.
 [TurtleBot3 SBC]
-
+```
 $ v4l2-ctl --list-devices
+```
+
+![](img/camera_name.png)
+
 In this case, camera name is mmal_service_16.1.
 
 
 7. Run v4l2_camera_node
 [TurtleBot3 SBC]
-
+```
 $ ros2 run v4l2_camera v4l2_camera_node
+```
+
 8. View Camera Input
 You can verify that the camera node is publishing image data correctly using rqt_image_view, a GUI tool for displaying ROS 2 image topics.
 [Remote PC]
 
+```
 $ rqt_image_view
+```
 
 > **NOTE**  To optimize camera data transmission speed, try the following methods.
 > - Use/camera/image_raw/compressedSubscribing directly to the/camera/image_rawtopic can cause significant latency if the network is slow or bandwidth is limited. You can select/camera/image_raw/compressedinrqt_image_view.
