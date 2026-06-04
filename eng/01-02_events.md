@@ -95,8 +95,8 @@ https://youtu.be/OdLsbAMy7m0?si=gtBscBXyjaqX7rSE
 
 - Participants sources
 
-| Place Team | Source link |
-|:----------:|:----------:|
+| Place | Team | Source link |
+|:----------:|:----------:|:----------:|
 | 1 | RealRiceThief | Github | 
 | 2 | IronHeart | Github | 
 | 3 | Robit | Github | 
