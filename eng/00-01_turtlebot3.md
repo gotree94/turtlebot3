@@ -1,10 +1,8 @@
-# 1. Overview
-
 > **Source**: [https://emanual.robotis.com/docs/en/platform/turtlebot3/overview](https://emanual.robotis.com/docs/en/platform/turtlebot3/overview)
 
 ---
 
-# Overview
+# 1. Overview
 
 > **Notice** : With the formation of the Platform Team in 2025, substantial resources will be dedicated to advancing the open platform.
 > As a priority, **TurtleBot3** will receive full support for ROS 2 Humble, with **comprehensive example implementations** set for release in Q1 2025. In Q2, support will expand to **ROS 2 Jazzy** and **Gazebo Sim** , ensuring seamless integration with the latest advancements in the ROS ecosystem and simulation environments.
