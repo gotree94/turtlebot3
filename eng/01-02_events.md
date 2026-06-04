@@ -108,21 +108,29 @@ For more information about it or if you want to launch it in your remote PC, ple
 | 15 | TogetherChaChaCha | retire | 
 
 
-#### TurtleBot3 AutoRace 2017 Teaser
+#### 1.2.3.4 TurtleBot3 AutoRace 2017 Teaser
 
 - Official Teaser #1
+https://youtu.be/9Wnu8If1eS4?si=7NcEL0F_5SDhsVNh
+
 - Official Teaser #2
+https://youtu.be/47YnSBAssOM?si=yI7T1vCR6DW6pQHz
+
 - Official Final Video
+https://youtu.be/DWDBAHHQi_k?si=F73ab5UEEqw8URfh
 
-
-#### TurtleBot3 AutoRace 2017 Challengers
+#### 1.2.3.5 TurtleBot3 AutoRace 2017 Challengers
 
 - Video - Team RealRiceThief (1st Place)
+https://youtu.be/szhllE1T_cg?si=S8wpNa9vKVE0eBQd
 
 - TurtleBot3 was tested its driving autonomy under the open source from MIT DuckieTown engineering.
+https://youtu.be/1V33iEu4ylw?si=n1MVRZzwEdAritU4
 
 
-#### AutoRace RBIZ Challenge 2018
+#### 1.2.3.6 AutoRace RBIZ Challenge 2018
+
+https://youtu.be/6t6cyFiGLvs?si=Q5SJVTrkgKixcD7L
 
 | Place | Team | Source link |
 | --- | --- | --- |
