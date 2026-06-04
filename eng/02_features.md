@@ -57,7 +57,7 @@
 | MCU | 32-bit ARM Cortex®-M7 with FPU (216 MHz, 462 DMIPS) | 32-bit ARM Cortex®-M7 with FPU (216 MHz, 462 DMIPS) |
 | Remote Controller | - | RC-100B + BT-410 Set (Bluetooth 4, BLE) |
 | Actuator | XL430-W250 | XM430-W210 |
-| LDS (Laser Distance Sensor) | 360 Laser Distance SensorLDS-02 | 360 Laser Distance SensorLDS-02 |
+| LDS (Laser Distance Sensor) | 360 Laser Distance Sensor [LDS-02](https://emanual.robotis.com/docs/en/platform/turtlebot3/appendix_lds_02/) | 360 Laser Distance Sensor [LDS-02](https://emanual.robotis.com/docs/en/platform/turtlebot3/appendix_lds_02/) |
 | Camera | - | Raspberry Pi Camera Module v2.1 |
 | IMU | Gyroscope 3 AxisAccelerometer 3 Axis | Gyroscope 3 AxisAccelerometer 3 Axis |
 | Power connectors | 3.3V / 800mA5V / 4A12V / 1A | 3.3V / 800mA5V / 4A12V / 1A |
@@ -106,15 +106,15 @@ TurtleBot3 is available in two types of models: `Burger` and `Waffle Pi` .  The 
 | . | Tire | 2 | 2 |
 | . | Ball Caster | 1 | 2 |
 | . | Camera Bracket | 0 | 1 |
-| Motors | DYNAMIXEL (XL430-W250-T) | 2 | 0 |
-| . | DYNAMIXEL (XM430-W210-T) | 0 | 2 |
-| Boards | OpenCR1.0 | 1 | 1 |
+| Motors | DYNAMIXEL ([XL430-W250-T](https://emanual.robotis.com/docs/en/dxl/x/xl430-w250/)) | 2 | 0 |
+| . | DYNAMIXEL ([XM430-W210-T](https://emanual.robotis.com/docs/en/dxl/x/xm430-w210/)) | 0 | 2 |
+| Boards | [OpenCR1.0](https://emanual.robotis.com/docs/en/platform/turtlebot3/appendix_opencr1_0/) | 1 | 1 |
 | . | *Raspberry Pi | 1 | 1 |
 | . | USB2LDS | 1 | 1 |
 | Remote Controllers | BT-410 Set (Bluetooth 4, BLE) | 0 | 1 |
 | . | RC-100B (Remote Controller) | 0 | 1 |
 | Sensors | **LDS-01orLDS-02 | 1 | 1 |
-| . | Raspberry Pi Camera v2.1 | 0 | 1 |
+| . | [Raspberry Pi Camera v2.1](https://www.raspberrypi.org/products/camera-module-v2/) | 0 | 1 |
 | Memory | MicroSD Card | 1 | 1 |
 | Cables | Raspberry Pi Power Cable | 1 | 1 |
 | . | Li-Po Battery Extension Cable | 1 | 1 |
