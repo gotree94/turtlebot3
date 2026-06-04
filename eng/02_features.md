@@ -145,7 +145,9 @@ TurtleBot3 is available in two types of models: `Burger` and `Waffle Pi` .  The 
 | . | Bracket | 5 | 6 |
 | . | Adapter Plate | 1 | 1 |
 
-* The [Raspberry Pi 3 Model B+](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) was included as standard starting in 2019. Earlier models are equipped with a [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) .  * The [Raspberry Pi 4 Model B](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) has been included as standard since 2021 September.  * The [LDS-02](https://emanual.robotis.com/docs/en/platform/turtlebot3/appendix_lds_02/) has replaced the previous generation [LDS-01](https://emanual.robotis.com/docs/en/platform/turtlebot3/appendix_lds_01/) since 2022.
+* The [Raspberry Pi 3 Model B+](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) was included as standard starting in 2019. Earlier models are equipped with a [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) .
+* The [Raspberry Pi 4 Model B](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) has been included as standard since 2021 September.
+* The [LDS-02](https://emanual.robotis.com/docs/en/platform/turtlebot3/appendix_lds_02/) has replaced the previous generation [LDS-01](https://emanual.robotis.com/docs/en/platform/turtlebot3/appendix_lds_01/) since 2022.
 
 The TurtleBot3 Waffle is discontinued due to the EOL of the [Intel® Joule™ 570x](http://ark.intel.com/products/96414/Intel-Joule-570x-Developer-Kit) SBC.
 
