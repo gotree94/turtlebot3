@@ -101,11 +101,11 @@ https://youtu.be/OdLsbAMy7m0?si=gtBscBXyjaqX7rSE
 | 2 | IronHeart | [Github](https://github.com/kijongGil/Ironheart) | 
 | 3 | Robit | [Github](https://github.com/ROBIT-GIT/turtlebot3_autoRace_2017) | 
 | 4 | Loading | [Github](https://github.com/AuTURBO/autorace2017-team-loading) | 
-| 5 | RunHoney | Github | 
-| 6 | Sherlotics | Github | 
-| 7 | FastAndFurious | Github | 
-| 8 | BonoBono | Github | 
-| 9 | BeginAgain | Github | 
+| 5 | RunHoney | [Github](https://github.com/AuTURBO/autorace2017-team-honey) | 
+| 6 | Sherlotics | [Github](https://github.com/minbaekkim/turtlebot_autorace) | 
+| 7 | FastAndFurious | [Github](https://github.com/kts006/deu_racer) | 
+| 8 | BonoBono | [Github](https://github.com/Gaeul/BonobonoTurtlebot) | 
+| 9 | BeginAgain | [Github](https://github.com/yh-na/beginagain) | 
 | 10 | Hanzo | [Github](https://github.com/DeokYun/autorace) | 
 | 11 | Codis | will be released soon | 
 | 12 | Zero | [Github](https://github.com/dongwan123/zero_turtlebot_competition) | 
