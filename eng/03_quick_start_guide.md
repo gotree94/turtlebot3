@@ -265,8 +265,31 @@ $ sudo apt install ros-noetic-turtlebot3-msgs
 $ sudo apt install ros-noetic-turtlebot3
 ```
 
+**building TurtleBot3 packages from source.**
 
-### Network Configuration
+   * Make sure to remove any identical pre-compiled packages to avoid redundancy.
+   **[Remote PC]**
+
+```
+$ sudo apt remove ros-noetic-dynamixel-sdk
+$ sudo apt remove ros-noetic-turtlebot3-msgs
+$ sudo apt remove ros-noetic-turtlebot3
+```
+
+   * In case you need to download the source code and build the packages yourself, use the commands below.
+   **[Remote PC]**
+
+```
+$ mkdir -p ~/catkin_ws/src
+$ cd ~/catkin_ws/src/
+$ git clone -b noetic https://github.com/ROBOTIS-GIT/DynamixelSDK.git
+$ git clone -b noetic https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
+$ git clone -b noetic https://github.com/ROBOTIS-GIT/turtlebot3.git
+$ cd ~/catkin_ws && catkin_make
+$ echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+```
+
+### 3.1.5 Network Configuration
 
 ![](img/network_configuration.png)
 
