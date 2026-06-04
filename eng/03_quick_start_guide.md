@@ -309,7 +309,7 @@ $ echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 $nano ~/.bashrc
 ```
 
-3. PressCtrl+ENDorAlt+/to move the cursor to the end of the line.Modify the address oflocalhostin theROS_MASTER_URIandROS_HOSTNAMEwith the IP address acquired from the previous terminal window.
+3. Press Ctrl + END or Alt + / to move the cursor to the end of the line.Modify the address of localhostin the ROS_MASTER_URI and ROS_HOSTNAME with the IP address acquired from the previous terminal window.
 
 ![](img/network_configuration3.png)
 
