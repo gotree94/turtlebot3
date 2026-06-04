@@ -57,6 +57,8 @@ https://youtu.be/AamHifhvNMs?si=MHeZjNFvX88mbOnU
 
 #### 1.2.2.3 GdR TurtleBot Challenge 2018 (TU Darmstadt)
 
+https://youtu.be/OdLsbAMy7m0?si=gtBscBXyjaqX7rSE
+
 - “Monka” vs. “Ninja Turtle” [https://youtu.be/OdLsbAMy7m0](https://youtu.be/OdLsbAMy7m0)
 - “Turtle Machine” vs. “TurtleBot 6” [https://youtu.be/L8PHxUR54dM](https://youtu.be/L8PHxUR54dM)
 - For more videos, please see the following [link](https://www.youtube.com/channel/UCqvqk6E7g4z5idx6yseR6Ug) .
