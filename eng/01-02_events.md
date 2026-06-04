@@ -140,13 +140,13 @@ https://youtu.be/6t6cyFiGLvs?si=Q5SJVTrkgKixcD7L
 
 | Place | Team | Source link |
 | --- | --- | --- |
-| 1 | ROBIT | Github |
-| 2 | Au-Di | Github |
+| 1 | ROBIT | [Github](https://github.com/developer0hye/2018-Turtlebot3-Autorace-ROBIT) |
+| 2 | Au-Di | [Github](https://github.com/taening/AuDi-GIT-turtlebot3_autorace) |
 | 3 | ROBIT2 | will be released soon |
-| 4 | Wang Bam Ppang | Github |
+| 4 | Wang Bam Ppang | [Github](https://github.com/Seunghooon/Turtlebot3_autorace_2018) |
 | 5 | Four Leaf Clover | will be released soon |
-| 6 | AuTURBO | Github |
+| 6 | AuTURBO | [Github](https://github.com/YeongJunKim/2018-turtlebot3-autorace) |
 | 7 | MATLABurger | will be released soon |
-| 8 | Eung Chang Ho | Github |
+| 8 | Eung Chang Ho | [Github](https://github.com/engcang/Turtlebot3Autorace_Eungchangho_Team) |
 | 9 | ZETIN | will be released soon |
 | 10 | ROSMASTER | will be released soon |
