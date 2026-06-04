@@ -1,21 +1,18 @@
-# Features
-
 > **Source**: [https://emanual.robotis.com/docs/en/platform/turtlebot3/features](https://emanual.robotis.com/docs/en/platform/turtlebot3/features)
 
 ---
 
-
-# Features
+# 2. Features
 
 ![](img/features_with_icons.png)
 
 
-## Specifications
+## 2.1 Specifications
 
 ![](img/turtlebot3_models.png)
 
 
-### Hardware Specifications
+### 2.1.1 Hardware Specifications
 
 | Items | Burger | Waffle Pi |
 | --- | --- | --- |
@@ -48,27 +45,25 @@
 | Power Adapter (SMPS) | Input : 100-240V, AC 50/60Hz, 1.5A @maxOutput : 12V DC, 5A | Input : 100-240V, AC 50/60Hz, 1.5A @maxOutput : 12V DC, 5A |
 
 
-### Dimension and Mass
+### 2.1.2 Dimension and Mass
 
-
-#### Data of TurtleBot3 Burger
+#### 2.1.2.1 Data of TurtleBot3 Burger
 
 ![](img/turtlebot3_dimension1.png)
 
-
-#### Data of TurtleBot3 Waffle Pi
+#### 2.1.2.2 Data of TurtleBot3 Waffle Pi
 
 ![](img/turtlebot3_dimension3.png)
 
 
-## Components
+## 2.2 Components
 
 ![](img/turtlebot3_burger_components.png)
 
 ![](img/turtlebot3_waffle_pi_components.png)
 
 
-### Parts List
+### 2.2.1 Parts List
 
 TurtleBot3 is available in two types of models: `Burger` and `Waffle Pi` .  The following table shows the lists of components. The major differences between two models are the actuators, the SBC(Single Board Computer) and the Sensors.
 
@@ -126,7 +121,7 @@ TurtleBot3 is available in two types of models: `Burger` and `Waffle Pi` .  The 
 The TurtleBot3 Waffle is discontinued due to the EOL of the [Intel® Joule™ 570x](http://ark.intel.com/products/96414/Intel-Joule-570x-Developer-Kit) SBC.
 
 
-### Open Source Hardware
+### 2.2.2 Open Source Hardware
 
 Complete CAD data is available in Onshape, a full-cloud 3D CAD editor accessible through a web browser from your PC or from portable devices.
 
