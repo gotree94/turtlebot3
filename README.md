@@ -9,54 +9,71 @@ Source: <https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/>
 
 ---
 
-- ✅ [00.01 TurtleBot3](turtlebot3/00.01_turtlebot3.md) · [HTML](turtlebot3/00.01_turtlebot3.html) · [TXT](turtlebot3/00.01_turtlebot3.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/overview`
-- ✅ [01.02 Events](turtlebot3/01.02_events.md) · [HTML](turtlebot3/01.02_events.html) · [TXT](turtlebot3/01.02_events.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/challenges`
-- ✅ [02 Features](turtlebot3/02_features.md) · [HTML](turtlebot3/02_features.html) · [TXT](turtlebot3/02_features.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/features`
-- ✅ [03 Quick Start Guide](turtlebot3/03_quick_start_guide.md) · [HTML](turtlebot3/03_quick_start_guide.html) · [TXT](turtlebot3/03_quick_start_guide.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start`
-- ✅ [03.02 SBC Setup](turtlebot3/03.02_sbc_setup.md) · [HTML](turtlebot3/03.02_sbc_setup.html) · [TXT](turtlebot3/03.02_sbc_setup.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/sbc_setup`
-- ✅ [03.03 OpenCR Setup](turtlebot3/03.03_opencr_setup.md) · [HTML](turtlebot3/03.03_opencr_setup.html) · [TXT](turtlebot3/03.03_opencr_setup.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/opencr_setup`
-- ✅ [03.04 Hardware Assembly](turtlebot3/03.04_hardware_assembly.md) · [HTML](turtlebot3/03.04_hardware_assembly.html) · [TXT](turtlebot3/03.04_hardware_assembly.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/hardware_setup`
-- ✅ [03.05 Bringup](turtlebot3/03.05_bringup.md) · [HTML](turtlebot3/03.05_bringup.html) · [TXT](turtlebot3/03.05_bringup.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/bringup`
-- ✅ [03.06 Basic Operation](turtlebot3/03.06_basic_operation.md) · [HTML](turtlebot3/03.06_basic_operation.html) · [TXT](turtlebot3/03.06_basic_operation.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/basic_operation`
-- ✅ [03.07 Docker Container Setup](turtlebot3/03.07_docker_container_setup.md) · [HTML](turtlebot3/03.07_docker_container_setup.html) · [TXT](turtlebot3/03.07_docker_container_setup.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/docker_container_setup`
-- ✅ [04 SLAM](turtlebot3/04_slam.md) · [HTML](turtlebot3/04_slam.html) · [TXT](turtlebot3/04_slam.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/slam`
-- ✅ [05 Navigation](turtlebot3/05_navigation.md) · [HTML](turtlebot3/05_navigation.html) · [TXT](turtlebot3/05_navigation.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/navigation`
-- ✅ [06 Simulation](turtlebot3/06_simulation.md) · [HTML](turtlebot3/06_simulation.html) · [TXT](turtlebot3/06_simulation.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/simulation`
-- ✅ [06.02 SLAM Simulation](turtlebot3/06.02_slam_simulation.md) · [HTML](turtlebot3/06.02_slam_simulation.html) · [TXT](turtlebot3/06.02_slam_simulation.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/slam_simulation`
-- ✅ [06.03 Navigation Simulation](turtlebot3/06.03_navigation_simulation.md) · [HTML](turtlebot3/06.03_navigation_simulation.html) · [TXT](turtlebot3/06.03_navigation_simulation.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/nav_simulation`
-- ✅ [06.04 Fake Node Simulation](turtlebot3/06.04_fake_node_simulation.md) · [HTML](turtlebot3/06.04_fake_node_simulation.html) · [TXT](turtlebot3/06.04_fake_node_simulation.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/fakenode_simulation`
-- ✅ [06.05 Standalone Gazebo Simulation](turtlebot3/06.05_standalone_gazebo_simulation.md) · [HTML](turtlebot3/06.05_standalone_gazebo_simulation.html) · [TXT](turtlebot3/06.05_standalone_gazebo_simulation.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/standalone_gazebo_simulation`
-- ✅ [07 Manipulation](turtlebot3/07_manipulation.md) · [HTML](turtlebot3/07_manipulation.html) · [TXT](turtlebot3/07_manipulation.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/manipulation`
-- ✅ [07.10 Home Service Challenge](turtlebot3/07.10_home_service_challenge.md) · [HTML](turtlebot3/07.10_home_service_challenge.html) · [TXT](turtlebot3/07.10_home_service_challenge.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/home_service_challenge`
-- ✅ [08 Autonomous Driving](turtlebot3/08_autonomous_driving.md) · [HTML](turtlebot3/08_autonomous_driving.html) · [TXT](turtlebot3/08_autonomous_driving.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/autonomous_driving`
-- ✅ [09 Machine Learning](turtlebot3/09_machine_learning.md) · [HTML](turtlebot3/09_machine_learning.html) · [TXT](turtlebot3/09_machine_learning.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/machine_learning`
-- ✅ [10 Examples](turtlebot3/10_examples.md) · [HTML](turtlebot3/10_examples.html) · [TXT](turtlebot3/10_examples.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/basic_examples`
-- ✅ [11 Friends(Locomotion)](turtlebot3/11_friendslocomotion.md) · [HTML](turtlebot3/11_friendslocomotion.html) · [TXT](turtlebot3/11_friendslocomotion.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/locomotion`
-- ✅ [12 Learn](turtlebot3/12_learn.md) · [HTML](turtlebot3/12_learn.html) · [TXT](turtlebot3/12_learn.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/learn`
-- ✅ [12.08 Videos](turtlebot3/12.08_videos.md) · [HTML](turtlebot3/12.08_videos.html) · [TXT](turtlebot3/12.08_videos.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/videos`
-- ✅ [12.09 Projects](turtlebot3/12.09_projects.md) · [HTML](turtlebot3/12.09_projects.html) · [TXT](turtlebot3/12.09_projects.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/projects`
-- ✅ [13 More Info](turtlebot3/13_more_info.md) · [HTML](turtlebot3/13_more_info.html) · [TXT](turtlebot3/13_more_info.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/appendixes`
-- ✅ [13.01 - OpenCR1.0](turtlebot3/13.01_-_opencr10.md) · [HTML](turtlebot3/13.01_-_opencr10.html) · [TXT](turtlebot3/13.01_-_opencr10.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/appendix_opencr1_0`
-- ✅ [13.02 - LDS-01](turtlebot3/13.02_-_lds-01.md) · [HTML](turtlebot3/13.02_-_lds-01.html) · [TXT](turtlebot3/13.02_-_lds-01.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/appendix_lds_01`
-- ✅ [13.03 - LDS-02](turtlebot3/13.03_-_lds-02.md) · [HTML](turtlebot3/13.03_-_lds-02.html) · [TXT](turtlebot3/13.03_-_lds-02.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/appendix_lds_02`
-- ✅ [13.04 - LDS-03](turtlebot3/13.04_-_lds-03.md) · [HTML](turtlebot3/13.04_-_lds-03.html) · [TXT](turtlebot3/13.04_-_lds-03.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/appendix_lds_03`
-- ✅ [13.05 - RealSense™](turtlebot3/13.05_-_realsense.md) · [HTML](turtlebot3/13.05_-_realsense.html) · [TXT](turtlebot3/13.05_-_realsense.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/appendix_realsense`
-- ✅ [13.06 - Raspberry Pi Camera](turtlebot3/13.06_-_raspberry_pi_camera.md) · [HTML](turtlebot3/13.06_-_raspberry_pi_camera.html) · [TXT](turtlebot3/13.06_-_raspberry_pi_camera.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/appendix_raspi_cam`
-- ✅ [13.02 Compatible Devices](turtlebot3/13.02_compatible_devices.md) · [HTML](turtlebot3/13.02_compatible_devices.html) · [TXT](turtlebot3/13.02_compatible_devices.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/compatible_devices`
-- ✅ [13.03 Additional Sensors](turtlebot3/13.03_additional_sensors.md) · [HTML](turtlebot3/13.03_additional_sensors.html) · [TXT](turtlebot3/13.03_additional_sensors.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/additional_sensors`
-- ✅ [13.04 OpenSource and Licenses](turtlebot3/13.04_opensource_and_licenses.md) · [HTML](turtlebot3/13.04_opensource_and_licenses.html) · [TXT](turtlebot3/13.04_opensource_and_licenses.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/opensource`
-- ✅ [13.05 Contact US](turtlebot3/13.05_contact_us.md) · [HTML](turtlebot3/13.05_contact_us.html) · [TXT](turtlebot3/13.05_contact_us.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/contact_us`
-- ✅ [13.06 Other ROS Versions](turtlebot3/13.06_other_ros_versions.md) · [HTML](turtlebot3/13.06_other_ros_versions.html) · [TXT](turtlebot3/13.06_other_ros_versions.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/other_ros_versions`
-- ✅ [14 FAQ](turtlebot3/14_faq.md) · [HTML](turtlebot3/14_faq.html) · [TXT](turtlebot3/14_faq.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/faq`
-- ✅ [Bringup (http)](turtlebot3/appendix_01_bringup_1.md) · [HTML](turtlebot3/appendix_01_bringup_1.html) · [TXT](turtlebot3/appendix_01_bringup_1.txt) — `http://emanual.robotis.com/docs/en/platform/turtlebot3/bringup`
-- ✅ [Faq (http)](turtlebot3/appendix_02_faq_1.md) · [HTML](turtlebot3/appendix_02_faq_1.html) · [TXT](turtlebot3/appendix_02_faq_1.txt) — `http://emanual.robotis.com/docs/en/platform/turtlebot3/faq`
-- ✅ [Locomotion (http)](turtlebot3/appendix_03_locomotion.md) · [HTML](turtlebot3/appendix_03_locomotion.html) · [TXT](turtlebot3/appendix_03_locomotion.txt) — `http://emanual.robotis.com/docs/en/platform/turtlebot3/locomotion`
-- ✅ [Navigation (http)](turtlebot3/appendix_04_navigation_1.md) · [HTML](turtlebot3/appendix_04_navigation_1.html) · [TXT](turtlebot3/appendix_04_navigation_1.txt) — `http://emanual.robotis.com/docs/en/platform/turtlebot3/navigation`
-- ✅ [Opencr Setup (http)](turtlebot3/appendix_05_opencr_setup_1.md) · [HTML](turtlebot3/appendix_05_opencr_setup_1.html) · [TXT](turtlebot3/appendix_05_opencr_setup_1.txt) — `http://emanual.robotis.com/docs/en/platform/turtlebot3/opencr_setup`
-- ✅ [Quick Start (http)](turtlebot3/appendix_06_quick_start.md) · [HTML](turtlebot3/appendix_06_quick_start.html) · [TXT](turtlebot3/appendix_06_quick_start.txt) — `http://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start`
-- ✅ [Slam (http)](turtlebot3/appendix_07_slam_1.md) · [HTML](turtlebot3/appendix_07_slam_1.html) · [TXT](turtlebot3/appendix_07_slam_1.txt) — `http://emanual.robotis.com/docs/en/platform/turtlebot3/slam`
-- ✅ [Appendix Dynamixel](turtlebot3/appendix_08_appendix_dynamixel.md) · [HTML](turtlebot3/appendix_08_appendix_dynamixel.html) · [TXT](turtlebot3/appendix_08_appendix_dynamixel.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/appendix_dynamixel`
-- ❌ Autorace Rviz Challenge — `https://emanual.robotis.com/docs/en/platform/turtlebot3/autorace_rviz_challenge`
-- ✅ [Export Turtlebot3 Model](turtlebot3/appendix_10_export_turtlebot3_model.md) · [HTML](turtlebot3/appendix_10_export_turtlebot3_model.html) · [TXT](turtlebot3/appendix_10_export_turtlebot3_model.txt) — `https://emanual.robotis.com/docs/en/platform/turtlebot3/export_turtlebot3_model`
-- ❌ How To Added Topic Messages — `https://emanual.robotis.com/docs/en/platform/turtlebot3/how-to-added-topic-messages`
-- ❌ How To Modify Ros Library Code] — `https://emanual.robotis.com/docs/en/platform/turtlebot3/how-to-modify-ros-library-code]`
+## TOC Pages (numbered by sidebar order)
+
+| # | Page | Status | Links |
+|---|------|--------|-------|
+| 00.01 | TurtleBot3 | ✅ | [MD](turtlebot3/00.01_turtlebot3.md) · [HTML](turtlebot3/00.01_turtlebot3.html) · [TXT](turtlebot3/00.01_turtlebot3.txt) |
+| 01.02 | Events | ✅ | [MD](turtlebot3/01.02_events.md) · [HTML](turtlebot3/01.02_events.html) · [TXT](turtlebot3/01.02_events.txt) |
+| 02 | Features | ✅ | [MD](turtlebot3/02_features.md) · [HTML](turtlebot3/02_features.html) · [TXT](turtlebot3/02_features.txt) |
+| 03 | Quick Start Guide | ✅ | [MD](turtlebot3/03_quick_start_guide.md) · [HTML](turtlebot3/03_quick_start_guide.html) · [TXT](turtlebot3/03_quick_start_guide.txt) |
+| 03.02 | SBC Setup | ✅ | [MD](turtlebot3/03.02_sbc_setup.md) · [HTML](turtlebot3/03.02_sbc_setup.html) · [TXT](turtlebot3/03.02_sbc_setup.txt) |
+| 03.03 | OpenCR Setup | ✅ | [MD](turtlebot3/03.03_opencr_setup.md) · [HTML](turtlebot3/03.03_opencr_setup.html) · [TXT](turtlebot3/03.03_opencr_setup.txt) |
+| 03.04 | Hardware Assembly | ✅ | [MD](turtlebot3/03.04_hardware_assembly.md) · [HTML](turtlebot3/03.04_hardware_assembly.html) · [TXT](turtlebot3/03.04_hardware_assembly.txt) |
+| 03.05 | Bringup | ✅ | [MD](turtlebot3/03.05_bringup.md) · [HTML](turtlebot3/03.05_bringup.html) · [TXT](turtlebot3/03.05_bringup.txt) |
+| 03.06 | Basic Operation | ✅ | [MD](turtlebot3/03.06_basic_operation.md) · [HTML](turtlebot3/03.06_basic_operation.html) · [TXT](turtlebot3/03.06_basic_operation.txt) |
+| 03.07 | Docker Container Setup | ✅ | [MD](turtlebot3/03.07_docker_container_setup.md) · [HTML](turtlebot3/03.07_docker_container_setup.html) · [TXT](turtlebot3/03.07_docker_container_setup.txt) |
+| 04 | SLAM | ✅ | [MD](turtlebot3/04_slam.md) · [HTML](turtlebot3/04_slam.html) · [TXT](turtlebot3/04_slam.txt) |
+| 05 | Navigation | ✅ | [MD](turtlebot3/05_navigation.md) · [HTML](turtlebot3/05_navigation.html) · [TXT](turtlebot3/05_navigation.txt) |
+| 06 | Simulation | ✅ | [MD](turtlebot3/06_simulation.md) · [HTML](turtlebot3/06_simulation.html) · [TXT](turtlebot3/06_simulation.txt) |
+| 06.02 | SLAM Simulation | ✅ | [MD](turtlebot3/06.02_slam_simulation.md) · [HTML](turtlebot3/06.02_slam_simulation.html) · [TXT](turtlebot3/06.02_slam_simulation.txt) |
+| 06.03 | Navigation Simulation | ✅ | [MD](turtlebot3/06.03_navigation_simulation.md) · [HTML](turtlebot3/06.03_navigation_simulation.html) · [TXT](turtlebot3/06.03_navigation_simulation.txt) |
+| 06.04 | Fake Node Simulation | ✅ | [MD](turtlebot3/06.04_fake_node_simulation.md) · [HTML](turtlebot3/06.04_fake_node_simulation.html) · [TXT](turtlebot3/06.04_fake_node_simulation.txt) |
+| 06.05 | Standalone Gazebo Simulation | ✅ | [MD](turtlebot3/06.05_standalone_gazebo_simulation.md) · [HTML](turtlebot3/06.05_standalone_gazebo_simulation.html) · [TXT](turtlebot3/06.05_standalone_gazebo_simulation.txt) |
+| 07 | Manipulation | ✅ | [MD](turtlebot3/07_manipulation.md) · [HTML](turtlebot3/07_manipulation.html) · [TXT](turtlebot3/07_manipulation.txt) |
+| 07.10 | Home Service Challenge | ✅ | [MD](turtlebot3/07.10_home_service_challenge.md) · [HTML](turtlebot3/07.10_home_service_challenge.html) · [TXT](turtlebot3/07.10_home_service_challenge.txt) |
+| 08 | Autonomous Driving | ✅ | [MD](turtlebot3/08_autonomous_driving.md) · [HTML](turtlebot3/08_autonomous_driving.html) · [TXT](turtlebot3/08_autonomous_driving.txt) |
+| 09 | Machine Learning | ✅ | [MD](turtlebot3/09_machine_learning.md) · [HTML](turtlebot3/09_machine_learning.html) · [TXT](turtlebot3/09_machine_learning.txt) |
+| 10 | Examples | ✅ | [MD](turtlebot3/10_examples.md) · [HTML](turtlebot3/10_examples.html) · [TXT](turtlebot3/10_examples.txt) |
+| 11 | Friends (Locomotion) | ✅ | [MD](turtlebot3/11_friendslocomotion.md) · [HTML](turtlebot3/11_friendslocomotion.html) · [TXT](turtlebot3/11_friendslocomotion.txt) |
+| 12 | Learn | ✅ | [MD](turtlebot3/12_learn.md) · [HTML](turtlebot3/12_learn.html) · [TXT](turtlebot3/12_learn.txt) |
+| 12.08 | Videos | ✅ | [MD](turtlebot3/12.08_videos.md) · [HTML](turtlebot3/12.08_videos.html) · [TXT](turtlebot3/12.08_videos.txt) |
+| 12.09 | Projects | ✅ | [MD](turtlebot3/12.09_projects.md) · [HTML](turtlebot3/12.09_projects.html) · [TXT](turtlebot3/12.09_projects.txt) |
+| 13 | More Info | ✅ | [MD](turtlebot3/13_more_info.md) · [HTML](turtlebot3/13_more_info.html) · [TXT](turtlebot3/13_more_info.txt) |
+| 13.01 | - OpenCR 1.0 | ✅ | [MD](turtlebot3/13.01_-_opencr10.md) · [HTML](turtlebot3/13.01_-_opencr10.html) · [TXT](turtlebot3/13.01_-_opencr10.txt) |
+| 13.02 | - LDS-01 | ✅ | [MD](turtlebot3/13.02_-_lds-01.md) · [HTML](turtlebot3/13.02_-_lds-01.html) · [TXT](turtlebot3/13.02_-_lds-01.txt) |
+| 13.02 | Compatible Devices | ✅ | [MD](turtlebot3/13.02_compatible_devices.md) · [HTML](turtlebot3/13.02_compatible_devices.html) · [TXT](turtlebot3/13.02_compatible_devices.txt) |
+| 13.03 | - LDS-02 | ✅ | [MD](turtlebot3/13.03_-_lds-02.md) · [HTML](turtlebot3/13.03_-_lds-02.html) · [TXT](turtlebot3/13.03_-_lds-02.txt) |
+| 13.03 | Additional Sensors | ✅ | [MD](turtlebot3/13.03_additional_sensors.md) · [HTML](turtlebot3/13.03_additional_sensors.html) · [TXT](turtlebot3/13.03_additional_sensors.txt) |
+| 13.04 | - LDS-03 | ✅ | [MD](turtlebot3/13.04_-_lds-03.md) · [HTML](turtlebot3/13.04_-_lds-03.html) · [TXT](turtlebot3/13.04_-_lds-03.txt) |
+| 13.04 | OpenSource and Licenses | ✅ | [MD](turtlebot3/13.04_opensource_and_licenses.md) · [HTML](turtlebot3/13.04_opensource_and_licenses.html) · [TXT](turtlebot3/13.04_opensource_and_licenses.txt) |
+| 13.05 | - RealSense™ | ✅ | [MD](turtlebot3/13.05_-_realsense.md) · [HTML](turtlebot3/13.05_-_realsense.html) · [TXT](turtlebot3/13.05_-_realsense.txt) |
+| 13.05 | Contact US | ✅ | [MD](turtlebot3/13.05_contact_us.md) · [HTML](turtlebot3/13.05_contact_us.html) · [TXT](turtlebot3/13.05_contact_us.txt) |
+| 13.06 | - Raspberry Pi Camera | ✅ | [MD](turtlebot3/13.06_-_raspberry_pi_camera.md) · [HTML](turtlebot3/13.06_-_raspberry_pi_camera.html) · [TXT](turtlebot3/13.06_-_raspberry_pi_camera.txt) |
+| 13.06 | Other ROS Versions | ✅ | [MD](turtlebot3/13.06_other_ros_versions.md) · [HTML](turtlebot3/13.06_other_ros_versions.html) · [TXT](turtlebot3/13.06_other_ros_versions.txt) |
+| 14 | FAQ | ✅ | [MD](turtlebot3/14_faq.md) · [HTML](turtlebot3/14_faq.html) · [TXT](turtlebot3/14_faq.txt) |
+
+## Appendix Pages (deep discovery — not in TOC)
+
+| Page | URL | Status |
+|------|-----|--------|
+| Appendix Dynamixel | `https://emanual.robotis.com/.../appendix_dynamixel` | ✅ |
+| Export TurtleBot3 Model | `https://emanual.robotis.com/.../export_turtlebot3_model` | ✅ |
+
+## HTTP Duplicates (skipped in main output)
+
+| Page | Dup of |
+|------|--------|
+| Bringup | `03.05_bringup` |
+| Faq | `14_faq` |
+| Locomotion | `11_friendslocomotion` |
+| Navigation | `05_navigation` |
+| Opencr Setup | `03.03_opencr_setup` |
+| Quick Start | `03_quick_start_guide` |
+| Slam | `04_slam` |
+
+## Failed (404)
+
+- Autorace Rviz Challenge — `https://emanual.robotis.com/docs/en/platform/turtlebot3/autorace_rviz_challenge`
+- How To Added Topic Messages — `https://emanual.robotis.com/docs/en/platform/turtlebot3/how-to-added-topic-messages`
+- How To Modify Ros Library Code] — `https://emanual.robotis.com/docs/en/platform/turtlebot3/how-to-modify-ros-library-code]`
