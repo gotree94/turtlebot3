@@ -138,6 +138,8 @@ $ssh ubuntu@{IP Address of Raspberry PI}
 $ sudo nano /etc/ssh/sshd_config.d/50-cloud-init.conf
 ```
 
+![](img/sshd_config2.png)
+
 2. Install net-tools and check your ip.
 **[TurtleBot3 SBC]**
 ```
