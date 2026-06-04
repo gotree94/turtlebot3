@@ -13,12 +13,12 @@
 > - In order to use the webOS Robotics Platform, please refer to [webOS Robotics Platform](https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions) for further instructions. Packages will be cross-compiled using OpenEmbedded on a higher performance PC and an image file created for installation on the SBC.
 
 
-### Prepare microSD Card and Reader
+### 3.2.1 Prepare microSD Card and Reader
 * If your PC does not have a microSD slot, please use a microSD card reader to burn the recovery image.  ![](/assets/images/platform/turtlebot3/setup/micro_sd_reader.png)
 
 > The microSD card reader is not included in the TurtleBot3 package.
 
-### Install Raspberry Pi Imager
+### 3.2.2 Install Raspberry Pi Imager
 
 * Download the `Raspberry Pi Imager` to install Ubuntu Server 22.04 for Raspberry Pi.
 * If the Raspberry Pi Imager is already installed, update to the latest version.
@@ -31,15 +31,15 @@
 Install either the deb or apt rpi-imager release.
 
 1. deb
-  * Download deb file
-![](img/sbc_setup1.png)
+  * Download deb file <br>
+![](img/sbc_setup1.png) <br>
 
 ```
 $ cd Downloads
 $ sudo dpkg -i imager_[you_rversion]_amd64.deb #check the file name downloaded
 ```
 
-If you have any dependency errors, use the following command to force the install.
+* If you have any dependency errors, use the following command to force the install.
 
 ```
 $ sudo apt-get install -f
@@ -53,18 +53,21 @@ $ sudo apt install rpi-imager
 $ rpi-imager
 ```
 
-### Install Ubuntu 22.04
+### 3.2.3 Install Ubuntu 22.04
 
-1. Run Raspberry Pi Imager
-2. Click `CHOOSE OS` .
-3. Select `Other gerneral-purpose OS` .
-4. Select `Ubuntu` .
-5. Select `Ubuntu Server 22.04.5 LTS (64-bit)` that support RPi 3/4/400.  (Choose Server OS, not desktop OS)  ![](img/sbc_setup2.png)
-6. Click `CHOOSE STORAGE` and select the micro SD card.
-7. Click `Next` to install Ubuntu.
-8. Click `Edit Setting` for wifi and ssh setting.  ![](img/sbc_config_set.png)
-9. Set `username and password` , `Configure wireless LAN` , `Wireless LAN country` . And activate `Enable SSH` with `Use password authenication` in SERVIES tab.  ![](img/sbc_config_set2.png)
-10. By completing this configuring setup process, the following Wi-Fi configuration steps (up to step 4) can be skipped.
+   1. Run Raspberry Pi Imager
+   2. Click `CHOOSE OS` .
+   3. Select `Other gerneral-purpose OS` .
+   4. Select `Ubuntu` .
+   5. Select `Ubuntu Server 22.04.5 LTS (64-bit)` that support RPi 3/4/400.  (Choose Server OS, not desktop OS)  <br>
+   ![](img/sbc_setup2.png)
+   6. Click `CHOOSE STORAGE` and select the micro SD card.
+   7. Click `Next` to install Ubuntu.
+   8. Click `Edit Setting` for wifi and ssh setting. <br>
+   ![](img/sbc_config_set.png)
+   9. Set `username and password` , `Configure wireless LAN` , `Wireless LAN country` . And activate `Enable SSH` with `Use password authenication` in SERVIES tab. <br>
+   ![](img/sbc_config_set2.png)
+   10. By completing this configuring setup process, the following Wi-Fi configuration steps (up to step 4) can be skipped.
 
 
 ### Configure the Raspberry Pi
