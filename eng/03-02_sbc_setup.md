@@ -70,11 +70,20 @@ $ rpi-imager
    10. By completing this configuring setup process, the following Wi-Fi configuration steps (up to step 4) can be skipped.
 
 
-### Configure the Raspberry Pi
+### 3.2.4 Configure the Raspberry Pi
 
-The HDMI cable must be connected before powering on the Raspberry Pi, or the HDMI port of the Raspberry Pi will be disabled.
+> The HDMI cable must be connected before powering on the Raspberry Pi, or the HDMI port of the Raspberry Pi will be disabled.
 
-1. Boot Up the Raspberry Pi*More information about where to connect HDMI, power and input devices is available herea. Connect the HDMI cable to the HDMI port of Raspberry Pi.b. Connect input devices (generally keyboard) to the USB port of the Raspberry Pi.c. Insert the microSD card into Raspberry Pi.d. Connect the power (either USB or OpenCR) to turn on the Raspberry Pi.e. Login with IDubuntuand PASSWORDubuntu. Once logged in, you’ll be asked to change the password.
+1. Boot Up the Raspberry Pi
+   * More information about where to connect HDMI, power and input devices is available herea.
+   * a. Connect the HDMI cable to the HDMI port of Raspberry Pi.
+   * b. Connect input devices (generally keyboard) to the USB port of the Raspberry Pi.
+   * c. Insert the microSD card into Raspberry Pi.
+   * d. Connect the power (either USB or OpenCR) to turn on the Raspberry Pi.
+   * e. Login with ID ubuntu and PASSWORD ubuntu. Once logged in, you’ll be asked to change the password.
+
+    ![](sbc_setup3.png)
+   
 2. Open the network configuration file with the command below.  **[TurtleBot3 SBC]** $sudonano /etc/netplan/50-cloud-init.yaml
 3. Edit the content to match the image below while replacingWIFI_SSIDandWIFI_PASSWORDwith your actual wifi SSID and password.
 4. Save the file withCtrl+Sand exit withCtrl+X.
@@ -85,7 +94,6 @@ The HDMI cable must be connected before powering on the Raspberry Pi, or the HDM
 9. Disable Suspend and Hibernation  **[TurtleBot3 SBC]** $sudosystemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
 10. Reboot the Raspberry Pi.  **[TurtleBot3 SBC]** $sudoreboot
 11. After rebooting the Raspberry Pi, if you wish to work from a Remote PC using SSH, use the command below from the remote PC terminal. Make sure to use the password you set in `Step 1` .  **[Remote PC]** $ssh ubuntu@{IP Address of Raspberry PI}
-
 
 ### Install packages on Raspberry PI
 
