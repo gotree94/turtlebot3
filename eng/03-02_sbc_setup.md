@@ -505,7 +505,7 @@ In ROS 2 DDS communication, `ROS_DOMAIN_ID` must match between the **Remote PC**
 
 | LDS-01 | LDS-02 | LDS-03 |
 | --- | --- | --- |
-|  |  |  |
+| ![](img/lds_small.png) | ![](img/lds_ld08_small.png) |  ![](img/lds_coind4_small.png) |
 
 Depending on your LDS model, use the appropriate model: LDS-01, LDS-02, or LDS-03.  **[TurtleBot3 SBC]**
 
@@ -711,7 +711,7 @@ Please follow the instructions below on the **SBC (Raspberry Pi)** .
 
 | LDS-01 | LDS-02 |
 | --- | --- |
-|  |  |
+| ![](img/lds_small.png) | ![](img/lds_ld08_small.png) | 
 
 The TurtleBot3 LDS has been updated to LDS-02 since 2022 models.  Please follow the instructions below on the **SBC (Raspberry Pi)** of TurtleBot3.
 
