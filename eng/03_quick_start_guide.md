@@ -270,24 +270,28 @@ $ sudo apt install ros-noetic-turtlebot3
 
 ![](img/network_configuration.png)
 
-1. Connect your PC to a WiFi network and find the assigned IP address with the command below.  **[Remote PC]**
+1. Connect your PC to a WiFi network and find the assigned IP address with the command below.  
+**[Remote PC]**
+
 ```
    $ifconfig
 ```
 
 ![](img/network_configuration2.png)
 
-3. Open the file and update the ROS IP settings with the command below.  **[Remote PC]** 
+2. Open the file and update the ROS IP settings with the command below.  
+**[Remote PC]** 
 
 ```
 $nano ~/.bashrc
 ```
 
+3. PressCtrl+ENDorAlt+/to move the cursor to the end of the line.Modify the address oflocalhostin theROS_MASTER_URIandROS_HOSTNAMEwith the IP address acquired from the previous terminal window.
+
 ![](img/network_configuration3.png)
 
-4. PressCtrl+ENDorAlt+/to move the cursor to the end of the line.Modify the address oflocalhostin theROS_MASTER_URIandROS_HOSTNAMEwith the IP address acquired from the previous terminal window.
-
-5. Source the updated bashrc with the following command.  **[Remote PC]** 
+4. Source the updated bashrc with the following command.  
+**[Remote PC]** 
 
 ```
 $source~/.bashrc
