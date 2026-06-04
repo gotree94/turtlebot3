@@ -410,23 +410,22 @@ Please refer to the Ubuntu Blog posts below for more useful information.
 
 # Jazzy
 
-## SBC Setup
+## 3.2 SBC Setup
 
-**WARNING**
+> **WARNING**
+> - This process may take long time. Do not attempt to complete setup on battery power, connect your SBC to a wall power supply.
+> - **An HDMI monitor and input devices such as a keyboard and a mouse will be required to complete this setup.**
+> - In order to use the webOS Robotics Platform, please refer to [webOS Robotics Platform](https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions) for further instructions. Packages will be cross-compiled using OpenEmbedded on a higher performance PC and an image file created for installation on the SBC.
 
-- This process may take long time. Do not attempt to complete setup on battery power, connect your SBC to a wall power supply.
-- **An HDMI monitor and input devices such as a keyboard and a mouse will be required to complete this setup.**
-- In order to use the webOS Robotics Platform, please refer to [webOS Robotics Platform](https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions) for further instructions. Packages will be cross-compiled using OpenEmbedded on a higher performance PC and an image file created for installation on the SBC.
+### 3.2.1 Prepare microSD Card and Reader
+* If your PC does not have a microSD slot, please use a microSD card reader to burn the recovery image.  ![](img/micro_sd_reader.png)
+
+~[](img/micro_sd_reader.png)
+
+>The microSD card reader is not included in the TurtleBot3 package.
 
 
-### Prepare microSD Card and Reader
-
-If your PC does not have a microSD slot, please use a microSD card reader to burn the recovery image.  ![](img/micro_sd_reader.png)
-
-The microSD card reader is not included in the TurtleBot3 package.
-
-
-### Install Raspberry Pi Imager
+### 3.2.2 Install Raspberry Pi Imager
 
 Download the `Raspberry Pi Imager` to install Ubuntu Server 24.04 for Raspberry Pi.  If the Raspberry Pi Imager is already installed, update to the latest version.  Please refer to [this article](https://www.raspberrypi.org/blog/raspberry-pi-imager-imaging-utility/) to find more information about Raspberry Pi Imager.
 
