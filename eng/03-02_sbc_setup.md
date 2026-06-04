@@ -418,18 +418,45 @@ Please refer to the Ubuntu Blog posts below for more useful information.
 > - In order to use the webOS Robotics Platform, please refer to [webOS Robotics Platform](https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions) for further instructions. Packages will be cross-compiled using OpenEmbedded on a higher performance PC and an image file created for installation on the SBC.
 
 ### 3.2.1 Prepare microSD Card and Reader
-* If your PC does not have a microSD slot, please use a microSD card reader to burn the recovery image.  ![](img/micro_sd_reader.png)
+* If your PC does not have a microSD slot, please use a microSD card reader to burn the recovery image. <br>
 
-~[](img/micro_sd_reader.png)
+  ![](img/micro_sd_reader.png)
 
->The microSD card reader is not included in the TurtleBot3 package.
+> The microSD card reader is not included in the TurtleBot3 package.
 
 
 ### 3.2.2 Install Raspberry Pi Imager
 
 Download the `Raspberry Pi Imager` to install Ubuntu Server 24.04 for Raspberry Pi.  If the Raspberry Pi Imager is already installed, update to the latest version.  Please refer to [this article](https://www.raspberrypi.org/blog/raspberry-pi-imager-imaging-utility/) to find more information about Raspberry Pi Imager.
 
-[DownloadRaspberry Pi Imager from raspberrypi.org](https://www.raspberrypi.org/software/)
+> [DownloadRaspberry Pi Imager from raspberrypi.org](https://www.raspberrypi.org/software/)
+
+ Click here to expand more details about How to install Raspberry Pi Imager.
+
+Install either the deb or apt rpi-imager release.
+
+1. `deb`
+Download deb file
+![](img/sbc_setup1.png)
+
+```
+$ cd Downloads
+$ sudo dpkg -i imager_[you_rversion]_amd64.deb #check the file name downloaded
+```
+
+* If you have any dependency errors, use the following command to force the install.
+
+```
+$ sudo apt-get install -f
+$ rpi-imager
+```
+
+2. `apt`
+
+```
+$ sudo apt install rpi-imager
+$ rpi-imager
+```
 
 
 ### Install Ubuntu 24.04
