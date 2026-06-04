@@ -275,11 +275,15 @@ $ sudo apt install ros-noetic-turtlebot3
    $ifconfig
 ```
 
+![](img/network_configuration2.png)
+
 3. Open the file and update the ROS IP settings with the command below.  **[Remote PC]** 
 
 ```
 $nano ~/.bashrc
 ```
+
+![](img/network_configuration3.png)
 
 4. PressCtrl+ENDorAlt+/to move the cursor to the end of the line.Modify the address oflocalhostin theROS_MASTER_URIandROS_HOSTNAMEwith the IP address acquired from the previous terminal window.
 
