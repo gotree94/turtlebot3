@@ -121,6 +121,8 @@ $source ~/.bashrc
 ---
 # Jazzy
 
+https://youtu.be/2I_29m_Z3WA?si=VK5NZvZkM5J3OBsd
+
 ## 3.1 PC Setup
 
 > **WARNING** : The content in this chapter is for the initialization of the `Remote PC` (your desktop or laptop PC) which will be used to control the TurtleBot3. Do not complete these instructions on the TurtleBot3 platform itself.
@@ -201,6 +203,8 @@ $ source ~/.bashrc
 
 ---
 # Noetic
+
+https://youtu.be/ji2kQXgCjeM?si=p-uhHHO0maF3VZEo
 
 ## 3.1 PC Setup
 
