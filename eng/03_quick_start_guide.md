@@ -48,11 +48,11 @@
 
 2. Copy the CLI commands located in the green box and paste into your terminal with (ctrl + shift + v)
 
-ros2_install1-.png
+![](img/ros2_install1-.png)
 
 3. Generally, ros-humble-desktop is recommended for the Remote PC
 
-ros2_install2-.png
+![](img/ros2_install2-.png)
 
 4. Add a line sourcing your environment to your bashrc. [Remote PC]
 
