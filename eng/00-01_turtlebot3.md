@@ -9,11 +9,11 @@
 
 ![](img/turtlebot3_with_logo.png)
 
-![](img/logo_raspberry_pi.png)
+![](img/logo_raspberry_pi.png) Rasbperry Pi 4
 
 * The TurtleBot3 platform has been upgraded to include the Raspberry Pi 4 as the standard onboard SBC.
 
-![](img/logo_nvidia.jpg)
+![](img/logo_nvidia.jpg)  Jetson Nano
 
 * TurtleBot3 Hardware also supports the use of the Nvidia Jetson Nano SBC.
 * Please refer to the video below in order to set up a Jetson Nano for use with a TurtleBot3.
