@@ -15,7 +15,7 @@
 > ![](img/logo_nvidia.jpg) **Jetson Nano**
 > * TurtleBot3 Hardware also supports the use of the Nvidia Jetson Nano SBC.
 > * Please refer to the video below in order to set up a Jetson Nano for use with a TurtleBot3.
-> * The Jetson Nano Developer Kit setup instructions must be completed prior to preparation for TurtleBot3 useage.
+> * The [Jetson Nano Developer Kit setup](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit) instructions must be completed prior to preparation for TurtleBot3 useage.
 
 https://youtu.be/fGEq_0aWpoA?si=04295vvKW_UPX5dP
 
