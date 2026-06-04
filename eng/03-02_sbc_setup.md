@@ -90,8 +90,8 @@ $ rpi-imager
 $sudonano /etc/netplan/50-cloud-init.yaml
 ```
 
-3. Edit the content to match the image below while replacing 'WIFI_SSID' and 'WIFI_PASSWORD' with your actual wifi 'SSID' and password.
-4. Save the file with 'Ctrl+S' and exit with 'Ctrl+X'.
+3. Edit the content to match the image below while replacing 'WIFI_SSID' and `WIFI_PASSWORD` with your actual wifi `SSID` and password.
+4. Save the file with `Ctrl+S` and exit with `Ctrl+X`.
 5. Enter the command below to edit the automatic update settings file.  
 **[TurtleBot3 SBC]** 
 ```
@@ -105,7 +105,7 @@ APT::Periodic::Update-Package-Lists"0";
 APT::Periodic::Unattended-Upgrade"0";
 ```
 
-7. Save the file with 'Ctrl+S' and exit with 'Ctrl+X'.
+7. Save the file with `Ctrl+S` and exit with `Ctrl+X`.
 8. Set `systemd` to prevent boot-up delay even if there is no network at startup. Run the command below to set mask for the `systemd` process using the following command.  
 **[TurtleBot3 SBC]** 
 ```
