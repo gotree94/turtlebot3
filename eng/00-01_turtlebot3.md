@@ -4,20 +4,22 @@
 
 ---
 
-
 # Overview
 
-**Notice** : With the formation of the Platform Team in 2025, substantial resources will be dedicated to advancing the open platform. As a priority, **TurtleBot3** will receive full support for ROS 2 Humble, with **comprehensive example implementations** set for release in Q1 2025. In Q2, support will expand to **ROS 2 Jazzy** and **Gazebo Sim** , ensuring seamless integration with the latest advancements in the ROS ecosystem and simulation environments.
+> **Notice** : With the formation of the Platform Team in 2025, substantial resources will be dedicated to advancing the open platform.
+> As a priority, **TurtleBot3** will receive full support for ROS 2 Humble, with **comprehensive example implementations** set for release in Q1 2025. In Q2, support will expand to **ROS 2 Jazzy** and **Gazebo Sim** , ensuring seamless integration with the latest advancements in the ROS ecosystem and simulation environments.
 
 ![](img/turtlebot3_with_logo.png)
 
 ![](img/logo_raspberry_pi.png)
-The TurtleBot3 platform has been upgraded to include the Raspberry Pi 4 as the standard onboard SBC.
+
+* The TurtleBot3 platform has been upgraded to include the Raspberry Pi 4 as the standard onboard SBC.
 
 ![](img/logo_nvidia.jpg)
-TurtleBot3 Hardware also supports the use of the Nvidia Jetson Nano SBC.
-Please refer to the video below in order to set up a Jetson Nano for use with a TurtleBot3.
-The Jetson Nano Developer Kit setup instructions must be completed prior to preparation for TurtleBot3 useage.
+
+* TurtleBot3 Hardware also supports the use of the Nvidia Jetson Nano SBC.
+* Please refer to the video below in order to set up a Jetson Nano for use with a TurtleBot3.
+* The Jetson Nano Developer Kit setup instructions must be completed prior to preparation for TurtleBot3 useage.
 
 https://youtu.be/fGEq_0aWpoA?si=04295vvKW_UPX5dP
 
