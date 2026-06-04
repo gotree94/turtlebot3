@@ -136,7 +136,7 @@ https://youtu.be/OdLsbAMy7m0?si=gtBscBXyjaqX7rSE
 
 #### 1.2.3.6 AutoRace RBIZ Challenge 2018
 
-https://youtu.be/6t6cyFiGLvs?si=Q5SJVTrkgKixcD7L
+   * https://youtu.be/6t6cyFiGLvs?si=Q5SJVTrkgKixcD7L
 
 | Place | Team | Source link |
 | --- | --- | --- |
