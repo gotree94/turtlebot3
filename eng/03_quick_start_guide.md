@@ -1,6 +1,7 @@
 > **Source**: [https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start](https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start)
 
 ---
+# Humble
 
 **Currently, ROS 1 Noetic and ROS 2 Humble are officially supported. In 2025, additional resources will be allocated for managing the open platform, with plans to complete example support for Humble in Q1 and extend support to Jazzy by Q2. The following chart provides an overview of the features supported by each ROS distribution.**
 
@@ -61,9 +62,6 @@ echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 source ~/.bashrc  
 ```
 
----
-## Humble
-
 ### 3.1.3 Install Dependent ROS 2 Packages
 
 1. Open the terminal with `Ctrl` + `Alt` + `T` on the **Remote PC** .
@@ -120,6 +118,8 @@ $echo 'source /opt/ros/humble/setup.bash' >>~/.bashrc
 $source ~/.bashrc
 ```
 
+---
+# Jazzy
 
 # Quick Start Guide
 
@@ -188,6 +188,7 @@ $ source ~/.bashrc
 ```
 
 ---
+# Noetic
 
 # Quick Start Guide
 
