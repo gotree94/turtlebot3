@@ -61,6 +61,9 @@ echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 source ~/.bashrc  
 ```
 
+---
+## Humble
+
 ### 3.1.3 Install Dependent ROS 2 Packages
 
 1. Open the terminal with `Ctrl` + `Alt` + `T` on the **Remote PC** .
