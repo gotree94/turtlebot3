@@ -256,7 +256,7 @@ $ source ~/.bashrc
 
 **Method 1. Using the camera-ros package**
 
-* This method is suitable for Raspberry Pi cameras using the libcamera stack. It is ideal for projects that demand high-quality imaging and fine-tuned control over camera settings.
+* This method is suitable for Raspberry Pi cameras using the libcamera stack. It is ideal for projects that demand high-quality imaging and fine-tuned control over [camera settings](https://docs.ros.org/en/ros2_packages/humble/api/camera_ros/).
 * For more information about camera_ros, see the camera_ros website.
 
 1. Install Required Tools
