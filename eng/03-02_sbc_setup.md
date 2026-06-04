@@ -132,20 +132,79 @@ $ssh ubuntu@{IP Address of Raspberry PI}
 
 ### 3.2.5 Install packages on Raspberry PI
 
-1. Install ROS2 Humble Hawksbill[TurtleBot3 SBC]Follow the instructions fromthe official ROS2 Humble installation guide.  Installing ROS-Base(Bare Bones) is recommended.
-2. Install and Build ROS Packages.  Building the `turtlebot3` package may take longer than an hour. Please use a wall plug power supply to ensure the system is always powered.  **[TurtleBot3 SBC]** $sudoaptinstallpython3-argcomplete python3-colcon-common-extensions libboost-system-dev build-essential$sudoaptinstallros-humble-hls-lfcd-lds-driver$sudoaptinstallros-humble-turtlebot3-msgs$sudoaptinstallros-humble-dynamixel-sdk$sudoaptinstallros-humble-xacro$sudoaptinstalllibudev-dev$mkdir-p~/turtlebot3_ws/src&&cd~/turtlebot3_ws/src$git clone-bhumble https://github.com/ROBOTIS-GIT/turtlebot3.git$git clone-bhumble https://github.com/ROBOTIS-GIT/ld08_driver.git$git clone-bhumble https://github.com/ROBOTIS-GIT/coin_d4_driver$cd~/turtlebot3_ws/src/turtlebot3$rm-rturtlebot3_cartographer turtlebot3_navigation2$cd~/turtlebot3_ws/$echo'source /opt/ros/humble/setup.bash'>>~/.bashrc$source~/.bashrc$colcon build--symlink-install--parallel-workers1$echo'source ~/turtlebot3_ws/install/setup.bash'>>~/.bashrc$source~/.bashrc
-3. USB Port Settings for OpenCR  **[TurtleBot3 SBC]** $sudo cp`ros2 pkg prefix turtlebot3_bringup`/share/turtlebot3_bringup/script/99-turtlebot3-cdc.rules /etc/udev/rules.d/$sudoudevadm control--reload-rules$sudoudevadm trigger
+* If you are using the TurtleBot3 2GB, make sure to create swap memory for building packages. Otherwise, you may run out of memory and package building may fail.
+
+* Create 2GB swap memory. [TurtleBot3 SBC]
+```
+$ sudo fallocate -l 2G /swapfile
+$ sudo chmod 600 /swapfile
+$ sudo mkswap /swapfile
+$ sudo swapon /swapfile
+```
+* The following command ensures that the swap file is automatically activated when the system is rebooted.
+```
+$ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+```
+* Check swap memory.
+```
+$ free -h
+```
+~[](img/swap.png)
+
+* 1. Install ROS2 Humble Hawksbill <br>
+  [TurtleBot3 SBC] <br>
+  Follow the instructions fromthe official ROS2 Humble installation guide.  Installing ROS-Base(Bare Bones) is recommended.
+
+* 2. Install and Build ROS Packages.  <br>
+  Building the `turtlebot3` package may take longer than an hour. Please use a wall plug power supply to ensure the system is always powered.  
+
+**[TurtleBot3 SBC]** 
+```
+$ sudo apt install python3-argcomplete python3-colcon-common-extensions libboost-system-dev build-essential
+$ sudo apt install ros-humble-hls-lfcd-lds-driver
+$ sudo apt install ros-humble-turtlebot3-msgs
+$ sudo apt install ros-humble-dynamixel-sdk
+$ sudo apt install ros-humble-xacro
+$ sudo apt install libudev-dev
+$ mkdir -p ~/turtlebot3_ws/src && cd ~/turtlebot3_ws/src
+$ git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3.git
+$ git clone -b humble https://github.com/ROBOTIS-GIT/ld08_driver.git
+$ git clone -b humble https://github.com/ROBOTIS-GIT/coin_d4_driver
+$ cd ~/turtlebot3_ws/src/turtlebot3
+$ rm -r turtlebot3_cartographer turtlebot3_navigation2
+$ cd ~/turtlebot3_ws/
+$ echo 'source /opt/ros/humble/setup.bash' >> ~/.bashrc
+$ source ~/.bashrc
+$ colcon build --symlink-install --parallel-workers 1
+$ echo 'source ~/turtlebot3_ws/install/setup.bash' >> ~/.bashrc
+$ source ~/.bashrc
+```
+
+3. USB Port Settings for OpenCR  
+**[TurtleBot3 SBC]** 
+```
+$ sudo cp `ros2 pkg prefix turtlebot3_bringup`/share/turtlebot3_bringup/script/99-turtlebot3-cdc.rules /etc/udev/rules.d/
+$ sudo udevadm control --reload-rules
+$ sudo udevadm trigger
+```
+
 4. ROS Domain ID Setting
-In ROS2 DDS communication, `ROS_DOMAIN_ID` must match between the **Remote PC** and **TurtleBot3** for communication in the same network environment.The following commands show how to assign a `ROS_DOMAIN_ID` to the SBC of the TurtleBot3. The default ID of theTurtleBot3is30.Configuring theROS_DOMAIN_IDfor the Remote PC and SBC of the TurtleBot3 to30is recommended.[TurtleBot3 SBC]$echo'export ROS_DOMAIN_ID=30 #TURTLEBOT3'>>~/.bashrc$source~/.bashrc
+In ROS2 DDS communication, `ROS_DOMAIN_ID` must match between the **Remote PC** and **TurtleBot3** for communication in the same network environment.The following commands show how to assign a `ROS_DOMAIN_ID` to the SBC of the TurtleBot3. The default ID of theTurtleBot3is30.Configuring theROS_DOMAIN_IDfor the Remote PC and SBC of the TurtleBot3 to30is recommended.
+
+**[TurtleBot3 SBC]**
+```
+$ echo 'export ROS_DOMAIN_ID=30 #TURTLEBOT3' >> ~/.bashrc
+$ source ~/.bashrc
+```
 
 **WARNING** : Do not use an identical ROS_DOMAIN_ID to others in the same network. It will cause a conflict of communication between users under the same network environment.
 
 
-### LDS Configuration
+### 3.2.6 LDS Configuration
 
 | LDS-01 | LDS-02 | LDS-03 |
 | --- | --- | --- |
-|  |  |  |
+| ![](img/lds_small.png) | ![](img/lds_ld08_small.png) |  ![](img/lds_coind4_small.png) |
 
 Depending on your LDS model, use the appropriate model: LDS-01, LDS-02, or LDS-03.  **[TurtleBot3 SBC]**
 
