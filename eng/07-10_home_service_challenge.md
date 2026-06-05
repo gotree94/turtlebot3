@@ -161,7 +161,8 @@ Using the demo package, the process of moving objects in Home Service Challenge 
 ![](img/demo1.png)
 
 2. Picking the target with OpenMANIPULATOR-X’s gripper. Use the MoveIt package to perform joint space control, workspace control, and gripper control to pick the target object. (Used Topic :/manipulator_control) MoveIt Diagram
-manipulation_diagram.png
+
+![](img/manipulation_diagram.png)
 
 3. Navigating to the next room where the object will be placed.
 -Reach the next room saved in a yaml file using the Nav2 package.
