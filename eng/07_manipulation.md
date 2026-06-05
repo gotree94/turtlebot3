@@ -104,6 +104,50 @@ $ ./update.sh $OPENCR_PORT $OPENCR_MODEL.opencr
 
 > **NOTE** : To use the OpenMANIPULATOR-X, you will need to upload dedicated firmware to the OpenCR by using either a **shell script** or the **Arduino IDE** .
 
+**about the firmware upload using Arduino IDE**
+
+1. If you are using Linux, please configure the USB port for the OpenCR. For other OS(OSX or Windows), you can skip to the step 2 “Install Arduino IDE”.
+```
+$ wget https://raw.githubusercontent.com/ROBOTIS-GIT/OpenCR/master/99-opencr-cdc.rules
+$ sudo cp ./99-opencr-cdc.rules /etc/udev/rules.d/
+$ sudo udevadm control --reload-rules
+$ sudo udevadm trigger
+$ sudo apt install libncurses5-dev:i386
+```
+2. Install Arduino IDE.
+  * Download the latest Arduino IDE
+3. After completing the installation, run Arduino IDE.
+4. Press `Ctrl` + `,` to open the Preferences menu
+5. Enter below addresses in the Additional Boards Manager URLs.
+```
+https://raw.githubusercontent.com/ROBOTIS-GIT/OpenCR/master/arduino/opencr_release/package_opencr_index.json
+```
+![](img/ide1.png)
+
+6. Select Sketch > Include Library > Manage Libraries... to install the DYNAMIXEL2Arduino library. 
+
+![](img/library_manager_01.png)
+
+7. Search for DYNAMIXEL2Arduino from the Library Manager and install the library. 
+
+![](img/library_manager_02.png)
+
+8.Open the TurtleBot3 Manipulation example.
+  * File > Examples > turtlebot3 > turtlebot3_manipulation > turtlebot3_manipulation
+9. Connect the micro USB of the OpenCR to the PC and select Tools > Board > OpenCR > OpenCR Board in the Arduino IDE.
+10. Select the port connected to the OpenCR from the Tools > Port menu.
+11. Upload the TurtleBot3 firmware sketch with Ctrl + U or the upload icon.
+
+![](img/o3.png)
+
+12. If firmware upload fails, try uploading the firmware in recovery mode. the following sequence activates the recovery mode of the OpenCR. When in recovery mode, the STATUS led of the OpenCR will blink periodically.
+  * Hold down the PUSH SW2 button.
+  * Press the Reset button.
+  * Release the Reset button.
+  * Release the PUSH SW2 button.
+
+![](img/bootloader_19.png)
+
 ## 7.5 Bringup
 
 > In order to run a TurtleBot3 Manipulation simulation using Gazebo, please skip to the [Simulation](https://emanual.robotis.com/docs/en/platform/turtlebot3/manipulation#simulation) section.
