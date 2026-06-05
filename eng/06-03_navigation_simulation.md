@@ -176,9 +176,7 @@ Just like with SLAM in the Gazebo simulator, you can select or create various en
 Terminate `Ctrl` + `C` all applications that were launched in the previous sections.
 
 In the previous [SLAM](https://emanual.robotis.com/docs/en/platform/turtlebot3/slam/#slam) section, TurtleBot3 World was used to create a map. The same Gazebo environment will be used for Navigation.
-
 Specify your TurtleBot model ( `burger` , `waffle` , `waffle_pi` ) using the `TURTLEBOT3_MODEL` parameter.
-
 ```
 $ export TURTLEBOT3_MODEL=burger
 $ roslaunch turtlebot3_gazebo turtlebot3_world.launch
@@ -202,7 +200,7 @@ $ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/m
 
 ### 6.3.3 Estimate Initial Pose
 
-**Initial Pose Estimation** must be performed before running Navigation as this process initializes the AMCL parameters that are critical for accurate Navigation. TurtleBot3 has to be correctly located on the map with the LDS sensor data that neatly overlaps the displayed map.
+**Initial Pose Estimation** must be performed before running Navigation as this process initializes the AMCL parameters that are critical for correct Navigation. TurtleBot3 has to be correctly located on the map with LDS sensor data that neatly overlaps the displayed map.
 
 1. Click the `2D Pose Estimate` button in the RViz2 menu.
 
@@ -210,9 +208,10 @@ $ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/m
 
 2. Click on the map where the actual robot is located and drag the large green arrow toward the direction where the robot is facing.
 
-3. Repeat step 1 and 2 until the LDS sensor data is overlaid on the saved map. <br>
+3. Repeat step 1 and 2 until the LDS sensor data is overlaid on the saved map.
 
-4. Launch keyboard teleoperation node to precisely locate the robot on the map. 
+4. Launch the keyboard teleoperation node to precisely locate the robot on the map.
+**[Remote PC]**
 ```
 $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 ```
