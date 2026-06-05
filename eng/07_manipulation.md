@@ -195,299 +195,113 @@ Please be aware that the actual hardware operation requires [Bringup](https://em
 Bring up the TurtleBot3 Manipulation using the following command.  **[TurtleBot3 SBC]**
 
 ```
-  
-$ 
-ros2 launch turtlebot3_manipulation_bringup hardware.launch.py
-
+ $ ros2 launch turtlebot3_manipulation_bringup hardware.launch.py
 ```
 
 Enter the command below to launch the MoveIt on RViz.  **[Remote PC]**
 
 ```
-$ 
-ros2 launch turtlebot3_manipulation_moveit_config moveit_core.launch.py
-
+$ ros2 launch turtlebot3_manipulation_moveit_config moveit_core.launch.py
 ```
 
 To operate the robot with the keyboard teleoperation node, the RViz must be terminated.  Then launch the servo server node and teleoperation nodes on a separate terminal window.  **[Remote PC]**
 
 ```
-$ 
-ros2 launch turtlebot3_manipulation_moveit_config servo.launch.py
-
+$ ros2 launch turtlebot3_manipulation_moveit_config servo.launch.py
 ```
 
 **[Remote PC]**
 
 ```
-$ 
-ros2 run turtlebot3_manipulation_teleop turtlebot3_manipulation_teleop
-
-```
-
-Follow the given instruction to operate your robot.
-
-
-### Run roscore
-
-Run roscore to use ROS 1.  **[Remote PC]**
-
-```
-$ 
-roscore
-
+$ ros2 run turtlebot3_manipulation_teleop turtlebot3_manipulation_teleop
 ```
 
 
-### Run Bringup
+## 7.8 SLAM
 
-1. Run Bringup node for TurtleBot3, and start rosserial and LDS sensor using following command.  **[TurtleBot3 SBC]** $roslaunch turtlebot3_bringup turtlebot3_robot.launch
-2. Run Bringup node for OpenMANIPULATOR on TurtleBot3  **[Remote PC]** $roslaunch turtlebot3_manipulation_bringup turtlebot3_manipulation_bringup.launch
-
-
-### Run move_group Node
-
-**[Remote PC]**
-
-```
-$ 
-roslaunch turtlebot3_manipulation_moveit_config move_group.launch
-
-```
+> Be sure to read [SLAM](http://emanual.robotis.com/docs/en/platform/turtlebot3/slam/#slam) manual before use of the following instruction.
 
 
-### Run RViz
-
-Run RViz to visualize data and to use the interactive marker.  **[Remote PC]**
-
-```
-$ 
-roslaunch turtlebot3_manipulation_moveit_config moveit_rviz.launch
-
-```
-
-
-### Run ROBOTIS GUI Controller
-
-OpenMANIPULATOR can be controlled with using ROBOTIS GUI controller instead of RViz tool.  **[Remote PC]**
-
-```
-$ 
-roslaunch turtlebot3_manipulation_gui turtlebot3_manipulation_gui.launch
-
-```
-
-
-## SLAM
-
-Be sure to read [SLAM](http://emanual.robotis.com/docs/en/platform/turtlebot3/slam/#slam) manual before use of the following instruction.
-
-
-### TurtleBot3 Bringup
+### 7.8.1 TurtleBot3 Bringup
 
 Bring up the TurtleBot3 Manipulation `Actual` or `Simulation` using the following command.  `Actual` **[TurtleBot3 SBC]**
 
 ```
-  
-$ 
-ros2 launch turtlebot3_manipulation_bringup hardware.launch.py
-
+$ ros2 launch turtlebot3_manipulation_bringup hardware.launch.py
 ```
 
 OR  `Simulation` **[Remote PC]**
 
 ```
-  
-$ 
-ros2 launch turtlebot3_manipulation_gazebo gazebo.launch.py
-
+$ ros2 launch turtlebot3_manipulation_gazebo gazebo.launch.py
 ```
 
 
-### Run SLAM Nodes
+### 7.8.2 Run SLAM Nodes
 
 Launch **slam node** using the following command.  **[Remote PC]**
 
 ```
-$ 
-ros2 launch turtlebot3_manipulation_cartographer cartographer.launch.py
-
+$ ros2 launch turtlebot3_manipulation_cartographer cartographer.launch.py
 ```
 
 
-### Run Teleoperation Nodes
+### 7.8.3 Run Teleoperation Nodes
 
-1. Launch the servo server node.  **[Remote PC]** $ros2 launch turtlebot3_manipulation_moveit_config servo.launch.py
-2. Launch **teleop node** using the following command.  **[Remote PC]** $ros2 run turtlebot3_manipulation_teleop turtlebot3_manipulation_teleop
-3. Use `O` , `K` , `L` , `;` keys to drive the TurtleBot3 platform.
+1. Launch the servo server node.  
+**[Remote PC]**
+```
+$ ros2 launch turtlebot3_manipulation_moveit_config servo.launch.py
+```
+
+3. Launch **teleop node** using the following command.  
+**[Remote PC]**
+```
+$ ros2 run turtlebot3_manipulation_teleop turtlebot3_manipulation_teleop
+```
+
+5. Use `O` , `K` , `L` , `;` keys to drive the TurtleBot3 platform.
 
 
-### Save the Map
+### 7.8.4 Save the Map
 
 1. Open a terminal on **Remote PC** .
-2. Run the nav2_map_server to save the current map on RViz.  **[Remote PC]** $ros2 run nav2_map_server map_saver_cli-f~/map
+2. Run the nav2_map_server to save the current map on RViz.  
+**[Remote PC]**
+```
+$ ros2 run nav2_map_server map_saver_cli -f ~/map
+```
 
 ![](img/open_manipulator_slam.png)
 
-Be sure to read [SLAM](http://emanual.robotis.com/docs/en/platform/turtlebot3/slam/#slam) manual before use of the following instruction.
+## 7.9 Navigation
 
-Use SLAM feature to update an unknown map with TurtleBot3 and OpenMANIPULATOR
-
-![](img/open_manipulator_slam.png) ;
+> Be sure to read [Navigation](https://emanual.robotis.com/docs/en/platform/turtlebot3/navigation/#navigation) manual before use of the following instruction.
 
 
-### Run roscore
+### 7.9.1 TurtleBot3 Bringup
 
-Run roscore to use ROS 1.  **[Remote PC]**
-
+Bring up the TurtleBot3 Manipulation `Actual` or `Simulation` using the following command.  `Actual` 
+**[TurtleBot3 SBC]**
 ```
-$ 
-roscore
-
+$ ros2 launch turtlebot3_manipulation_bringup hardware.launch.py
 ```
 
+OR  `Simulation` 
 
-### Run Bringup
-
-Run Bringup node for TurtleBot3, and start rosserial and LDS sensor using following command.  **[TurtleBot3 SBC]**
-
+**[Remote PC]**
 ```
-roslaunch turtlebot3_bringup turtlebot3_robot.launch
-
-```
-
-**NOTE** : As OpenMANIPULATOR on TurtleBot3 is not neccessory for SLAM, **move_group** and **bringup** nodes, which are the parameters to control OpenMANIPULATOR, are not important to use
-
-
-### Run SLAM Node
-
-Run SLAM node for updating an unknown map with TurtleBot3. This node utilizes gmapping package.  **[Remote PC]**
-
-```
-$ 
-roslaunch turtlebot3_manipulation_slam slam.launch
-
+$ ros2 launch turtlebot3_manipulation_gazebo gazebo.launch.py
 ```
 
 
-### Run turtlebot3_teleop_key Node
-
-1. Update the map where TurtleBot3 will navigate using turtlebot3_teleop_key node.  **[Remote PC]** $roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
-2. Once the map is completely updated, run the map_saver node to save the updated map.  **[Remote PC]** $rosrun map_server map_saver-f~/map
-
-
-## Navigation
-
-Be sure to read [Navigation](https://emanual.robotis.com/docs/en/platform/turtlebot3/navigation/#navigation) manual before use of the following instruction.
-
-
-### TurtleBot3 Bringup
-
-Bring up the TurtleBot3 Manipulation `Actual` or `Simulation` using the following command.  `Actual` **[TurtleBot3 SBC]**
-
-```
-  
-$ 
-ros2 launch turtlebot3_manipulation_bringup hardware.launch.py
-
-```
-
-OR  `Simulation` **[Remote PC]**
-
-```
-  
-$ 
-ros2 launch turtlebot3_manipulation_gazebo gazebo.launch.py
-
-```
-
-
-### Run Navigation Nodes
-
+### 7.9.2 Run Navigation Nodes
 **[Remote PC]**
 
 1. Open a terminal on **Remote PC** .
-2. Launch the navigation file using the following command. $ros2 launch turtlebot3_manipulation_navigation2 navigation2.launch.py map_yaml_file:=$HOME/map.yaml
-
-Be sure to read [Navigation](https://emanual.robotis.com/docs/en/platform/turtlebot3/navigation/#navigation) manual before use of the following instruction.
-
-Send TurtleBot3 with OpenMANIPULATOR to the desired position in the map using Navigation node.
-
-
-### Run roscore
-
-Run roscore to use ROS 1.  **[Remote PC]**
-
+2. Launch the navigation file using the following command. 
 ```
-$ 
-roscore
-
+$ ros2 launch turtlebot3_manipulation_navigation2 navigation2.launch.py map_yaml_file:=$HOME/map.yaml
 ```
 
-
-### Run Bringup
-
-Run Bringup node for TurtleBot3, and start rosserial and LDS sensor using following command.  **[TurtleBot3 SBC]**
-
-```
-$ 
-roslaunch turtlebot3_bringup turtlebot3_robot.launch
-
-```
-
-
-### Run Navigation Node
-
-Run Navigation node with the following command, which will call Unified Robot Description Format (urdf) and configuration data of RViz to set GUI enviroment, parmeters for Navigation and updated map.  **[Remote PC]**
-
-```
-$ 
-roslaunch turtlebot3_manipulation_navigation navigation.launch map_file:
-=
-$HOME
-/map.yaml 
-
-```
-
-![](img/tb3_omx_nav.png)
-
-
-### How to Control OpenMANIPULATOR with Navigation
-
-You can run this node to control OpenMANIPULATOR on TurtleBot3 when TurtleBot3 is approaching to a goal position when Navigation node is running.
-However, when TurtleBot3 is in motion, the movement of OpenMANIPULATOR will be unstable by external influences, such as center of gravity, or vibration; so that it is recommended for the manipulator to be used when TurtleBot3 is not driving.
-
-
-#### Run Bringup node for OpenMANIPULATOR
-
-Run **turtlebot3_manipulation_bringup** node just as use of single OpenMANIPULATOR. This node contains **arm_controller** and **gripper_controller** .  **[Remote PC]**
-
-```
-$ 
-roslaunch turtlebot3_manipulation_bringup turtlebot3_manipulation_bringup.launch
-
-```
-
-
-#### Run move_group Node
-
-**move_group** node supports two interfaces to control OpenMANIPULATOR; **MoveIt!** and **ROBOTIS GUI** . Choose either of them according to your preference. In this section, GUI Controller is introduced only.  **[Remote PC]**
-
-```
-$ 
-roslaunch turtlebot3_manipulation_moveit_config move_group.launch
-
-```
-
-**NOTE** : Please refer to [MoveIt!](https://moveit.ros.org/) for more details.
-
-
-### Run GUI Controller
-
-Using this interface, you can control OpenMANIPULATOR on TurtleBot3  **[Remote PC]**
-
-```
-$ 
-roslaunch turtlebot3_manipulation_gui turtlebot3_manipulation_gui.launch
-
-```
+![](img/open_manipulator_navigation.png)
