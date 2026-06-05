@@ -1,10 +1,14 @@
 > **Source**: [https://emanual.robotis.com/docs/en/platform/turtlebot3/manipulation](https://emanual.robotis.com/docs/en/platform/turtlebot3/manipulation)
 
 ---
+# TOC
 
-
+1. [Humble](#humble)
+2. [Noetic](#noetic)
 
 ---
+[TOC](#toc)
+# Humble
 
 # 7. Manipulation
 
@@ -26,33 +30,35 @@
 
 > The contents in e-Manual are subject to change without notice. Some video content may differ from the contents in the eManual.
 
-![](img/tb3_with_opm_logo.png)
-
-The OpenMANIPULATOR-X from ROBOTIS is a low cost manipulator using DYNAMIXEL actuators with 3D printable parts and support for ROS.
-
-The OpenMANIPULATOR-X is compatible with the TurtleBot3 Waffle as a `mobile manipulator` with the SLAM and Navigation capabilities integral to the TurtleBot3 platform.
-
-The contents in e-Manual are subject to change without notice. Some video content may differ from the contents in the eManual.
-
-
 ## 7.2 Software Setup
 
-**NOTE** : TurtleBot3 Manipulation for ROS2 Humble requires the `turtlebot3_manipulation` package. Follow the instructions below to install the required package and its dependencies.
+> **NOTE** : TurtleBot3 Manipulation for ROS2 Humble requires the `turtlebot3_manipulation` package. Follow the instructions below to install the required package and its dependencies.
 
-**The TurtleBot3 Simulation Package requires the turtlebot3 and turtlebot3_msgs packages. Without these prerequisite packages, the TurtleBot3 Manipulator cannot be launched. Please followQuick Start Guideinstructions if you did not install required packages and dependent packages.**
+> **The TurtleBot3 Simulation Package requires the turtlebot3 and turtlebot3_msgs packages. Without these prerequisite packages, the TurtleBot3 Manipulator cannot be launched. Please followQuick Start Guideinstructions if you did not install required packages and dependent packages.**
 
-1. Connect to the **TurtleBot3 SBC** using the ssh command below.  **[Remote PC]** $ssh ubuntu@{IP_ADDRESS_OF_TURTLEBOT3}
-2. Install the packages for TurtleBot3 Manipulation.  **[TurtleBot3 SBC]** $sudoaptinstallros-humble-hardware-interface ros-humble-xacro ros-humble-ros2-control ros-humble-ros2-controllers ros-humble-gripper-controllers$cd~/turtlebot3_ws/src/$git clone-bhumble https://github.com/ROBOTIS-GIT/turtlebot3_manipulation.git$cd~/turtlebot3_ws&&colcon build--symlink-install
-3. Open a terminal on the **Remote PC** and install the required packages using the following commands.  **[Remote PC]** $sudoaptinstallros-humble-dynamixel-sdk ros-humble-ros2-control ros-humble-ros2-controllers ros-humble-gripper-controllers ros-humble-moveit*$cd~/turtlebot3_ws/src/$git clone-bhumble https://github.com/ROBOTIS-GIT/turtlebot3_manipulation.git$cd~/turtlebot3_ws&&colcon build--symlink-install
+1. Connect to the **TurtleBot3 SBC** using the ssh command below.  
+**[Remote PC]**
+```
+$ ssh ubuntu@{IP_ADDRESS_OF_TURTLEBOT3}
+```
 
-**NOTE** : Before installing the `turtlebot3_manipulation` package, ensure that the `turtlebot3` and `open_manipulator` packages are installed on the Remote PC.
+3. Install the packages for TurtleBot3 Manipulation.  
+**[TurtleBot3 SBC]** 
+```
+$ sudo apt install ros-humble-hardware-interface ros-humble-xacro ros-humble-ros2-control ros-humble-ros2-controllers ros-humble-gripper-controllers
+$ cd ~/turtlebot3_ws/src/
+$ git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3_manipulation.git
+$ cd ~/turtlebot3_ws && colcon build --symlink-install
+```
 
-1. Download and build the package using the following commands. **[Remote PC]** $cd~/catkin_ws/src/$git clone-bnoetic https://github.com/ROBOTIS-GIT/turtlebot3_manipulation.git$git clone-bnoetic https://github.com/ROBOTIS-GIT/turtlebot3_manipulation_simulations.git$git clone-bnoetic https://github.com/ROBOTIS-GIT/open_manipulator_dependencies.git$sudoaptinstallros-noetic-ros-control*ros-noetic-control*ros-noetic-moveit*ros-noetic-dwa-local-planner$cd~/catkin_ws&&catkin_make
-
-- If `catkin_make` completes without any errors, the OpenMANIPULATOR package has successfully been installed. You can then load a TurtleBot3 Waffle or Waffle Pi with an attached OpenMANIPULATOR in RViz. –>
-<!– $cd~/catkin_ws&&catkin_make$cd~/catkin_ws/src/$git clone https://github.com/ROBOTIS-GIT/open_manipulator_with_tb3.git$git clone https://github.com/ROBOTIS-GIT/open_manipulator_with_tb3_msgs.git$git clone https://github.com/ROBOTIS-GIT/open_manipulator_with_tb3_simulations.git$git clone https://github.com/ROBOTIS-GIT/open_manipulator_perceptions.git$sudoapt-getinstallros-melodic-smach*ros-melodic-ar-track-alvar ros-melodic-ar-track-alvar-msgs$cd~/catkin_ws&&catkin_make
-
-
+4. Open a terminal on the **Remote PC** and install the required packages using the following commands.  
+**[Remote PC]** 
+```
+$ sudo apt install ros-humble-dynamixel-sdk ros-humble-ros2-control ros-humble-ros2-controllers ros-humble-gripper-controllers ros-humble-moveit*
+$ cd ~/turtlebot3_ws/src/
+$ git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3_manipulation.git
+$ cd ~/turtlebot3_ws && colcon build --symlink-install
+```
 ## 7.3 Hardware Assembly
 
 - [CAD files](http://www.robotis.com/service/download.php?no=767) (TurtleBot3 Waffle Pi + OpenMANIPULATOR)
@@ -69,73 +75,52 @@ The contents in e-Manual are subject to change without notice. Some video conten
 
 ## 7.4 OpenCR Setup
 
-**NOTE** : To use the OpenMANIPULATOR-X, you need to upload specific firmware to the OpenCR by using either a **shell script** or the **Arduino IDE** .
+> **NOTE** : To use the OpenMANIPULATOR-X, you need to upload specific firmware to the OpenCR by using either a **shell script** or the **Arduino IDE** .
+> 1. The **Shell script** is recommended to upload the firmware as it uses a pre-built binary file
+> 2. The **Arduino IDE** builds from the provided source code and uploads the generated binary file. The OpenCR Arduino board manager does not support ARM based processors such as Raspberry Pi or Jetson Nano.
 
-1. The **Shell script** is recommended to upload the firmware as it uses a pre-built binary file
-2. The **Arduino IDE** builds from the provided source code and uploads the generated binary file. The OpenCR Arduino board manager does not support ARM based processors such as Raspberry Pi or Jetson Nano.
+> **WARNING**  Please connect all DYNAMIXEL motors to the OpenCR before uploading the OpenCR firmware.
 
-**WARNING**  Please connect all DYNAMIXEL motors to the OpenCR before uploading the OpenCR firmware.
+* After the OpenMANIPULATOR-X is properly mounted on TurtleBot3, the OpenCR firmware needs to be updated to control the connected DYNAMIXELs. Please follow the firmware update instructions below.
 
-After the OpenMANIPULATOR-X is properly mounted on TurtleBot3, the OpenCR firmware needs to be updated to control the connected DYNAMIXELs. Please follow the firmware update instructions below.
+1. Download the OpenCR firmware file on the Raspberry Pi (SBC) and upload the correct firmware with the following commands.  
+**[TurtleBot3 SBC]** 
+```
+$ export OPENCR_PORT=/dev/ttyACM0
+$ export OPENCR_MODEL=turtlebot3_manipulation
+$ rm -rf ./opencr_update.tar.bz2
+$ wget https://github.com/ROBOTIS-GIT/OpenCR-Binaries/raw/master/turtlebot3/ROS2/latest/opencr_update.tar.bz2
+$ tar -xvf opencr_update.tar.bz2
+$ cd ./opencr_update
+$ ./update.sh $OPENCR_PORT $OPENCR_MODEL.opencr
+```
 
-1. Download the OpenCR firmware file on the Raspberry Pi (SBC) and upload the correct firmware with the following commands.  **[TurtleBot3 SBC]** $exportOPENCR_PORT=/dev/ttyACM0$exportOPENCR_MODEL=turtlebot3_manipulation$rm-rf./opencr_update.tar.bz2$wget https://github.com/ROBOTIS-GIT/OpenCR-Binaries/raw/master/turtlebot3/ROS2/latest/opencr_update.tar.bz2$tar-xvfopencr_update.tar.bz2$cd./opencr_update$./update.sh$OPENCR_PORT$OPENCR_MODEL.opencr
 2. When the firmware is successfully uploaded to the OpenCR, **jump_to_fw** will be printed to the terminal used to upload the firmware.
 
 
 ### 7.4.1 Arduino IDE
 
-Please be aware that OpenCR board manager **does not support Arduino IDE on ARM based SBC such as Raspberry Pi or NVidia Jetson** .  In order to upload the OpenCR firmware using Arduino IDE, please follow the below instructions on your PC.
+> Please be aware that OpenCR board manager **does not support Arduino IDE on ARM based SBC such as Raspberry Pi or NVidia Jetson** .  In order to upload the OpenCR firmware using Arduino IDE, please follow the below instructions on your PC.
 
-**NOTE** : To use the OpenMANIPULATOR-X, you will need to upload dedicated firmware to the OpenCR by using either a **shell script** or the **Arduino IDE** .
-
-1. The **Shell script** is recommended as it uses a pre-built binary file.
-2. The **Arduino IDE** builds from the provided source code and uploads the generated binary file. The OpenCR Arduino board manager does not support ARM based processors such as Raspberry Pi or Jetson Nano.
-
-**WARNING**  Please connect all DYNAMIXEL servos to the OpenCR before uploading the OpenCR firmware.
-
-After the OpenMANIPULATOR is properly mounted on the TurtleBot3, the OpenCR firmware needs to be updated to control the connected DYNAMIXELs. Please follow the firmware update instructions below.
-
-1. Download the OpenCR firmware file to the Raspberry Pi (SBC) and upload the correct firmware with the following commands.  **[TurtleBot3 SBC]** $exportOPENCR_PORT=/dev/ttyACM0$exportOPENCR_MODEL=om_with_tb3_noetic$rm-rf./opencr_update.tar.bz2$wget https://github.com/ROBOTIS-GIT/OpenCR-Binaries/raw/master/turtlebot3/ROS1/latest/opencr_update.tar.bz2$tar-xvfopencr_update.tar.bz2$cd./opencr_update$./update.sh$OPENCR_PORT$OPENCR_MODEL.opencr
-2. When the firmware is completely uploaded, you will see a text string on the terminal: **jump_to_fw**
-
-**DANGER**
-
-**Please be aware of pinch hazards between the OpenMANIPULATOR joints!!!**
-
-When the firmware is successfully uploaded, the OpenCR board will reboot and **the OpenMANIPULATOR-X will move to it’s initial pose** .  It is recommended to put the OpenMANIPULATOR-X in a similar pose as the below image to avoid any physical damage during the initial movement.
-
-![](img/open_manipulator_gazebo_1.png)
-
-
-### Arduino IDE
-
-Please be aware that OpenCR board manager **does not support Arduino IDE on ARM based SBC such as Raspberry Pi or NVidia Jetson** .  In order to upload the OpenCR firmware using Arduino IDE, please follow the below instructions on your PC.
-
+> **NOTE** : To use the OpenMANIPULATOR-X, you will need to upload dedicated firmware to the OpenCR by using either a **shell script** or the **Arduino IDE** .
 
 ## 7.5 Bringup
 
-In order to run a TurtleBot3 Manipulation simulation using Gazebo, please skip to the [Simulation](https://emanual.robotis.com/docs/en/platform/turtlebot3/manipulation#simulation) section.
-The following command will bringup the actual TurtleBot3 hardware with OpenMANIPULATOR-X on it.
+> In order to run a TurtleBot3 Manipulation simulation using Gazebo, please skip to the [Simulation](https://emanual.robotis.com/docs/en/platform/turtlebot3/manipulation#simulation) section.
+> The following command will bringup the actual TurtleBot3 hardware with OpenMANIPULATOR-X on it.
 
 1. Open a terminal from the **TurtleBot3 SBC** .
 2. Bring up the TurtleBot3 Manipulation using the following command.
-
 **[TurtleBot3 SBC]**
 
 ```
-  
-$ 
-ros2 launch turtlebot3_manipulation_bringup hardware.launch.py
-
+$ ros2 launch turtlebot3_manipulation_bringup hardware.launch.py
 ```
 
-**DANGER**
-
-**Please be aware of pinch danger between the robot joints!!!**
-
-When the Turtlebot3 Manipulation bringup launches, **the OpenMANIPULATOR-X will move to the initial pose** .  It is recommended to put the OpenMANIPULATOR-X in a similar pose to the below image to avoid any physical damage during the initial movement.
-
-![](img/open_manipulator_gazebo_1.png)
+> **DANGER**
+> **Please be aware of pinch danger between the robot joints!!!**
+> When the Turtlebot3 Manipulation bringup launches, **the OpenMANIPULATOR-X will move to the initial pose** .  It is recommended to put the OpenMANIPULATOR-X in a similar pose to the below image to avoid any physical damage during the initial movement.
+> ![](img/open_manipulator_gazebo_1.png)
 
 **NOTE** : Be sure that the OpenCR port is properly assigned in the [turtlebot3_core.launch](https://github.com/ROBOTIS-GIT/turtlebot3/blob/467c76bc4fa2e34162f57107388839d82d3bcc0e/turtlebot3_bringup/launch/turtlebot3_core.launch#L5) bringup file.
 
