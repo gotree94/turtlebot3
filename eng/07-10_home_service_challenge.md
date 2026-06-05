@@ -298,18 +298,39 @@ $rostopic pub-1/tb3_hsc/command std_msgs/String close_gripper
 ![](img/hsc_close_gripper.gif)
 
 
-#### Configuration
+#### 7.10.3.4 Configuration
 
 **[Remote PC]** Modify data in configuration files according to the given environment.
 
-- `scenario.yaml` : This file contains a scenario’s data. File Path :/turtlebot3_home_service_challenge_manager/script/scenario.yamlScriptSCENARIO_NAME:# start - scenario - finishtask:TASK_NAMEargs:[0,1,2]timeout:10#sec, 0 : no time outnext_scenario:find_objectscenario_on_failure:standbyretry_times:0#times, 0 : no retry
-  - File Path : **/turtlebot3_home_service_challenge_manager/script/scenario.yaml**
-  - Script SCENARIO_NAME:# start - scenario - finishtask:TASK_NAMEargs:[0,1,2]timeout:10#sec, 0 : no time outnext_scenario:find_objectscenario_on_failure:standbyretry_times:0#times, 0 : no retry
-- `room.yaml` : This file contains data of the Home Service Challenge’s stadium. File Path :/turtlebot3_home_service_challenge_manager/config/room.yamlScriptroom_1:name:toiletobject:marker:ar_marker_0position:[0.25,0,0.15]target:marker:ar_marker_4position:[0.25,0,0.15]x:[1.5,0.6]y:[1.5,0.2]
-  - File Path : **/turtlebot3_home_service_challenge_manager/config/room.yaml**
-  - Script room_1:name:toiletobject:marker:ar_marker_0position:[0.25,0,0.15]target:marker:ar_marker_4position:[0.25,0,0.15]x:[1.5,0.6]y:[1.5,0.2]
-- `config.yaml` : This configuration file contains manager package’s data. File Path :/turtlebot3_home_service_challenge_manager/config/config.yaml
-  - File Path : **/turtlebot3_home_service_challenge_manager/config/config.yaml**
+* `scenario.yaml` : This file contains a scenario’s data.
+  * File Path : /turtlebot3_home_service_challenge_manager/script/scenario.yaml
+  * Script
+```
+SCENARIO_NAME: # start - scenario - finish
+  task: TASK_NAME
+  args: [0, 1, 2]
+  timeout: 10 #sec, 0 : no time out
+  next_scenario: find_object
+  scenario_on_failure: standby
+  retry_times: 0 #times, 0 : no retry
+```
+* `room.yaml` : This file contains data of the Home Service Challenge’s stadium.
+  * File Path : /turtlebot3_home_service_challenge_manager/config/room.yaml
+  * Script
+```
+room_1:
+  name: toilet
+  object:
+    marker: ar_marker_0
+    position: [0.25, 0, 0.15]
+  target:
+    marker: ar_marker_4
+    position: [0.25, 0, 0.15]
+  x: [1.5, 0.6]
+  y: [1.5, 0.2]
+```
+* `config.yaml` : This configuration file contains manager package’s data.
+  * File Path : /turtlebot3_home_service_challenge_manager/config/config.yaml
 
 
 #### Details about the Home Service Mission
@@ -319,20 +340,47 @@ The goal of the Home Service Challenge is to move four different objects from a 
 Using the demo package, the process of moving objects in Home Service Challenge is as follows.
 
 1. Navigating to a target in the living room. Find a target, and reach it using a Navigation package.
-2. Approaching the target. For the approach to the target with precise, TurtleBot3 wheels are directly controlled by computing target’s location from AR marker. (Used Topic :/tb3_hsc/cmd_vel). To produce a reliable performance, Closed-loop and control system can be used for the specified number of times.
-3. Picking the target with OpenMANIPULATOR-X’s gripper. Pick the target object using the moveit package (Joint space control, Task space control and Gripper control) MoveIt Diagram
-4. Leaving for the next room to place the object (Used Topic : `/tb3_hsc/cmd_vel` ) When moving back from the target, the wheels are directly controlled by the manager program using/tb3_hsc/cmd_veltopic.
-5. Navigating to the place where the object will be placed. Find a next target, and reach it using a Navigation package.
-6. Approaching the target.
-7. Placing the object using the gripper.
-8. Returning to the starting point using the navigation package.
+![](img/demo_1.png)
 
+2. Approaching the target. For the approach to the target with precise, TurtleBot3 wheels are directly controlled by computing target’s location from AR marker. (Used Topic :/tb3_hsc/cmd_vel). To produce a reliable performance, Closed-loop and control system can be used for the specified number of times.
+![](img/demo_2.png)
+
+3. Picking the target with OpenMANIPULATOR-X’s gripper. Pick the target object using the moveit package (Joint space control, Task space control and Gripper control) MoveIt Diagram
+![](img/manipulation_diagram.png)
+
+4. Leaving for the next room to place the object (Used Topic : `/tb3_hsc/cmd_vel` ) When moving back from the target, the wheels are directly controlled by the manager program using/tb3_hsc/cmd_veltopic.
+
+5. Navigating to the place where the object will be placed. Find a next target, and reach it using a Navigation package.
+![](img/demo_3.png)
+
+6. Approaching the target.
+
+7. Placing the object using the gripper.
+
+8. Returning to the starting point using the navigation package.
+![](img/demo_4.png)
 
 ### Simulation
 
 Simulate TurtleBot3 with OpenMANIPULATOR-X in Gazebo.
 
-1. **[Remote PC]** Run Gazebo. $roslaunch turtlebot3_home_service_challenge_simulation competition.launch
-2. **[Remote PC]** Run a simulation demo for Gazebo. $roslaunch turtlebot3_home_service_challenge_tools turtlebot3_home_service_challenge_demo_simulation.launch
-3. **[Remote PC]** Run Home Service Manager. $roslaunch turtlebot3_home_service_challenge_manager manager.launch
+1. **[Remote PC]** Run Gazebo. 
+```
+$ roslaunch turtlebot3_home_service_challenge_simulation competition.launch
+```
+![](img/simulation_gazebo.png)
+
+1. **[Remote PC]** Run a simulation demo for Gazebo. 
+```
+$ roslaunch turtlebot3_home_service_challenge_tools turtlebot3_home_service_challenge_demo_simulation.launch
+```
+~[](img/simulation_rviz.png)
+
+3. **[Remote PC]** Run Home Service Manager. 
+```
+$ roslaunch turtlebot3_home_service_challenge_manager manager.launch
+```
+
 4. Use the Home Service Challenge commands, See [Commands](https://emanual.robotis.com/docs/en/platform/turtlebot3/home_service_challenge#commands)
+
+
