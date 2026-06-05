@@ -438,14 +438,14 @@ Please refer to the Ubuntu Blog posts below for more useful information.
 
 Download the `Raspberry Pi Imager` to install Ubuntu Server 24.04 for Raspberry Pi.  If the Raspberry Pi Imager is already installed, update to the latest version.  Please refer to [this article](https://www.raspberrypi.org/blog/raspberry-pi-imager-imaging-utility/) to find more information about Raspberry Pi Imager.
 
-> [DownloadRaspberry Pi Imager from raspberrypi.org](https://www.raspberrypi.org/software/)
+> [Download Raspberry Pi Imager from raspberrypi.org](https://www.raspberrypi.org/software/)
 
  Click here to expand more details about How to install Raspberry Pi Imager.
 
 Install either the deb or apt rpi-imager release.
 
 1. `deb`
-Download deb file
+Download deb file <br>
 ![](img/sbc_setup1.png)
 
 ```
@@ -549,11 +549,81 @@ $sudoreboot
 $ssh ubuntu@{IP Address of Raspberry PI}
 ```
 
+ **how to connect through ssh**
 
-## Install packages on Raspberry PI
+1. Edit the SSH configuration files
+**[TurtleBot3 SBC]**
+```
+$ sudo nano /etc/ssh/sshd_config.d/50-cloud-init.conf
+```
 
-1. Install ROS 2 Jazzy Jalisco[TurtleBot3 SBC]Follow the instructions fromthe official ROS 2 Jazzy installation guide.  Installing ROS-Base(Bare Bones) is recommended.
-2. Install and Build ROS Packages.  Building the `turtlebot3` package may take longer than an hour. Please use a wall plug power supply to ensure the system is always powered.  **[TurtleBot3 SBC]** $sudoaptinstallpython3-argcomplete python3-colcon-common-extensions libboost-system-dev build-essential$sudoaptinstallros-jazzy-hls-lfcd-lds-driver$sudoaptinstallros-jazzy-turtlebot3-msgs$sudoaptinstallros-jazzy-dynamixel-sdk$sudoaptinstallros-jazzy-xacro$sudoaptinstalllibudev-dev$mkdir-p~/turtlebot3_ws/src&&cd~/turtlebot3_ws/src$git clone-bjazzy https://github.com/ROBOTIS-GIT/turtlebot3.git$git clone-bjazzy https://github.com/ROBOTIS-GIT/ld08_driver.git$git clone-bjazzy https://github.com/ROBOTIS-GIT/coin_d4_driver$cd~/turtlebot3_ws/src/turtlebot3$rm-rturtlebot3_cartographer turtlebot3_navigation2$cd~/turtlebot3_ws/$echo'source /opt/ros/jazzy/setup.bash'>>~/.bashrc$source~/.bashrc$colcon build--symlink-install--parallel-workers1$echo'source ~/turtlebot3_ws/install/setup.bash'>>~/.bashrc$source~/.bashrc
+![](img/sshd_config2.png)
+
+Install net-tools and check your ip.
+**[TurtleBot3 SBC]**
+```
+$ reboot
+$ sudo apt update
+$ sudo apt install net-tools
+$ ifconfig
+```
+![](img/sshd_config3.png)
+
+Enter the command below on the remote PC and use your password for the Ubuntu system.
+**[Remote PC]**
+```
+$ ssh ubuntu@{IP Address of Raspberry PI}
+```
+
+## 3.3 Install packages on Raspberry PI
+
+* If you are using the TurtleBot3 2GB, make sure to create swap memory for building packages. Otherwise, you may run out of memory and package building may fail.
+
+* Create 2GB swap memory. **[TurtleBot3 SBC]**
+```
+$ sudo fallocate -l 2G /swapfile
+$ sudo chmod 600 /swapfile
+$ sudo mkswap /swapfile
+$ sudo swapon /swapfile
+```
+
+* The following command ensures that the swap file is automatically activated when the system is rebooted.
+```
+$ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+```
+
+* Check swap memory.
+```
+$ free -h
+```
+
+1. Install ROS 2 Jazzy Jalisco
+**[TurtleBot3 SBC]**
+Follow the instructions from [the official ROS 2 Jazzy installation guide](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html).  Installing ROS-Base(Bare Bones) is recommended.
+
+2. Install and Build ROS Packages.  Building the `turtlebot3` package may take longer than an hour. Please use a wall plug power supply to ensure the system is always powered.  
+**[TurtleBot3 SBC]** 
+```
+$ sudo apt install python3-argcomplete python3-colcon-common-extensions libboost-system-dev build-essential
+$ sudo apt install ros-jazzy-hls-lfcd-lds-driver
+$ sudo apt install ros-jazzy-turtlebot3-msgs
+$ sudo apt install ros-jazzy-dynamixel-sdk
+$ sudo apt install ros-jazzy-xacro
+$ sudo apt install libudev-dev
+$ mkdir -p ~/turtlebot3_ws/src && cd ~/turtlebot3_ws/src
+$ git clone -b jazzy https://github.com/ROBOTIS-GIT/turtlebot3.git
+$ git clone -b jazzy https://github.com/ROBOTIS-GIT/ld08_driver.git
+$ git clone -b jazzy https://github.com/ROBOTIS-GIT/coin_d4_driver
+$ cd ~/turtlebot3_ws/src/turtlebot3
+$ rm -r turtlebot3_cartographer turtlebot3_navigation2
+$ cd ~/turtlebot3_ws/
+$ echo 'source /opt/ros/jazzy/setup.bash' >> ~/.bashrc
+$ source ~/.bashrc
+$ colcon build --symlink-install --parallel-workers 1
+$ echo 'source ~/turtlebot3_ws/install/setup.bash' >> ~/.bashrc
+$ source ~/.bashrc
+```
+
 3. USB Port Settings for OpenCR  **[TurtleBot3 SBC]** $sudo cp`ros2 pkg prefix turtlebot3_bringup`/share/turtlebot3_bringup/script/99-turtlebot3-cdc.rules /etc/udev/rules.d/$sudoudevadm control--reload-rules$sudoudevadm trigger
 4. ROS Domain ID Setting
 In ROS 2 DDS communication, `ROS_DOMAIN_ID` must match between the **Remote PC** and **TurtleBot3** for communication in the same network environment.The following commands show how to assign a `ROS_DOMAIN_ID` to the SBC of the TurtleBot3. The default ID of theTurtleBot3is30.Configuring theROS_DOMAIN_IDfor the Remote PC and SBC of the TurtleBot3 to30is recommended.[TurtleBot3 SBC]$echo'export ROS_DOMAIN_ID=30 #TURTLEBOT3'>>~/.bashrc$source~/.bashrc
