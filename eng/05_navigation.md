@@ -472,6 +472,9 @@ $ ros2 run turtlebot3_teleop teleop_keyboard
 ## 5.3 Set Navigation Goal
 
 1. Click the `Navigation2 Goal` button in the RViz2 menu.
+
+![](img/2d_nav_goal_button.png)
+
 2. Click on the map to set the destination of the robot and drag the green arrow toward the direction where the robot will be facing. 
   * This green arrow is a marker to can specify the destination of the robot.
   * The root of the arrow is the `x` , `y` coordinate of the destination, and the angle `θ` is determined by the orientation of the arrow.
