@@ -10,10 +10,10 @@
 ![](img/autorace_rbiz_challenge_2017_robots_1.png)
 
 
-# Autonomous Driving
+# 8. Autonomous Driving
 
 
-## Getting Started
+## 8.1 Getting Started
 
 > **NOTE**
 > - The Autorace package was developed for `Ubuntu 22.04` running `ROS 2 Humble Hawksbill` .
