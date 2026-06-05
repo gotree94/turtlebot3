@@ -10,65 +10,63 @@
 
 # Humble
 
+## 7.10 TurtleBot3 Home Service Challenge
 
-## TurtleBot3 Home Service Challenge
-
-**NOTE** :
-
-- This instructions were tested on `Ubuntu 22.04` and `ROS2 Humble Hawksbill` .
-- For more information, see [OpenMANIPULATOR e-Manual](https://emanual.robotis.com/docs/en/platform/openmanipulator/) and [[ROS 2] Turtlebot3 Manipulation](https://emanual.robotis.com/docs/en/platform/turtlebot3/manipulation)
+> **NOTE** :
+> - This instructions were tested on `Ubuntu 22.04` and `ROS2 Humble Hawksbill` .
+> - For more information, see [OpenMANIPULATOR e-Manual](https://emanual.robotis.com/docs/en/platform/openmanipulator/) and [[ROS 2] Turtlebot3 Manipulation](https://emanual.robotis.com/docs/en/platform/turtlebot3/manipulation)
 
 ![](img/hsc_stadium_2.png)
 
 > Home Service Challenge Stadium and Objects
 
+https://youtu.be/1rkN_F6ODo4?si=4erdIhSQrP17NejO
 
-### Getting Started
+### 7.10.1 Getting Started
 
-**NOTE** : Be sure to complete the following instructions before installing Home Service Challenge packages in the pc.
+> **NOTE** : Be sure to complete the following instructions before installing Home Service Challenge packages in the pc.
+> - [TurtleBot3 PC Set up](https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/#pc-setup)
+> - [TurtleBot3 SBC Set up](https://emanual.robotis.com/docs/en/platform/turtlebot3/sbc_setup/#sbc-setup)
+> - [TB3 & OpenMANIPULATOR-X](https://emanual.robotis.com/docs/en/platform/turtlebot3/manipulation/#software-setup) packages
+> **Prerequisites** :
+> - ROS 2 Humble installed Laptop or desktop PC.
+> - This instruction is based on Gazebo simulation.
 
-- [TurtleBot3 PC Set up](https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/#pc-setup)
-- [TurtleBot3 SBC Set up](https://emanual.robotis.com/docs/en/platform/turtlebot3/sbc_setup/#sbc-setup)
-- [TB3 & OpenMANIPULATOR-X](https://emanual.robotis.com/docs/en/platform/turtlebot3/manipulation/#software-setup) packages
-
-**Prerequisites** :
-
-- ROS 2 Humble installed Laptop or desktop PC.
-- This instruction is based on Gazebo simulation.
-
-**Remote PC Setup**  Install Home Service Challenge packages.  **[Remote PC]**
+**Remote PC Setup**  Install Home Service Challenge packages.  
+**[Remote PC]**
 
 ```
-$ 
-cd
- ~/turtlebot3_ws/src/
-
-$ 
-git clone 
--b
- humble https://github.com/ROBOTIS-GIT/turtlebot3_home_service_challenge.git
-
-$ 
-cd
- ~/turtlebot3_ws 
-&&
- colcon build 
---symlink-install
-
-
+$ cd ~/turtlebot3_ws/src/
+$ git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3_home_service_challenge.git
+$ cd ~/turtlebot3_ws && colcon build --symlink-install
 ```
 
 
-### Simulation
+### 7.10.2 Simulation
 
 Simulate TurtleBot3 with OpenMANIPULATOR-X in Gazebo.  **[Remote PC]**
 
-1. Run the Gazebo Simulation. $ros2 launch turtlebot3_manipulation_gazebo turtlebot3_home_service_challenge.launch.py
-2. Run a Nav2 for Gazebo and set `2D Pose Estimate` in Rviz. $ros2 launch turtlebot3_home_service_challenge_tools navigation2.launch.py
-3. Run the core package used to carry out Home Service Challenge’s mission. $ros2 launch turtlebot3_home_service_challenge_core core_node.launch.py NOTE: core_node contains nodes for ArUco marker detection, parking, and manipulator control, which core_node uses to perform scenario integration control. The core_node performs and controls the behavior in the scenario sequence. After running core_node, we can see the TF of the ArUco marker in rviz and we can run the scenario. SeeMissionsfor more detailed descriptions and to run the scenario.
+1. Run the Gazebo Simulation.
+```
+$ ros2 launch turtlebot3_manipulation_gazebo turtlebot3_home_service_challenge.launch.py
+```
+![](img/gazebo_simulation.png)
 
 
-### Actual robot
+2. Run a Nav2 for Gazebo and set `2D Pose Estimate` in Rviz.
+```
+$ ros2 launch turtlebot3_home_service_challenge_tools navigation2.launch.py
+```
+![](img/navigation2_rviz.png)
+
+3. Run the core package used to carry out Home Service Challenge’s mission. 
+```
+$ ros2 launch turtlebot3_home_service_challenge_core core_node.launch.py
+```
+> * NOTE: core_node contains nodes for ArUco marker detection, parking, and manipulator control, which core_node uses to perform scenario integration control. The core_node performs and controls the behavior in the scenario sequence. After running core_node, we can see the TF of the ArUco marker in rviz and we can run the scenario. SeeMissionsfor more detailed descriptions and to run the scenario.
+
+
+### 7.10.3 Actual robot
 
 **Ready for actual robot**
 
