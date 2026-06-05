@@ -87,7 +87,7 @@ $ sudo apt install ros-humble-nav2-bringup
 ```
 
 
-### TurtleBot3 패키지 설치
+### 3.1.4 TurtleBot3 패키지 설치
 
 필요한 TurtleBot3 패키지를 설치합니다.
 
@@ -107,7 +107,7 @@ $ echo 'source ~/turtlebot3_ws/install/setup.bash' >> ~/.bashrc
 $ source ~/.bashrc
 ```
 
-### 환경 설정
+### 3.1.5 환경 설정
 
 1. Remote PC의 ROS 환경을 설정합니다.  **[Remote PC]**
 
@@ -189,7 +189,7 @@ $ sudo apt install ros-jazzy-nav2-bringup
 ```
 
 
-### TurtleBot3 패키지 설치
+### 3.1.4 TurtleBot3 패키지 설치
 
 필요한 TurtleBot3 패키지를 설치합니다.
 
@@ -209,7 +209,7 @@ $ echo 'source ~/turtlebot3_ws/install/setup.bash' >> ~/.bashrc
 $ source ~/.bashrc
 ```
 
-### 환경 설정
+### 3.1.5 환경 설정
 
 1. Remote PC의 ROS 환경을 설정합니다.  **[Remote PC]**
 
