@@ -8,7 +8,6 @@
 3. [Noetic](#noetic)
 
 ---
-[TOC](#toc)
 # Humble
 
 ## 6.4 Fake Node Simulation
@@ -35,7 +34,6 @@ $ ros2 run turtlebot3_teleop teleop_keyboard
 
 
 ---
-[TOC)(#toc)
 # Jazzy
 
 ## 6.4 Fake Node Simulation
@@ -43,7 +41,6 @@ $ ros2 run turtlebot3_teleop teleop_keyboard
 > **NOTE** : This feature is available for Humble and Noetic.
 
 ---
-[TOC)(#toc)
 # Noetic
 
 ## 6.4 Fake Node Simulation
