@@ -678,8 +678,9 @@ $ roslaunch turtlebot3_manipulation_bringup turtlebot3_manipulation_bringup.laun
 ```
 
 #### 7.9.4.2 move_group 노드 실행
-    * move_group 노드는 OpenMANIPULATOR 제어를 위해 MoveIt!과 ROBOTIS GUI의 두 가지 인터페이스를 지원합니다. 취향에 따라 둘 중 하나를 선택하세요. 이 섹션에서는 GUI 컨트롤러만 소개합니다.
+* move_group 노드는 OpenMANIPULATOR 제어를 위해 MoveIt!과 ROBOTIS GUI의 두 가지 인터페이스를 지원합니다. 취향에 따라 둘 중 하나를 선택하세요. 이 섹션에서는 GUI 컨트롤러만 소개합니다.
 **[Remote PC]**
+
 ```
 $ roslaunch turtlebot3_manipulation_moveit_config move_group.launch
 ```
