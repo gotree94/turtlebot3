@@ -677,7 +677,6 @@ This method is suitable for Raspberry Pi cameras using the libcamera stack. It i
 
 1. Install Required Tools
 **[TurtleBot3 SBC]**
-
 ```
 $ sudo apt update
 $ sudo apt install -y python3-pip git python3-jinja2 \
@@ -695,30 +694,39 @@ $ sudo apt install ros-jazzy-camera-ros
 2. Clone libcamera Source
 This step clones the official Raspberry Pi fork of libcamera, which provides full compatibility and optimized support for Raspberry Pi camera modules.
 **[TurtleBot3 SBC]**
-
+```
 $ git clone -b v0.5.2 https://github.com/raspberrypi/libcamera.git
+```
+
 3. Build and Install libcamera
 This installs libcamera to /usr/local and makes it available system-wide.
 **[TurtleBot3 SBC]**
-
+```
 $ cd libcamera
 $ meson setup build --buildtype=release -Dpipelines=rpi/vc4,rpi/pisp -Dipas=rpi/vc4,rpi/pisp -Dv4l2=true -Dgstreamer=enabled -Dtest=false -Dlc-compliance=disabled -Dcam=disabled -Dqcam=disabled -Ddocumentation=disabled -Dpycamera=enabled
 $ ninja -C build -j 1
 $ sudo ninja -C build install -j 1
 $ sudo ldconfig
-After installation, add the installation path of the built libcamera to LD_LIBRARY_PATH so that it is used.
+```
 
+* After installation, add the installation path of the built libcamera to LD_LIBRARY_PATH so that it is used.
+```
 $ export LD_LIBRARY_PATH=/usr/local/lib/aarch64-linux-gnu:$LD_LIBRARY_PATH
+```
+
 4. Launch the Camera Node
 You can now launch the camera node using the provided launch file.
 **[TurtleBot3 SBC]**
-
+```
 $ ros2 launch turtlebot3_bringup camera.launch.py
+```
+
 5. View Camera Input
 You can verify that the camera node is publishing image data correctly using rqt_image_view, a GUI tool for displaying ROS 2 image topics.
 **[Remote PC]**
-
+```
 $ rqt_image_view
+```
  
  **Method 2. Using the v4l2-camera package**
 
@@ -726,22 +734,29 @@ This method is better suited for USB cameras and legacy Raspberry Pi camera setu
 
 1. Install ros-jazzy-v4l2-camera, raspi-config, ros-jazzy-image-transport-plugins, v4l-utils
 **[TurtleBot3 SBC]**
-
+```
 $ sudo apt-get install ros-jazzy-v4l2-camera raspi-config ros-jazzy-image-transport-plugins v4l-utils
-ros-jazzy-v4l2-camera: A package that publishes camera output as a topic.
-raspi-config: A tool for configuring camera device connections on Raspberry Pi.
-ros-jazzy-image-transport-plugins: Converts image_raw to compressed images for smoother transmission.
-v4l-utils: A utility that assists with connection.
+```
+
+* ros-jazzy-v4l2-camera: A package that publishes camera output as a topic.
+* raspi-config: A tool for configuring camera device connections on Raspberry Pi.
+* ros-jazzy-image-transport-plugins: Converts image_raw to compressed images for smoother transmission.
+* v4l-utils: A utility that assists with connection.
 
 2. Run raspi-config
-v4l2-camera package uses the legacy driver. So we must configure the use of the legacy driver. If this step is completed, the camera node of the camera-ros package will no longer be able to detect the camera. To use the camera-ros package after this step, you must disable the legacy driver again.
+* `v4l2-camera` package uses the legacy driver. So we must configure the use of the legacy driver. If this step is completed, the camera node of the camera-ros package will no longer be able to detect the camera. To use the camera-ros package after this step, you must disable the legacy driver again.
 **[TurtleBot3 SBC]**
-
+```
 $ sudo raspi-config
-Select Interface Options.
+```
+
+Select `Interface Options`.
+
+![](img/rpi_config1.png)
 
 Select I1 and set enable legacy camera support. This allows the use of the legacy driver, bcm2835 MMAL. Then, reboot the system to apply the changes.
 
+![](img/rpi_config2.png)
 
 3. You can check camera_name by this command.
 **[TurtleBot3 SBC]**
@@ -749,17 +764,20 @@ Select I1 and set enable legacy camera support. This allows the use of the legac
 $ v4l2-ctl --list-devices
 In this case, camera name is mmal_service_16.1.
 
+![](img/camera_name.png)
 
 4. Run v4l2_camera_node
 **[TurtleBot3 SBC]**
-
+```
 $ ros2 run v4l2_camera v4l2_camera_node
+```
+
 5. View Camera Input
 You can verify that the camera node is publishing image data correctly using rqt_image_view, a GUI tool for displaying ROS 2 image topics.
 **[Remote PC]**
-
+```
 $ rqt_image_view
-
+```
 
 > **NOTE**  To optimize camera data transmission speed, try the following methods.
 > - Use/camera/image_raw/compressedSubscribing directly to the/camera/image_rawtopic can cause significant latency if the network is slow or bandwidth is limited. You can select/camera/image_raw/compressedinrqt_image_view.
