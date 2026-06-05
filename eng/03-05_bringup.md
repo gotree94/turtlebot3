@@ -21,13 +21,13 @@
 
 1. Open a new terminal on the remote PC with `Ctrl` + `Alt` + `T` and connect to the Raspberry Pi via SSH using its IP address.  Enter your `password` of Ubuntu OS in `Raspberry pi` .  
 **[Remote PC]** 
-```
+```bash
 $ ssh ubuntu@{IP_ADDRESS_OF_RASPBERRY_PI}
 ```
 
 2. Bring up basic packages to start essential TurtleBot3 applications. You will need to specify your specific TurtleBot3 model.  
 **[TurtleBot3 SBC]**
-```
+```bash
 $ export TURTLEBOT3_MODEL=burger
 $ ros2 launch turtlebot3_bringup robot.launch.py
 ```
@@ -35,7 +35,7 @@ $ ros2 launch turtlebot3_bringup robot.launch.py
 3. When the TURTLEBOT3_MODEL is set to `burger` , the terminal output will look like the output below:  
 **[TurtleBot3 SBC]** 
 
-```
+```bash
 $ export TURTLEBOT3_MODEL=burger
 $ ros2 launch turtlebot3_bringup robot.launch.py
 [INFO] [launch]: All log files can be found below /home/ubuntu/.ros/log/2019-08-19-01-24-19-009803-ubuntu-15310
@@ -92,12 +92,12 @@ urdf_file_name : turtlebot3_burger.urdf
   
   1. Check that theRemote PCandTurtleBot3 SBChave the same ROS_DOMAIN_ID. They must have the same ROS_DOMAIN_ID.
     **[Remote PC],[TurtleBot3 SBC]**
-```
+```bash
 export ROS_DOMAIN_ID=30  
 ```
   2. Check that theRemote PCandTurtleBot3 SBChave the same RMW(ROS Middleware) implementation.
     **[Remote PC],[TurtleBot3 SBC]**
-```
+```bash
  export RMW_IMPLEMENTATION=rmw_fastrtps_cpp  
 ```
    3. Check that your wifi router supportsmulti cast. If it does, configure your router to permitmulti cast.
@@ -105,7 +105,7 @@ export ROS_DOMAIN_ID=30
 5. The List of topics and services may vary depending on your installed ROS package version. 
    * Topic list
    * $ros2 topic list
-```
+```bash
 $ ros2 topic list
 /battery_state
 /cmd_vel
@@ -123,7 +123,7 @@ $ ros2 topic list
 ```
 
 * Service list
-```
+```bash
 $ ros2 service list
 /diff_drive_controller/describe_parameters
 /diff_drive_controller/get_parameter_types
@@ -159,7 +159,7 @@ $ ros2 service list
 # 3.5.2 Load TurtleBot3 on Rviz
    1. Make bring up the TurtleBot3
    2. Open a new terminal and enter the below command to launch RViz.
-```
+```bash
 $ ros2 launch turtlebot3_bringup rviz2.launch.py  
 ```
 ![](img/run_rviz.jpg)
