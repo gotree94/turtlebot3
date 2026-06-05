@@ -485,7 +485,7 @@ After creating a complete map of desired area, save the map data to the local dr
 1. Launch the **map_saver_cli** node in the nav2_map_server package to create map files.  The map file is saved in the directory where the map_saver_cli node is launched at.  Unless a specific file name is provided, `map` will be used as a default file name and create `map.pgm` and `map.yaml` .  
 **[Remote PC]** 
 ```
-$ ros2 run nav2_map_server map_saver_cli -f ~/map
+$ rosrun map_server map_saver -f ~/map
 ```
 
 The `-f` option specifies a folder location and a file name where files to be saved.  With the above command, `map.pgm` and `map.yaml` will be saved in the home folder `~/` (/home/${username}).
@@ -500,4 +500,3 @@ This map is used for the [Navigation](https://emanual.robotis.com/docs/en/platfo
 
 The figure below shows the result of creating a large map using TurtleBot3. It took about an hour to create a map with a travel distance of about 350 meters.
 
-![](img/large_map.png)
