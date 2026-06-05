@@ -943,16 +943,16 @@ $ ifconfig
 $ nano ~/.bashrc  
 ```
 
-4. Find the `ROS_MASTER_URI` and `ROS_HOSTNAME` setting section, then modify the IP addresses to the correct addresses for your devices. 
+3. Find the `ROS_MASTER_URI` and `ROS_HOSTNAME` setting section, then modify the IP addresses to the correct addresses for your devices. 
 **[Turtlebot3 SBC]**
 ```
 export ROS_MASTER_URI=http://{IP_ADDRESS_OF_REMOTE_PC}:11311  
 export ROS_HOSTNAME={IP_ADDRESS_OF_RASPBERRY_PI_3}  
 ```
 
-5. Save the file withCtrl+Sand exit the nano editor withCtrl+X.
+4. Save the file withCtrl+Sand exit the nano editor withCtrl+X.
 
-6. Apply changes with the command below.  
+5. Apply changes with the command below.  
 **[Turtlebot3 SBC]**
 ```
 $ source ~/.bashrc 
