@@ -333,7 +333,7 @@ room_1:
   * File Path : /turtlebot3_home_service_challenge_manager/config/config.yaml
 
 
-#### Details about the Home Service Mission
+#### 7.10.3.5 Details about the Home Service Mission
 
 The goal of the Home Service Challenge is to move four different objects from a living room to a specific place with given rules, and to return to the starting point.
 
