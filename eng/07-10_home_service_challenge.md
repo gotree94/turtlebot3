@@ -81,15 +81,16 @@ $ ros2 launch turtlebot3_home_service_challenge_core core_node.launch.py
 3. Run a Nav2 and set 2D Pose Estimate in Rviz. If you want to use a custom map, run it with the launch argument.  **[Remote PC]** $ros2 launch turtlebot3_home_service_challenge_tools navigation2.launch.py map_yaml_file:=$HOME/map.yaml
 4. Run the core package used to carry out Home Service Challenge’s mission. Specify the launch mode and ArUco marker size with the launch argument.  **[Remote PC]** $ros2 launch turtlebot3_home_service_challenge_core core_node.launch.py launch_mode:='actual'marker_size:=0.04
 
-**Arguments**  `launch_mode`
-
+**Arguments**  
+`launch_mode`
 - default: simulation
 - describtion: Select whether you want to run the Home Service Challenge as a simulation or as an actual robot.
 
 `marker_size`
-
 - default: 0.088
-- describtion: Specifies the size of the ArUco markers used in the custom map. NOTE: core_node contains nodes for ArUco marker detection, parking, and manipulator control, which core_node uses to perform scenario integration control. The core_node performs and controls the behavior in the scenario sequence. After running core_node, we can see the TF of the ArUco marker in rviz and we can run the scenario. SeeMissionsfor more detailed descriptions and to run the scenario.
+- describtion: Specifies the size of the ArUco markers used in the custom map.
+
+> NOTE: core_node contains nodes for ArUco marker detection, parking, and manipulator control, which core_node uses to perform scenario integration control. The core_node performs and controls the behavior in the scenario sequence. After running core_node, we can see the TF of the ArUco marker in rviz and we can run the scenario. SeeMissionsfor more detailed descriptions and to run the scenario.
 
 
 ### 7.10.4 Missions
@@ -97,47 +98,57 @@ $ ros2 launch turtlebot3_home_service_challenge_core core_node.launch.py
 
 #### 7.10.4.1 Commands
 
-Use the following commands during Home Service Challenge.  **[Remote PC]**  **Individual actions**
+Use the following commands during Home Service Challenge.  
+**[Remote PC]**  
+**Individual actions**
 
-- Park in front of the ArUco marker: Put the marker’s ID for integer to `$MARKER_ID` . $ros2 topic pub-1/target_marker_id std_msgs/msg/Int32"{data:$MARKER_ID}" NOTE: When using this command, be sure to include one of the ArUco marker’s ID from ascenario.yamlfile. In the provided map, IDs 0 through 7 exist. For detailed information on the scenario, seeConfigurationdescription below at this section.
-- Control Manipulator : Use the Manipulator to pick up or place objects. $ros2 topic pub-1/manipulator_control std_msgs/msg/String"{data: 'pick_target'}"$ros2 topic pub-1/manipulator_control std_msgs/msg/String"{data: 'place_target'}"
+- Park in front of the ArUco marker: Put the marker’s ID for integer to `$MARKER_ID` . 
+```
+$  ros2 topic pub -1 /manipulator_control std_msgs/msg/String "{data: 'pick_target'}"
+$  ros2 topic pub -1 /manipulator_control std_msgs/msg/String "{data: 'place_target'}"
+```
+
+> NOTE: When using this command, be sure to include one of the ArUco marker’s ID from ascenario.yamlfile. In the provided map, IDs 0 through 7 exist. For detailed information on the scenario, seeConfigurationdescription below at this section.
+
+* Control Manipulator : Use the Manipulator to pick up or place objects. $ros2 topic pub-1/manipulator_control std_msgs/msg/String"{data: 'pick_target'}"$ros2 topic pub-1/manipulator_control std_msgs/msg/String"{data: 'place_target'}"
 
 **Run scenario**  TurtleBot3 will perform **individual actions** for `$SCENARIO_NAME` based on the scenario written.
 
 ```
-$ 
-ros2 topic pub 
--1
- /scenario_selection std_msgs/msg/String 
-"{data: '
-$SCENARIO_NAME
-'}"
-
-
+$ ros2 topic pub -1 /scenario_selection std_msgs/msg/String "{data: '$SCENARIO_NAME'}"
 ```
 
-**NOTE** : When using this command, be sure to include one of the scenario name from a `scenario.yaml` file. The provided scenario file contains `room1` through `room4` . For detailed information on the scenario, see [Details](https://emanual.robotis.com/docs/en/platform/turtlebot3/home_service_challenge#details-about-the-home-service-mission) description below at this section.
+> **NOTE** : When using this command, be sure to include one of the scenario name from a `scenario.yaml` file. The provided scenario file contains `room1` through `room4` . For detailed information on the scenario, see [Details](https://emanual.robotis.com/docs/en/platform/turtlebot3/home_service_challenge#details-about-the-home-service-mission) description below at this section.
 
 
 #### 7.10.4.2 Configuration
 
-Modify data in configuration files according to the given environment.  **[Remote PC]**
+Modify data in configuration files according to the given environment.
+**[Remote PC]**
 
-- `scenario.yaml` : This file contains a scenario’s data. In the simulation, there are initially markers on the front of the TurtleBot with ID 0 through 3, which are assigned as target_marker_id. And in each room, there are markers with ID 4 through 7. File Path :/turtlebot3_home_service_challenge/turtlebot3_home_service_challenge_core/config/scenario.yamlScriptscenario:room1:# SCENARIO_NAMEtarget_marker_id:0# ArUco Marker's IDgoal_pose:[0.9,0.5,0.0,0.0,0.0,0.7071,0.7071]# The coordinates and orientation of the room where the goal marker is located.goal_marker_id:4# ArUco Marker's IDend_pose:[0.0,0.0,0.0,0.0,0.0,0.0,1.0]# Coordinates and orientation of the location to return to.
-  - File Path : **/turtlebot3_home_service_challenge/turtlebot3_home_service_challenge_core/config/scenario.yaml**
-  - Script scenario:room1:# SCENARIO_NAMEtarget_marker_id:0# ArUco Marker's IDgoal_pose:[0.9,0.5,0.0,0.0,0.0,0.7071,0.7071]# The coordinates and orientation of the room where the goal marker is located.goal_marker_id:4# ArUco Marker's IDend_pose:[0.0,0.0,0.0,0.0,0.0,0.0,1.0]# Coordinates and orientation of the location to return to.
-- `turtlebot3_hsc_manipulation.srdf` : This configuration file contains manipulator’s position data. By changing the joint values or adding new `group_state` , you can specify the tmanipulator’s pose. File Path :/turtlebot3_home_service_challenge/turtlebot3_home_service_challenge_tools/config/turtlebot3_hsc_manipulation.srdfScript<group_statename="target"group="arm"><jointname="joint1"value="0"/>
-    <jointname="joint2"value="0.9076"/>
-    <jointname="joint3"value="-0.9425"/>
-    <jointname="joint4"value="0.0873"/>
-</group_state>
-  - File Path : **/turtlebot3_home_service_challenge/turtlebot3_home_service_challenge_tools/config/turtlebot3_hsc_manipulation.srdf**
-  - Script <group_statename="target"group="arm"><jointname="joint1"value="0"/>
-    <jointname="joint2"value="0.9076"/>
-    <jointname="joint3"value="-0.9425"/>
-    <jointname="joint4"value="0.0873"/>
-</group_state>
+* `scenario.yaml` : This file contains a scenario’s data. In the simulation, there are initially markers on the front of the TurtleBot with ID 0 through 3, which are assigned as target_marker_id. And in each room, there are markers with ID 4 through 7.
+  * File Path : /turtlebot3_home_service_challenge/turtlebot3_home_service_challenge_core/config/scenario.yaml
+  * Script
+```
+scenario:
+  room1:  # SCENARIO_NAME
+    target_marker_id: 0  # ArUco Marker's ID
+    goal_pose: [0.9, 0.5, 0.0, 0.0, 0.0, 0.7071, 0.7071]  # The coordinates and orientation of the room where the goal marker is located.
+    goal_marker_id: 4  # ArUco Marker's ID
+    end_pose: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]  # Coordinates and orientation of the location to return to.
+```
 
+* `turtlebot3_hsc_manipulation.srdf` : This configuration file contains manipulator’s position data. By changing the joint values or adding new `group_state`, you can specify the tmanipulator’s pose.
+   * File Path : /turtlebot3_home_service_challenge/turtlebot3_home_service_challenge_tools/config/turtlebot3_hsc_manipulation.srdf
+   * Script
+```
+<group_state name="target" group="arm">
+    <joint name="joint1" value="0"/>
+    <joint name="joint2" value="0.9076"/>
+    <joint name="joint3" value="-0.9425"/>
+    <joint name="joint4" value="0.0873"/>
+</group_state>
+```
 
 #### 7.10.4.3 Details about the Home Service Mission
 
@@ -146,12 +157,22 @@ The goal of the Home Service Challenge is to move four different objects from a 
 Using the demo package, the process of moving objects in Home Service Challenge is as follows.
 
 1. Approaching the target. For the approach to the target with precise, TurtleBot3 wheels are directly controlled by computing target’s location from AR marker. (Used Topic :/target_maker_id,/cmd_vel) Try twice for reliable performance.
+
+![](img/demo1.png)
+
 2. Picking the target with OpenMANIPULATOR-X’s gripper. Use the MoveIt package to perform joint space control, workspace control, and gripper control to pick the target object. (Used Topic :/manipulator_control) MoveIt Diagram
+manipulation_diagram.png
+
 3. Navigating to the next room where the object will be placed.
 -Reach the next room saved in a yaml file using the Nav2 package.
-4. Approaching the target.
-5. Placing the object using the gripper.
-6. Returning to the starting point using the Nav2 package.
+
+![](img/demo2.png)
+
+5. Approaching the target.
+6. Placing the object using the gripper.
+7. Returning to the starting point using the Nav2 package.
+
+![](img/demo3.png)
 
 ---
 [TOC](#toc)
