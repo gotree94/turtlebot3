@@ -211,13 +211,27 @@ https://youtu.be/lnLHSz7mGIA?si=-Tz5UwLntrFPc3mP
 
 #### 7.10.1.2 Remote PC Setup
 
-1. **[Remote PC]** Install Home Service Challenge packages. $cd~/catkin_ws/src/$git clone-bnoetic https://github.com/ROBOTIS-GIT/turtlebot3_home_service_challenge.git$git clone-bnoetic-devel https://github.com/machinekoder/ar_track_alvar$cd~/catkin_ws&&catkin_make
-2. **[Remote PC]** Load the TurtleBot3 Waffle (or Waffle Pi) with OpenMANIPULATOR on RViz. $exportTURTLEBOT3_MODEL=${TB3_MODEL}$roslaunch turtlebot3_manipulation_description turtlebot3_manipulation_view.launch use_gui:=true NOTE: Specify${TB3_MODEL}:waffle,waffle_pibefore excuting the command. Set the permanent export setting by followingExport TURTLEBOT3_MODELinstruction. Rviz View. Specify ${TB3_MODEL} : waffle_pi
+1. **[Remote PC]** Install Home Service Challenge packages.
+```
+$ cd ~/catkin_ws/src/
+$ git clone -b noetic https://github.com/ROBOTIS-GIT/turtlebot3_home_service_challenge.git
+$ git clone -b noetic-devel https://github.com/machinekoder/ar_track_alvar
+$ cd ~/catkin_ws && catkin_make
+```
 
+2. **[Remote PC]** Load the TurtleBot3 Waffle (or Waffle Pi) with OpenMANIPULATOR on RViz.
+```
+$ export TURTLEBOT3_MODEL=${TB3_MODEL}
+$ roslaunch turtlebot3_manipulation_description turtlebot3_manipulation_view.launch use_gui:=true
+```
+
+> NOTE: Specify ${TB3_MODEL}: waffle, waffle_pi before excuting the command. Set the permanent export setting by following Export TURTLEBOT3_MODEL instruction.
+
+![](img/TurtleBot3_with_Open_Manipulator.png)
 
 ### 7.10.2 Ready for actual robots
 
-**NOTE** : Actual robots are supported starting with ROS 2 Humble.
+> **NOTE** : Actual robots are supported starting with ROS 2 Humble.
 
 
 ### 7.10.3 Missions
@@ -225,19 +239,48 @@ https://youtu.be/lnLHSz7mGIA?si=-Tz5UwLntrFPc3mP
 
 #### 7.10.3.1 Run a Demo and Manager Pacakge
 
-1. **[Remote PC]** Run the Gazebo Simulation. $roslaunch turtlebot3_home_service_challenge_simulation competition.launch
-2. **[Remote PC]** Run a simulation demo for Gazebo. $roslaunch turtlebot3_home_service_challenge_tools turtlebot3_home_service_challenge_demo_simulation.launch
-3. **[Remote PC]** Run the manager package used to carry out Home Service Challenge’s mission. $roslaunch turtlebot3_home_service_challenge_manager manager.launch
+1. **[Remote PC]** Run the Gazebo Simulation. 
+```
+$ roslaunch turtlebot3_home_service_challenge_simulation competition.launch
+```
+
+2. **[Remote PC]** Run a simulation demo for Gazebo. 
+```
+$ roslaunch turtlebot3_home_service_challenge_tools turtlebot3_home_service_challenge_demo_simulation.launch
+```
+![](imgsimulation_rviz.png)
+
+3. **[Remote PC]** Run the manager package used to carry out Home Service Challenge’s mission.
+```
+$ roslaunch turtlebot3_home_service_challenge_manager manager.launch
+```
 
 
 #### 7.10.3.2 Commands
 
 **[Remote PC]** Use the following commands during Home Service Challenge.
 
-- **Ready** : TurtleBot3 will prepare to start a mission. $rostopic pub-1/tb3_hsc/command std_msgs/String ready_mission
-- **Start** : TurtleBot3 will start a mission. $rostopic pub-1/tb3_hsc/command std_msgs/String start_mission
-- **Stop** : TurtleBot3 will stop running a mission. $rostopic pub-1/tb3_hsc/command std_msgs/String stop_mission
-- **Restart** : TurtleBot3 will restart a mission by a given scenario. $rostopic pub-1/tb3_hsc/command std_msgs/String restart_mission:SCENARIO_NAME NOTE: When using this command, be sure to include one of the senario name from ascenario.yamlfile. For detailed information on the scenario, seeConfigurationdescription below at this section.
+- **Ready** : TurtleBot3 will prepare to start a mission. 
+```
+$ rostopic pub -1 /tb3_hsc/command std_msgs/String ready_mission
+```
+
+- **Start** : TurtleBot3 will start a mission.
+```
+$ rostopic pub -1 /tb3_hsc/command std_msgs/String start_mission
+```
+
+- **Stop** : TurtleBot3 will stop running a mission.
+```
+$ rostopic pub -1 /tb3_hsc/command std_msgs/String stop_mission
+```
+
+- **Restart** : TurtleBot3 will restart a mission by a given scenario. 
+```
+$ rostopic pub -1 /tb3_hsc/command std_msgs/String restart_mission:SCENARIO_NAME
+```
+
+> NOTE: When using this command, be sure to include one of the senario name from ascenario.yamlfile. For detailed information on the scenario, seeConfigurationdescription below at this section.
 
 
 #### 7.10.3.3 Operation Test
@@ -364,8 +407,6 @@ Using the demo package, the process of moving objects in Home Service Challenge 
 8. Returning to the starting point using the navigation package.
 
 ![](img/demo_4.PNG)
-
-
 
 
 ### 7.10.4 Simulation
