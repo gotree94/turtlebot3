@@ -459,35 +459,86 @@ $ rpi-imager
 ```
 
 
-### Install Ubuntu 24.04
+### 3.2.3 Install Ubuntu 24.04
 
 1. Run Raspberry Pi Imager
 2. Click `CHOOSE OS` .
 3. Select `Other gerneral-purpose OS` .
 4. Select `Ubuntu` .
-5. Select `Ubuntu Server 24.04.2 LTS (64-bit)` that support RPi 3/4/400.  (Choose Server OS, not desktop OS)  ![](img/sbc_setup_jazzy.png)
+5. Select `Ubuntu Server 24.04.2 LTS (64-bit)` that support RPi 3/4/400.  (Choose Server OS, not desktop OS) <br>
+![](img/sbc_setup_jazzy.png)
 6. Click `CHOOSE STORAGE` and select the micro SD card.
 7. Click `Next` to install Ubuntu.
-8. Click `Edit Setting` for wifi and ssh setting.  ![](img/sbc_config_set.png)
-9. Set `username and password` , `Configure wireless LAN` , `Wireless LAN country` . And activate `Enable SSH` with `Use password authenication` in SERVIES tab.  ![](img/sbc_config_set2.png) ![](img/sbc_config_set3.png)
+8. Click `Edit Setting` for wifi and ssh setting.  <br>
+![](img/sbc_config_set.png)
+9. Set `username and password` , `Configure wireless LAN` , `Wireless LAN country` . And activate `Enable SSH` with `Use password authenication` in SERVIES tab.  <br>
+![](img/sbc_config_set2.png) ![](img/sbc_config_set3.png)
 10. By completing this configuring setup process, the following Wi-Fi configuration steps (up to step 4) can be skipped.
 
 
-### Configure the Raspberry Pi
+### 3.2.4 Configure the Raspberry Pi
 
-The HDMI cable must be connected before powering on the Raspberry Pi, or the HDMI port of the Raspberry Pi will be disabled.
+> The HDMI cable must be connected before powering on the Raspberry Pi, or the HDMI port of the Raspberry Pi will be disabled.
 
-1. Boot Up the Raspberry Pi*More information about where to connect HDMI, power and input devices is available herea. Connect the HDMI cable to the HDMI port of Raspberry Pi.b. Connect input devices (generally keyboard) to the USB port of the Raspberry Pi.c. Insert the microSD card into Raspberry Pi.d. Connect the power (either USB or OpenCR) to turn on the Raspberry Pi.e. Login with IDubuntuand PASSWORDubuntu. Once logged in, you’ll be asked to change the password.
-2. Open the network configuration file with the command below.  **[TurtleBot3 SBC]** $sudonano /etc/netplan/50-cloud-init.yaml
-3. Edit the content to match the image below while replacingWIFI_SSIDandWIFI_PASSWORDwith your actual wifi SSID and password.
-4. Save the file withCtrl+Sand exit withCtrl+X.
-5. Enter the command below to edit the automatic update settings file.  **[TurtleBot3 SBC]** $sudonano /etc/apt/apt.conf.d/20auto-upgrades
-6. Change the update settings to match those below.  **[TurtleBot3 SBC]** APT::Periodic::Update-Package-Lists"0";APT::Periodic::Unattended-Upgrade"0";
+1. Boot Up the Raspberry Pi
+  * [More information about where to connect HDMI, power and input devices is available here](https://www.raspberrypi.com/documentation/computers/getting-started.html)
+     * a. Connect the HDMI cable to the HDMI port of Raspberry Pi.
+     * b. Connect input devices (generally keyboard) to the USB port of the Raspberry Pi.
+     * c. Insert the microSD card into Raspberry Pi.
+     * d. Connect the power (either USB or OpenCR) to turn on the Raspberry Pi.
+     * e. Login with ID `ubuntu` and PASSWORD `ubuntu`. Once logged in, you’ll be asked to change the password.
+
+![](img/sbc_setup3.png)
+
+2. Open the network configuration file with the command below.  
+**[TurtleBot3 SBC]** 
+```
+$sudonano /etc/netplan/50-cloud-init.yaml
+```
+
+3. Edit the content to match the image below while replacing `WIFI_SSID` and `WIFI_PASSWORD` with your actual wifi SSID and password.
+![](img/ros2_sbc_netcfg.png)
+
+4. Save the file with `Ctrl+S` and exit with `Ctrl+X`.
+
+5. Enter the command below to edit the automatic update settings file.  
+**[TurtleBot3 SBC]**
+```
+$sudonano /etc/apt/apt.conf.d/20auto-upgrades
+```
+
+6. Change the update settings to match those below.  
+**[TurtleBot3 SBC]**
+```
+APT::Periodic::Update-Package-Lists"0";
+APT::Periodic::Unattended-Upgrade"0";
+```
+
 7. Save the file withCtrl+Sand exit withCtrl+X.
-8. Set `systemd` to prevent boot-up delay even if there is no network at startup. Run the command below to set mask for the `systemd` process using the following command.  **[TurtleBot3 SBC]** $systemctl mask systemd-networkd-wait-online.service
-9. Disable Suspend and Hibernation  **[TurtleBot3 SBC]** $sudosystemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
-10. Reboot the Raspberry Pi.  **[TurtleBot3 SBC]** $sudoreboot
-11. After rebooting the Raspberry Pi, if you wish to work from a Remote PC using SSH, use the command below from the remote PC terminal. Make sure to use the password you set in `Step 1` .  **[Remote PC]** $ssh ubuntu@{IP Address of Raspberry PI}
+
+8. Set `systemd` to prevent boot-up delay even if there is no network at startup. Run the command below to set mask for the `systemd` process using the following command.  
+**[TurtleBot3 SBC]**
+```
+$systemctl mask systemd-networkd-wait-online.service
+```
+
+9. Disable Suspend and Hibernation  
+**[TurtleBot3 SBC]**
+```
+$sudosystemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+```
+
+10. Reboot the Raspberry Pi.  
+**[TurtleBot3 SBC]**
+```
+$sudoreboot
+```
+
+11. After rebooting the Raspberry Pi, if you wish to work from a Remote PC using SSH, use the command below from the remote PC terminal. Make sure to use the password you set in `Step 1` .  
+**[Remote PC]**
+```
+$ssh ubuntu@{IP Address of Raspberry PI}
+```
 
 
 ## Install packages on Raspberry PI
