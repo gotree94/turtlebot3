@@ -81,19 +81,17 @@ $rqt
 ```
 ![](img/rqt_1.png)
 
-2. When the topic monitor is loaded, the topic values are not monitored by default. Click the checkbox next to each topic to monitor the topic.
+2. When the topic monitor is loaded, the topic values are not monitored by default. Click the checkbox next to each topic to monitor the topic.  <br>
 ![](img/rqt_2.png)
-
-3. To see more detailed topic messages, click the `▶` icon next to the checkbox.  ![](img/rqt_3.png)
+3. To see more detailed topic messages, click the `▶` icon next to the checkbox.  <br>
 ![](img/rqt_3.png)
-
-- /battery_stateindicates a message relating to the battery condition, such as the current battery voltage and remaining capacity.
+- /battery_stateindicates a message relating to the battery condition, such as the current battery voltage and remaining capacity.  <br>
 ![](img/rqt_4.png)
-- /odomindicates a message containing the odometry of the TurtleBot3. This topic has orientation and position encoder data.
+- /odomindicates a message containing the odometry of the TurtleBot3. This topic has orientation and position encoder data.  <br>
 ![](img/rqt_5.png)
-- /sensor_stateindicates a message containing encoder values, battery and torque status.
+- /sensor_stateindicates a message containing encoder values, battery and torque status.  <br>
 ![](img/rqt_6.png)
-- /scanindicates a message containing LDS data, such as angle_max and min, and range_max and min.
+- /scanindicates a message containing LDS data, such as angle_max and min, and range_max and min.  <br>
 ![](img/rqt_7.png)
 
 
