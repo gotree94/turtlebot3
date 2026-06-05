@@ -822,12 +822,11 @@ If your PC do not have a microSD slot, use a microSD card reader to burn the req
 
 > Download the correct image file for your hardware and ROS version.  Noetic version images are created based on Ubuntu 20.04.
 > [DownloadRaspberry Pi 3B+ROS Noetic image](https://www.robotis.com/service/download.php?no=2008)
-
-**SHA256** : a7c57e20f2ee4204c95315866f4a274886094f7c63ed390b6d06d95074830309
+> **SHA256** : a7c57e20f2ee4204c95315866f4a274886094f7c63ed390b6d06d95074830309
 
 > [DownloadRaspberry Pi 4B (2GB or 4GB)ROS Noetic image](https://www.robotis.com/service/download.php?no=2066)
 > **SHA256** : 9d48925a78381885916a6f3bb77891adbfae2b271b05fe2ae9a9b7ebd12c46cc
-- Please note that this image may not compatible with the Raspberry Pi 4B with 8GB RAM.
+> - Please note that this image may not compatible with the Raspberry Pi 4B with 8GB RAM.
 
 > Recovery image files may be modified without any prior notice.
 
@@ -937,13 +936,14 @@ The TurtleBot3 LDS has been updated to LDS-02 since 2022 models.  Please follow 
 
 Please be aware that this manual setup takes a lot more time than burning the recovery image file, but allows flexible choice of package installation. This instruction is not recommended for beginners.
 
-1. Download the proper Ubuntu 20.04.1(Focal) Preinstalled Server image on your PC.
-   * Ubuntu 20.04.1(Focal) Preinstalled Server for Raspberry Pi3(arm64)
+1. Download the proper `Ubuntu 20.04.1(Focal) Preinstalled Server` image on your PC.
+   * [Ubuntu 20.04.1(Focal) Preinstalled Server for Raspberry Pi3(arm64)](http://cdimage.ubuntu.com/ubuntu-server/focal/daily-preinstalled/current/)
+
 2. Extract the downloaded file.
 
 ![](img/rpi_imager.gif)
 
-3. Burn the .img file to the microSD card. 
+3. Burn the `.img` file to the microSD card. 
 
 4. Boot Up the Raspberry Pi
    a. Connect the HDMI cable of the monitor to the HDMI port of Raspberry Pi.
@@ -952,7 +952,7 @@ Please be aware that this manual setup takes a lot more time than burning the re
    d. Connect the power (either with USB or OpenCR) to turn on the Raspberry Pi.
 
 5. Configure the Raspberry Pi
-  a. Log in with the default username (ubuntu) and password (ubuntu). After logging in, system will ask you to change the password.
+  a. Log in with the default username (`ubuntu`) and password (`ubuntu`). After logging in, system will ask you to change the password.
   b. Open the automatic update settings file.
 
 ```
@@ -972,11 +972,11 @@ $ sudoedit /etc/netplan/50-cloud-init.yaml
 ```
 
 8. When the editor is opened, append below contents at the end of the file.
-  * Replace the WIFI_SSID and WIFI_PASSWORD with your wifi SSID and password.
+  * Replace the `WIFI_SSID` and `WIFI_PASSWORD` with your wifi SSID and password.
 
 ![](img/ros2_sbc_netcfg.png)
 
-Save the file with Ctrl+S and exit with Ctrl+X.
+Save the file with `Ctrl+S` and exit with `Ctrl+X`.
 
 9. Reboot the Raspberry Pi.
 ```
@@ -998,7 +998,7 @@ $ ssh ubuntu@{IP Address of Raspberry PI}
 ```
 
 13. Install ROS Noetic Ninjemys Enter the below commands to the terminal one at a time.
-  * In order to check the details of the easy installation script, please refer to the script file.
+  * In order to check the details of the easy installation script, please refer to [the script file](https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/install_ros_noetic_rpi.sh).
 ```
 $ sudo apt-get update
 $ sudo apt-get upgrade
@@ -1006,7 +1006,7 @@ $ wget https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/instal
 $ chmod 755 ./install_ros_noetic_rpi.sh
 $ bash ./install_ros_noetic_rpi.sh
 ```
-   * If the above installation fails, please refer to the official ROS Noetic installation guide.
+   * If the above installation fails, please refer to [the official ROS Noetic installation guide](http://wiki.ros.org/noetic/Installation/Ubuntu).
 
 14. Install and Build ROS Packages.
 ```
@@ -1023,25 +1023,26 @@ $ catkin_make -j1
 $ source ~/.bashrc
 ```
 
-14. USB Port Settings
+15. USB Port Settings
 ```
 $ rosrun turtlebot3_bringup create_udev_rules
 ```
 
-15. ROS Network Configuration Confirm the WiFi IP address and edit the .bashrc file
+16. ROS Network Configuration Confirm the WiFi IP address and edit the .bashrc file
 ```
 $ nano ~/.bashrc
 ```
 
-Modify the IP addresses of ROS_MASTER_URI and ROS_HOSTNAME.
+17. Modify the IP addresses of ROS_MASTER_URI and ROS_HOSTNAME.
 ```
 export ROS_MASTER_URI=http://{IP_ADDRESS_OF_REMOTE_PC}:11311
 export ROS_HOSTNAME={IP_ADDRESS_OF_RASPBERRY_PI_3}
 ```
-Save the file and exit the nano editor.
 
-LDS Configuration The TurtleBot3 LDS has been updated include the LDS-02 since 2022.
-Please follow the instructions below on the SBC (Raspberry Pi) of the TurtleBot3 to configure the LDS.
+18.Save the file and exit the nano editor.
+
+19. LDS Configuration The TurtleBot3 LDS has been updated include the LDS-02 since 2022.
+* Please follow the instructions below on the SBC (Raspberry Pi) of the TurtleBot3 to configure the LDS.
 ```
 $ sudo apt update
 $ sudo apt install libudev-dev
@@ -1049,20 +1050,19 @@ $ cd ~/catkin_ws/src
 $ git clone -b noetic https://github.com/ROBOTIS-GIT/ld08_driver.git
 $ cd ~/catkin_ws && catkin_make
 ```
-Export the LDS_MODEL in the bashrc file. Depending on your LDS model, use LDS-01 or LDS-02.
+
+20. Export the LDS_MODEL in the bashrc file. Depending on your LDS model, use LDS-01 or LDS-02.
 ```
 $ echo 'export LDS_MODEL=LDS-01' >> ~/.bashrc
 $ source ~/.bashrc
 ```
-Apply changes with the command below.
+
+21. Apply changes with the command below.
 ```
 $ source ~/.bashrc
 ```
 
-
-
-Please refer to the Ubuntu Blog below for more useful information.
-
+* Please refer to the Ubuntu Blog below for more useful information.
 - [Improving Security with Ubuntu](https://ubuntu.com/blog/steps-to-maximise-robotics-security-with-ubuntu)
 - [Improving User Experience of TurtleBot3 Waffle Pi](https://ubuntu.com/blog/building-a-better-turtlebot3)
 - [How to set up TurtleBot3 Waffle Pi in minutes with Snaps](https://ubuntu.com/blog/how-to-set-up-turtlebot3-in-minutes-with-snaps)
