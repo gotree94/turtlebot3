@@ -14,10 +14,10 @@
 
 # Humble
 
-## Bringup
+## 3.5 Bringup
 
 
-### Bringup TurtleBot3
+### 3.5.1 Bringup TurtleBot3
 
 1. Open a new terminal on the remote PC with `Ctrl` + `Alt` + `T` and connect to the Raspberry Pi via SSH using its IP address.  Enter your `password` of Ubuntu OS in `Raspberry pi` .  
 **[Remote PC]** 
