@@ -146,107 +146,49 @@ $ ros2 launch turtlebot3_manipulation_gazebo gazebo.launch.py
 ![](img/tb3_manipulation_ros2_gazebo.png)
 
 > **TIP**
-> In order to run with RViz, append the `start_rviz` parameter as below.  **[Remote PC]**
+> In order to run with RViz, append the `start_rviz` parameter as below.  
+> **[Remote PC]**
 > ```
 > $ ros2 launch turtlebot3_manipulation_gazebo gazebo.launch.py start_rviz:=true
 > ```
 
-To control the TurtleBot3 in the Gazebo simulation, the servo server node of MoveIt must be launched first.  **[Remote PC]**
-
+* To control the TurtleBot3 in the Gazebo simulation, the servo server node of MoveIt must be launched first.  
+**[Remote PC]**
 ```
-$ 
-ros2 launch turtlebot3_manipulation_moveit_config servo.launch.py
-
+$ ros2 launch turtlebot3_manipulation_moveit_config servo.launch.py
 ```
 
-Launch the keyboard teleoperation node.  **[Remote PC]**
-
-```
-$ 
-ros2 run turtlebot3_manipulation_teleop turtlebot3_manipulation_teleop
-
-```
-
-**TIP**
-
-Following keys are used to control the TurtleBot3.
-
-```
-Use o|k|l|; keys to move turtlebot base and use 'space' key to stop the base
-Use s|x|z|c|a|d|f|v keys to Cartesian jog
-Use 1|2|3|4|q|w|e|r keys to joint jog.
-'ESC' to quit.
-
-```
-
-
-### Simulation with MoveIt
-
-In order to use MoveIt to operate the OpenMANIPULATOR-X in Gazebo, terminate other Gazebo and RViz tools first.  Enter the below command to launch RViz with MoveIt configuration.
-
+Launch the keyboard teleoperation node.  
 **[Remote PC]**
 
 ```
-$ 
-ros2 launch turtlebot3_manipulation_moveit_config moveit_gazebo.launch.py
+$ ros2 run turtlebot3_manipulation_teleop turtlebot3_manipulation_teleop
+```
 
+> **TIP**
+> Following keys are used to control the TurtleBot3.
+> ```
+> Use o|k|l|; keys to move turtlebot base and use 'space' key to stop the base
+> Use s|x|z|c|a|d|f|v keys to Cartesian jog
+> Use 1|2|3|4|q|w|e|r keys to joint jog.
+> 'ESC' to quit.
+> ```
+
+### 7.6.3 Simulation with MoveIt
+
+* In order to use MoveIt to operate the OpenMANIPULATOR-X in Gazebo, terminate other Gazebo and RViz tools first.  Enter the below command to launch RViz with MoveIt configuration.
+**[Remote PC]**
+
+```
+$ ros2 launch turtlebot3_manipulation_moveit_config moveit_gazebo.launch.py
 ```
 
 The MoveIt Interface on RViz will be launched along with the Gazebo simulator.
 
 ![](img/tb3_manipulation_ros2_rviz.png)
 
-Simulate TurtleBot3 Manipulation using Gazebo by following this section.
 
-
-### Run Gazebo
-
-Load the TurtleBot3 with OpenMANIPULATOR-X into Gazebo world with the following command.  **[Remote PC]**
-
-```
-$ 
-roslaunch turtlebot3_manipulation_gazebo turtlebot3_manipulation_gazebo.launch
-
-```
-
-![](img/tb3_omx_gazebo.png)
-
-
-### Run move_group Node
-
-In order to use the MoveIt feature, launch the **move_group** node.  With a successful launch, **“You can start planning now!”** message will be printed on the terminal.  **[Remote PC]**
-
-```
-$ 
-roslaunch turtlebot3_manipulation_moveit_config move_group.launch
-
-```
-
-
-### Run RViz
-
-Use MoveIt in RViz by reading a `moveit.rviz` file where MoveIt environment data is configured.  You can control the mounted manipulator using an interactive marker, and simulate the motion to a goal position, which helps preventing possible physical contact by simulating the motion in advance.  **[Remote PC]**
-
-```
-$ 
-roslaunch turtlebot3_manipulation_moveit_config moveit_rviz.launch
-
-```
-
-![](img/tb3_omx_rviz.png)
-
-
-### Run ROBOTIS GUI Controller
-
-You can also use a GUI to control the OpenMANIPULATOR-X in Gazebo. The GUI supports **Task Space** and **Joint Space** controls.
-
-- `Task Space Control` : Control based on valid gripping positions (represented as a small red cube between the grippers) of the end-effector of the OpenMANIPULATOR-X.
-- `Joint Space Control` : Control based on each joint angle.  **[Remote PC]** $roslaunch turtlebot3_manipulation_gui turtlebot3_manipulation_gui.launch
-
-![](img/tb3_omx_gui_controller.png)
-
-
-## Operate the Actual OpenMANIPULATOR
+## 7.7 Operate the Actual OpenMANIPULATOR
 
 Please be aware that the actual hardware operation requires [Bringup](https://emanual.robotis.com/docs/en/platform/turtlebot3/manipulation#bringup) from the TurtleBot3 SBC.
 
