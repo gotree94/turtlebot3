@@ -508,7 +508,10 @@ This section describes how to complete the tunnel mission. The TurtleBot must us
 
 You can modify the initial position and goal position to fit your plan.
 
-1. Open the `navigation.yaml` file located at **turtlebot3_autorace_mission/param/** . $gedit ~/turtlebot3_ws/src/turtlebot3_autorace/turtlebot3_autorace_mission/param/navigation.yaml
+1. Open the `navigation.yaml` file located at **turtlebot3_autorace_mission/param/** . 
+```
+$ gedit ~/turtlebot3_ws/src/turtlebot3_autorace/turtlebot3_autorace_mission/param/navigation.yaml
+```
 
 ![](img/humble_tunnel_yaml.png)
 
