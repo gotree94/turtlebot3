@@ -499,5 +499,3 @@ $ rosrun map_server map_saver -f ~/map
 ![](img/map.png)
 
 아래 그림은 TurtleBot3를 사용하여 큰 지도를 생성한 결과를 보여줍니다. 약 350미터를 이동하며 지도를 만드는 데 약 1시간이 걸렸습니다.
-
-![](img/large_map.png)
