@@ -900,7 +900,8 @@ In order to reduce the size of recovery image file and to decrease the time to b
   * Start editing the `50-cloud-init.yaml` file with superuser permissions.
   **[Remote PC]**
 ```
-$cd/media/$USER/writable/etc/netplan$sudoedit 50-cloud-init.yaml
+$ cd /media/$USER/writable/etc/netplan
+$ sudoedit 50-cloud-init.yaml
 ```
 * Replace the `WIFI_SSID` and `WIFI_PASSWOR` Dwith your wifi SSID and password.
 
@@ -930,12 +931,33 @@ $cd/media/$USER/writable/etc/netplan$sudoedit 50-cloud-init.yaml
 
 Please follow the instructions below on the **SBC (Raspberry Pi)** .
 
-1. Confirm the WiFi IP address.  **[Turtlebot3 SBC]** $ifconfig
-2. Edit the `.bashrc` file.  **[Turtlebot3 SBC]** $nano ~/.bashrc
-3. Find the `ROS_MASTER_URI` and `ROS_HOSTNAME` setting section, then modify the IP addresses to the correct addresses for your devices. **[Turtlebot3 SBC]** exportROS_MASTER_URI=http://{IP_ADDRESS_OF_REMOTE_PC}:11311exportROS_HOSTNAME={IP_ADDRESS_OF_RASPBERRY_PI_3}
-4. Save the file withCtrl+Sand exit the nano editor withCtrl+X.
-5. Apply changes with the command below.  **[Turtlebot3 SBC]** $source~/.bashrc
+1. Confirm the WiFi IP address.  
+**[Turtlebot3 SBC]**
+```
+$ ifconfig  
+```
 
+2. Edit the `.bashrc` file.  
+**[Turtlebot3 SBC]**
+```
+$ nano ~/.bashrc  
+```
+
+4. Find the `ROS_MASTER_URI` and `ROS_HOSTNAME` setting section, then modify the IP addresses to the correct addresses for your devices. 
+**[Turtlebot3 SBC]**
+```
+export ROS_MASTER_URI=http://{IP_ADDRESS_OF_REMOTE_PC}:11311  
+export ROS_HOSTNAME={IP_ADDRESS_OF_RASPBERRY_PI_3}  
+```
+
+5. Save the file withCtrl+Sand exit the nano editor withCtrl+X.
+
+6. Apply changes with the command below.  
+**[Turtlebot3 SBC]**
+```
+$ source ~/.bashrc 
+```
+![](img/ros1_sbc_netcfg.gif)
 
 ### 3.2.8 NEW LDS-02 Configuration
 
