@@ -181,13 +181,13 @@ Specify your TurtleBot model ( `burger` , `waffle` , `waffle_pi` ) using the `TU
 
 ```
 $ export TURTLEBOT3_MODEL=burger
-$ ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+$ roslaunch turtlebot3_gazebo turtlebot3_world.launch
 ```
 
 **Read more about How to load TurtleBot3 House**
 ```
 $ export TURTLEBOT3_MODEL=burger
-$ ros2 launch turtlebot3_gazebo turtlebot3_house.launch.py
+$ roslaunch turtlebot3_gazebo turtlebot3_house.launch
 ```
 
 ### 6.3.2 Run Navigation Node
@@ -196,7 +196,7 @@ Open a new terminal from Remote PC with `Ctrl` + `Alt` + `T` and run the Navigat
 
 ```
 $ export TURTLEBOT3_MODEL=burger
-$ ros2 launch turtlebot3_navigation2 navigation2.launch.py use_sim_time:=True map:=$HOME/map.yaml
+$ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/map.yaml
 ```
 
 
@@ -213,7 +213,7 @@ $ ros2 launch turtlebot3_navigation2 navigation2.launch.py use_sim_time:=True ma
 
 4. Launch keyboard teleoperation node to precisely locate the robot on the map. 
 ```
-$ ros2 run turtlebot3_teleop teleop_keyboard
+$ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 ```
 
 5. Move the robot back and forth a bit to collect the surrounding environment information and narrow down the estimated location of the TurtleBot3 on the map which is displayed with tiny green arrows. <br> 
@@ -225,16 +225,16 @@ $ ros2 run turtlebot3_teleop teleop_keyboard
 ### 6.3.4 Set Navigation Goal
 
 1. Click the `Navigation2 Goal` button in the RViz2 menu.
+
+![](img/2d_nav_goal_button.png)
+
 2. Click on the map to set the destination of the robot and drag the green arrow toward the direction where the robot will be facing.
    * This green arrow is a marker that can specify the destination of the robot.
    * The root of the arrow isx,ycoordinate of the destination, and the angle `θ` is determined by the orientation of the arrow.
    * As soon as x, y, θ are set, TurtleBot3 will start moving to the destination immediately.
 
-![](img/tb3_navigation2_rviz_02.png)
+![](img/2d_nav_goal.png)
 
-https://youtu.be/_-bv8VPwkZs?si=_2jsxtkvyDixrabo
+https://youtu.be/VYlMywwYALU?si=xtigL0xT-MxvU4iL
 
-**Read more about Navigation2**
-   * The robot will create a path to reach to the Navigation2 Goal based on the global path planner. Then, the robot moves along the path. If an obstacle is placed in the path, the Navigation2 will use local path planner to avoid the obstacle.
-   * Setting a Navigation2 Goal might fail if the path to the Navigation2 Goal cannot be created. If you wish to stop the robot before it reaches to the goal position, set the current position of TurtleBot3 as a Navigation2 Goal.
-   * [Official ROS2 Navigation2 Wiki](https://navigation.ros.org/)
+
