@@ -161,7 +161,8 @@ Home Service Challenge의 목표는 주어진 규칙에 따라 네 개의 서로
 ![](img/demo1.png)
 
 2. OpenMANIPULATOR-X의 그리퍼로 목표물을 집습니다. MoveIt 패키지를 사용하여 관절 공간 제어, 작업 공간 제어 및 그리퍼 제어를 수행하여 목표 물체를 집습니다. (사용 토픽: /manipulator_control) MoveIt 다이어그램
-manipulation_diagram.png
+
+![](img/manipulation_diagram.png)
 
 3. 물체를 놓을 다음 방으로 이동합니다.
 - Nav2 패키지를 사용하여 yaml 파일에 저장된 다음 방에 도달합니다.
