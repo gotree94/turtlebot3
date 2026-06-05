@@ -3,17 +3,38 @@
 > **Source**: [https://emanual.robotis.com/docs/en/platform/turtlebot3/fakenode_simulation](https://emanual.robotis.com/docs/en/platform/turtlebot3/fakenode_simulation)
 
 ---
+# TOC
 
+1. 
 
-## Fake Node Simulation
+---
+[TOC)(#toc)
+# Humble
 
-The contents in e-Manual are subject to change without prior notice. Video content may differ from the content in the e-Manual.
+## 6.4 Fake Node Simulation
+
+https://youtu.be/iHXZSLBJHMg?si=miugXqHhBTSBol_r
+
+> The contents in e-Manual are subject to change without prior notice. Video content may differ from the content in the e-Manual.
 
 To use a virtual TurtleBot3, execute `turtlebot3_fake_node.launch.py` in a `turtlebot3_fake_node` package that is simple simulation node.
 Follow the instructions to bring TurtleBot3 into the virtual world using Fake Node.
 
-1. Execute `turtlebot3_fake_node.launch.py` file.  Specify your TurtleBot3 model ( `burger` , `waffle` , `waffle_pi` ) using the `TURTLEBOT3_MODEL` parameter. $exportTURTLEBOT3_MODEL=burger$ros2 launch turtlebot3_fake_node turtlebot3_fake_node.launch.py
-2. You can control the virtual TurtleBot3 by using [Teleoperation](https://emanual.robotis.com/docs/en/platform/turtlebot3/basic_operation/#teleoperation) $exportTURTLEBOT3_MODEL=burger$ros2 run turtlebot3_teleop teleop_keyboard
+1. Execute `turtlebot3_fake_node.launch.py` file.  
+Specify your TurtleBot3 model ( `burger` , `waffle` , `waffle_pi` ) using the `TURTLEBOT3_MODEL` parameter. 
+```
+$ export TURTLEBOT3_MODEL=burger
+$ ros2 launch turtlebot3_fake_node turtlebot3_fake_node.launch.py
+```
+
+2. You can control the virtual TurtleBot3 by using [Teleoperation](https://emanual.robotis.com/docs/en/platform/turtlebot3/basic_operation/#teleoperation) 
+```
+$ export TURTLEBOT3_MODEL=burger
+$ ros2 run turtlebot3_teleop teleop_keyboard
+```
+
+
+
 
 **NOTE** : This feature is available for Humble and Noetic.
 
