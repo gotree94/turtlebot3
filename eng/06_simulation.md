@@ -106,13 +106,128 @@ $ ros2 launch turtlebot3_bringup rviz2.launch.py
 [TOC](#toc)
 # Jazzy
 
+Simulation
+NOTE
 
+The Simulation should be run from the Remote PC.
+Launching the Simulation for the first time on the Remote PC may take some time to setup the environment.
+ Read more about TurtleBot3 Simulation
+
+Gazebo Simulation
+
+This Gazebo Simulation uses the ros-gz package, Gazebo version ROS 2 Humble has to be installed before running these instructions.
+
+Install Simulation Package
+The TurtleBot3 Simulation Package requires turtlebot3 and turtlebot3_msgs packages. Without these prerequisite packages, the Simulation cannot be launched.
+Please follow the PC Setup instructions if you did not install required packages and dependent packages.
+
+$ cd ~/turtlebot3_ws/src/
+$ git clone -b jazzy https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+$ cd ~/turtlebot3_ws && colcon build --symlink-install
+Launch Simulation World
+Three simulation environments are prepared for TurtleBot3. Please select one of these environments to launch Gazebo.
+
+Please make sure to completely terminate any other Simulation world before launching a new world.
+
+Empty World
+$ export TURTLEBOT3_MODEL=burger
+$ ros2 launch turtlebot3_gazebo empty_world.launch.py
+
+
+TurtleBot3 World
+$ export TURTLEBOT3_MODEL=waffle
+$ ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+
+
+TurtleBot3 House
+$ export TURTLEBOT3_MODEL=waffle_pi
+$ ros2 launch turtlebot3_gazebo turtlebot3_house.launch.py
+
+
+NOTE: If TurtleBot3 House is launched for the first time, downloading the map may take more than a few minutes depending on network status.
+
+Operate TurtleBot3
+In order to teleoperate the TurtleBot3 with a keyboard, launch the teleoperation node with the command below in a new terminal window.
+
+$ ros2 run turtlebot3_teleop teleop_keyboard
+
+ Read more about How to visualize Simulation data(RViz2)
+
+RViz2 visualizes published topics while simulation is running. You can launch RViz2 in a new terminal window with the following command.
+
+$ ros2 launch turtlebot3_bringup rviz2.launch.py
+
+![](img/turtlebot3_gazebo_rviz.png)
 
 ---
 [TOC](#toc)
 # Noetic
 
+Simulation
+NOTE
 
+Simulation should be run on the Remote PC.
+Launching the Simulation for the first time on the Remote PC may take additional time to setup the environment.
+ Read more about TurtleBot3 Simulation
+
+Gazebo Simulation
+
+The contents of the e-Manual can be updated without prior notice and video content may be outdated.
+
+Install Simulation Package
+The TurtleBot3 Simulation Package requires turtlebot3 and turtlebot3_msgs packages. Without these prerequisite packages, the Simulation cannot be launched.
+Please follow the PC Setup instructions if you did not install all required packages and dependent packages.
+[Remote PC]
+
+$ cd ~/catkin_ws/src/
+$ git clone -b noetic https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+$ cd ~/catkin_ws && catkin_make
+Launch Simulation World
+Three simulation environments are prepared for TurtleBot3. Please select one of these environments to launch Gazebo.
+
+Please make sure to completely terminate any other Simulation world before launching a new world.
+
+Empty World
+
+[Remote PC]
+$ export TURTLEBOT3_MODEL=burger
+$ roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch
+TurtleBot3 World
+
+[Remote PC]
+$ export TURTLEBOT3_MODEL=waffle
+$ roslaunch turtlebot3_gazebo turtlebot3_world.launch
+TurtleBot3 House
+
+[Remote PC]
+$ export TURTLEBOT3_MODEL=waffle_pi
+$ roslaunch turtlebot3_gazebo turtlebot3_house.launch
+NOTE: When TurtleBot3 House is launched for the first time, downloading the map may take more than a few minutes depending on network status.
+
+Operate TurtleBot3
+In order to teleoperate the TurtleBot3 with the keyboard, launch the teleoperation node in a new terminal window.
+[Remote PC]
+
+$ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
+
+ Read more about How to run Autonomous Collision Avoidance
+
+A simple collision avoidance node which keeps a safe distance from obstacles and makes turns to avoid collision is included with the provided TB3 packages. In order to autonomously drive a TurtleBot3 in the TurtleBot3 world simulation, please follow the instructions below.
+
+Terminate the turtlebot3_teleop_key node by entering Ctrl + C to the terminal running the teleop node.
+
+Enter the following command to the terminal.
+[Remote PC]
+
+$ roslaunch turtlebot3_gazebo turtlebot3_simulation.launch
+ Read more about How to visualize Simulation data(RViz)
+
+RViz visualizes published topics while simulation is running. You can launch RViz in a new terminal window by entering the command below.
+[Remote PC]
+
+$ roslaunch turtlebot3_gazebo turtlebot3_gazebo_rviz.launch
+
+![](img/turtlebot3_gazebo_rviz.png)
 
 
 
