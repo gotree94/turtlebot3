@@ -678,7 +678,8 @@ $ roslaunch turtlebot3_manipulation_bringup turtlebot3_manipulation_bringup.laun
 ```
 
 #### 7.9.4.2 Run move_group Node
-    * move_group node supports two interfaces to control OpenMANIPULATOR; MoveIt! and ROBOTIS GUI. Choose either of them according to your preference. In this section, GUI Controller is introduced only.
+
+* move_group node supports two interfaces to control OpenMANIPULATOR; MoveIt! and ROBOTIS GUI. Choose either of them according to your preference. In this section, GUI Controller is introduced only.
 **[Remote PC]**
 ```
 $ roslaunch turtlebot3_manipulation_moveit_config move_group.launch
