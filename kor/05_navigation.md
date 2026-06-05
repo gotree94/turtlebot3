@@ -222,7 +222,7 @@ https://youtu.be/_-bv8VPwkZs?si=jakasqcERW7Cwk8L
 > Twist 타입을 사용하려면 turtlebot3_bringup과 turtlebot3_navigation2 패키지 모두에서 enable_stamped_cmd_vel 파라미터를 false로 설정하세요.
 
 1. TurtleBot3 SBC에서 `Bringup`이 실행 중이지 않다면 Bringup을 실행합니다.
-  * Remote PC에서 `Ctrl+Alt+T`로 새 터미널을 열고 Raspberry Pi의 IP 주소로 연결합니다. 기본 비밀번호는 `ubuntu`입니다.
+  * Remote PC에서 `Ctrl+Alt+T`로 새 터미널을 열고 Raspberry Pi의 IP 주소로 연결합니다. 기본 비밀번호는 `ubuntu`입니다.<br>
   **[Remote PC]**
 ```
 $ ssh ubuntu@{IP_ADDRESS_OF_RASPBERRY_PI}
@@ -231,7 +231,7 @@ $ ros2 launch turtlebot3_bringup robot.launch.py
 ```
 
 2. Remote PC에서 `Ctrl` + `Alt` + `T`로 새 터미널을 열고 Navigation 노드를 실행합니다. ROS 2는 [Navigation2](https://navigation.ros.org/)를 사용합니다.
-  `TURTLEBOT3_MODEL` 파라미터를 사용하여 TurtleBot3 모델(`burger`, `waffle`, `waffle_pi`)을 지정하세요.
+  `TURTLEBOT3_MODEL` 파라미터를 사용하여 TurtleBot3 모델(`burger`, `waffle`, `waffle_pi`)을 지정하세요.<br>
   **[Remote PC]**
 ```
 $ export TURTLEBOT3_MODEL=burger
@@ -241,14 +241,14 @@ $ ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=$HOME/map.yaml
 **TURTLEBOT3_MODEL 파라미터를 저장하는 방법?**
 * `$ export TURTLEBOT3_MODEL=${TB3_MODEL}` 명령어는 .bashrc 파일에 TURTLEBOT3_MODEL 파라미터가 미리 정의되어 있으면 생략할 수 있습니다.
 * `.bashrc` 파일은 터미널 창이 생성될 때 자동으로 로드됩니다.
-  * `TurtleBot3 Burger`를 기본 모델로 지정하는 예시.
+  * `TurtleBot3 Burger`를 기본 모델로 지정하는 예시.<br>
 **[Remote PC]**
 ```
 $ echo 'export TURTLEBOT3_MODEL=burger' >> ~/.bashrc
 $ source ~/.bashrc
 ```
 
-  * `TurtleBot3 Waffle Pi`를 기본 모델로 지정하는 예시.
+  * `TurtleBot3 Waffle Pi`를 기본 모델로 지정하는 예시.<br>
 **[Remote PC]**
 ```
 $ echo 'export TURTLEBOT3_MODEL=waffle_pi' >> ~/.bashrc
@@ -266,7 +266,7 @@ $ source ~/.bashrc
 3. LDS 센서 데이터가 저장된 지도에 오버레이될 때까지 1단계와 2단계를 반복합니다.
 ![](img/tb3_navigation2_rviz_01.png)
 
-4. 키보드 원격 제어 노드를 실행하여 지도 상에 로봇을 정확히 위치시킵니다.
+4. 키보드 원격 제어 노드를 실행하여 지도 상에 로봇을 정확히 위치시킵니다.<br>
 **[Remote PC]**
 ```
 $ ros2 run turtlebot3_teleop teleop_keyboard
@@ -414,7 +414,7 @@ Navigation2 스택은 다양한 로봇의 성능을 변경할 수 있는 많은 
 https://youtu.be/_-bv8VPwkZs?si=jakasqcERW7Cwk8L
 
 1. TurtleBot3 SBC에서 `Bringup`이 실행 중이지 않다면 Bringup을 실행합니다.
-  * Remote PC에서 `Ctrl+Alt+T`로 새 터미널을 열고 Raspberry Pi의 IP 주소로 연결합니다. 기본 비밀번호는 `ubuntu`입니다.
+  * Remote PC에서 `Ctrl+Alt+T`로 새 터미널을 열고 Raspberry Pi의 IP 주소로 연결합니다. 기본 비밀번호는 `ubuntu`입니다.<br>
   **[Remote PC]**
 ```
 $ ssh ubuntu@{IP_ADDRESS_OF_RASPBERRY_PI}
@@ -423,7 +423,7 @@ $ ros2 launch turtlebot3_bringup robot.launch.py
 ```
 
 2. Remote PC에서 `Ctrl` + `Alt` + `T`로 새 터미널을 열고 Navigation 노드를 실행합니다. ROS 2는 [Navigation2](https://navigation.ros.org/)를 사용합니다.
-  `TURTLEBOT3_MODEL` 파라미터를 사용하여 TurtleBot3 모델(`burger`, `waffle`, `waffle_pi`)을 지정하세요.
+  `TURTLEBOT3_MODEL` 파라미터를 사용하여 TurtleBot3 모델(`burger`, `waffle`, `waffle_pi`)을 지정하세요.<br>
   **[Remote PC]**
 ```
 $ export TURTLEBOT3_MODEL=burger
@@ -433,14 +433,14 @@ $ ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=$HOME/map.yaml
 **TURTLEBOT3_MODEL 파라미터를 저장하는 방법?**
 * `$ export TURTLEBOT3_MODEL=${TB3_MODEL}` 명령어는 .bashrc 파일에 TURTLEBOT3_MODEL 파라미터가 미리 정의되어 있으면 생략할 수 있습니다.
 * `.bashrc` 파일은 터미널 창이 생성될 때 자동으로 로드됩니다.
-  * `TurtleBot3 Burger`를 기본 모델로 지정하는 예시.
+  * `TurtleBot3 Burger`를 기본 모델로 지정하는 예시.<br>
 **[Remote PC]**
 ```
 $ echo 'export TURTLEBOT3_MODEL=burger' >> ~/.bashrc
 $ source ~/.bashrc
 ```
 
-  * `TurtleBot3 Waffle Pi`를 기본 모델로 지정하는 예시.
+  * `TurtleBot3 Waffle Pi`를 기본 모델로 지정하는 예시.<br>
 **[Remote PC]**
 ```
 $ echo 'export TURTLEBOT3_MODEL=waffle_pi' >> ~/.bashrc
@@ -458,7 +458,7 @@ $ source ~/.bashrc
 3. LDS 센서 데이터가 저장된 지도에 오버레이될 때까지 1단계와 2단계를 반복합니다.
 ![](img/tb3_navigation2_rviz_01.png)
 
-4. 키보드 원격 제어 노드를 실행하여 지도 상에 로봇을 정확히 위치시킵니다.
+4. 키보드 원격 제어 노드를 실행하여 지도 상에 로봇을 정확히 위치시킵니다.<br>
 **[Remote PC]**
 ```
 $ ros2 run turtlebot3_teleop teleop_keyboard
