@@ -487,18 +487,28 @@ This section describes how you can detect a traffic bar. TurtleBot should detect
 7. Check the image topic: `/detect/image_level/compressed` on Image View Plugin.
 
 
-### Tunnel
+### 8.5.6 Tunnel
 
 This section describes how to complete the tunnel mission. The TurtleBot must use maps and navigation to proceed through obstacle areas with no lanes.
 
+https://youtu.be/pPS3tM90gAc?si=SSkRh1aCL2pdvHYn
 
 ##### How to Run Tunnel Mission
 
-**NOTE** : Change the navigation parameters in the **turtlebot3/turtlebot3_navigation2/param/buger_cam** file. If you slam and make a new map, Place the new map in the turtlebot3_autorace package at **/turtlebot3_autorace/turtlebot3_autorace_tunnel/map/** .
+> **NOTE** : Change the navigation parameters in the **turtlebot3/turtlebot3_navigation2/param/buger_cam** file. If you slam and make a new map, Place the new map in the turtlebot3_autorace package at **/turtlebot3_autorace/turtlebot3_autorace_tunnel/map/** .
 
 1. Close all terminals or terminate them withCtrl+C
-2. Open a new terminal and launch the Autorace Gazebo simulation. $ros2 launch turtlebot3_gazebo turtlebot3_autorace_2020.launch.py
-3. Open a new terminal and launch the tunnel mission node. This node runs the navigation and specifies the initial and target locations. $ros2 launch turtlebot3_autorace_mission mission_tunnel.launch.py
+
+2. Open a new terminal and launch the Autorace Gazebo simulation. 
+```
+$ ros2 launch turtlebot3_gazebo turtlebot3_autorace_2020.launch.py
+```
+
+3. Open a new terminal and launch the tunnel mission node. This node runs the navigation and specifies the initial and target locations. 
+```
+$ ros2 launch turtlebot3_autorace_mission mission_tunnel.launch.py
+```
+
 4. On the Rviz2 screen, you can watch the TurtleBot generate and follow a path in real-time.
 
 ![](img/humble_tunnel_rviz.png)
