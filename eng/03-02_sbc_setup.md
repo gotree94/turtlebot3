@@ -597,6 +597,8 @@ $ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 $ free -h
 ```
 
+![](img/swap.png)
+
 1. Install ROS 2 Jazzy Jalisco
 **[TurtleBot3 SBC]**
 Follow the instructions from [the official ROS 2 Jazzy installation guide](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html).  Installing ROS-Base(Bare Bones) is recommended.
@@ -630,7 +632,7 @@ $ source ~/.bashrc
 $sudo cp`ros2 pkg prefix turtlebot3_bringup`/share/turtlebot3_bringup/script/99-turtlebot3-cdc.rules /etc/udev/rules.d/$sudoudevadm control--reload-rules$sudoudevadm trigger
 ```
 
-5. ROS Domain ID Setting in ROS 2 DDS communication, `ROS_DOMAIN_ID` must match between the **Remote PC** and **TurtleBot3** for communication in the same network environment.The following commands show how to assign a `ROS_DOMAIN_ID` to the SBC of the TurtleBot3. 
+4. ROS Domain ID Setting in ROS 2 DDS communication, `ROS_DOMAIN_ID` must match between the **Remote PC** and **TurtleBot3** for communication in the same network environment.The following commands show how to assign a `ROS_DOMAIN_ID` to the SBC of the TurtleBot3. 
    * The default ID of theTurtleBot3is `30`.
    * Configuring the `ROS_DOMAIN_ID` for the Remote PC and SBC of the TurtleBot3 to `30` is recommended.
    **[TurtleBot3 SBC]**
@@ -642,7 +644,7 @@ $ source ~/.bashrc
 > **WARNING** : Do not use an identical ROS_DOMAIN_ID to others in the same network. It will cause a conflict of communication between users under the same network environment.
 
 
-### LDS Configuration
+### 3.3.1 LDS Configuration
 
 | LDS-01 | LDS-02 | LDS-03 |
 | --- | --- | --- |
@@ -805,63 +807,54 @@ Please refer to the Ubuntu Blog posts below for more useful information.
 
 ## 3.2 SBC Setup
 
-**WARNING**
-
-- This process may take long time. Do not use battery power while following this section, plug your PC into a DC wall power supply.
-- **An HDMI monitor and input devices such as a keyboard and a mouse will be required to complete this setup.**
-
-
-### Prepare microSD Card and Reader
-
-If your PC do not have a microSD slot, use a microSD card reader to burn the required recovery image to the SD card. ![](img/micro_sd_reader.png)
+> **WARNING**
+> - This process may take long time. Do not use battery power while following this section, plug your PC into a DC wall power supply.
+> - **An HDMI monitor and input devices such as a keyboard and a mouse will be required to complete this setup.**
 
 
-### Download TurtleBot3 SBC Image
+### 3.2.1 Prepare microSD Card and Reader
 
-Download the correct image file for your hardware and ROS version.  Noetic version images are created based on Ubuntu 20.04.
+If your PC do not have a microSD slot, use a microSD card reader to burn the required recovery image to the SD card. <br>
+![](img/micro_sd_reader.png)
 
-[DownloadRaspberry Pi 3B+ROS Noetic image](https://www.robotis.com/service/download.php?no=2008)
+
+### 3.2.2 Download TurtleBot3 SBC Image
+
+> Download the correct image file for your hardware and ROS version.  Noetic version images are created based on Ubuntu 20.04.
+> [DownloadRaspberry Pi 3B+ROS Noetic image](https://www.robotis.com/service/download.php?no=2008)
 
 **SHA256** : a7c57e20f2ee4204c95315866f4a274886094f7c63ed390b6d06d95074830309
 
-[DownloadRaspberry Pi 4B (2GB or 4GB)ROS Noetic image](https://www.robotis.com/service/download.php?no=2066)
-
-**SHA256** : 9d48925a78381885916a6f3bb77891adbfae2b271b05fe2ae9a9b7ebd12c46cc
-
+> [DownloadRaspberry Pi 4B (2GB or 4GB)ROS Noetic image](https://www.robotis.com/service/download.php?no=2066)
+> **SHA256** : 9d48925a78381885916a6f3bb77891adbfae2b271b05fe2ae9a9b7ebd12c46cc
 - Please note that this image may not compatible with the Raspberry Pi 4B with 8GB RAM.
 
-Recovery image files may be modified without any prior notice.
+> Recovery image files may be modified without any prior notice.
 
-
-### Unzip the downloaded image file
+### 3.2.3 Unzip the downloaded image file
 
 Extract the `.img` file and save it to your local disk.
 
 
-### Burn the image file
+### 3.2.4 Burn the image file
 
 Choose your preferred tool to burn the image to the microSD card.
 For example, the [Raspberry Pi Imager](https://www.raspberrypi.com/software/) or Linux `Disks` utility can be used.
 
 
-#### Raspberry Pi Imager
+#### 3.2.4.1 Raspberry Pi Imager
 
 Please refer to [this article](https://www.raspberrypi.org/blog/raspberry-pi-imager-imaging-utility/) to find more information about Raspberry Pi Imager.
 
-[DownloadRaspberry Pi Imager from raspberrypi.org](https://www.raspberrypi.org/software/)
+> [DownloadRaspberry Pi Imager from raspberrypi.org](https://www.raspberrypi.org/software/)
 
-If you have a dependency error for the `.deb` installation of the imager, use `snap install` . (This version of imager is not the latest, so it may be a little different from the picture below)  **[Remote PC]**
+If you have a dependency error for the `.deb` installation of the imager, use `snap install` . (This version of imager is not the latest, so it may be a little different from the picture below)  
+**[Remote PC]**
+
 
 ```
-$ 
-sudo 
-snap 
-install 
-rpi-imager
-
-$ 
-rpi-imager  
-
+$ sudo snap install rpi-imager
+$ rpi-imager  
 ```
 
 ![](img/rpi_imager.gif)
@@ -872,7 +865,7 @@ rpi-imager
 4. Click `WRITE` to start burning the image.
 
 
-#### Disks Utility
+#### 3.2.4.2 Disks Utility
 
 `Disks` utility is included in the recent Ubuntu Desktop. Search for “Disks” and launch the app.
 
@@ -884,7 +877,7 @@ rpi-imager
 4. Click `Start Restoring...` > `Restore` button.
 
 
-### Resize the Partition
+### 3.2.5 Resize the Partition
 
 In order to reduce the size of recovery image file and to decrease the time to burn the image onto microSD, the recovery partition is minimized.  Please resize the partition to use any available unallocated space.
 
@@ -902,7 +895,7 @@ In order to reduce the size of recovery image file and to decrease the time to b
 6. Click the `Apply All Operations` green check button at the top.
 
 
-### Configure the WiFi Network Setting
+### 3.2.6 Configure the WiFi Network Setting
 
 1. Open a terminal window with `Alt` + `Ctrl` + `T` and go to the netplan directory on the microSD card.  Start editing the `50-cloud-init.yaml` file with superuser permissions.  **[Remote PC]** $cd/media/$USER/writable/etc/netplan$sudoedit 50-cloud-init.yaml Replace theWIFI_SSIDandWIFI_PASSWORDwith your wifi SSID and password.Save the file withCtrl+Sand exit withCtrl+X.
 
@@ -914,7 +907,7 @@ If “No such file or directory” is returned, make sure the microSD is mounted
 The HDMI cable has to be connected before powering on the Raspberry Pi, or else the HDMI port of the Raspberry Pi will be disabled.
 
 
-### ROS Network Configuration
+### 3.2.7 ROS Network Configuration
 
 **NOTE** : If you encounter apt failures related to the ROS GPG key (due to the existing GPG expiration), you may need to update your GPG key. Please see [ROS GPG Key Expiration Incident](https://discourse.ros.org/t/ros-gpg-key-expiration-incident/20669) , and proceed to the given solution.
 
@@ -927,7 +920,7 @@ Please follow the instructions below on the **SBC (Raspberry Pi)** .
 5. Apply changes with the command below.  **[Turtlebot3 SBC]** $source~/.bashrc
 
 
-### NEW LDS-02 Configuration
+### 3.2.8 NEW LDS-02 Configuration
 
 | LDS-01 | LDS-02 |
 | --- | --- |
@@ -939,6 +932,134 @@ The TurtleBot3 LDS has been updated to LDS-02 since 2022 models.  Please follow 
 2. Export the LDS_MODEL to the bashrc file. Depending on your LDS model, use `LDS-01` or `LDS-02` .  **[Turtlebot3 SBC]** $echo'export LDS_MODEL=LDS-02'>>~/.bashrc$source~/.bashrc
 
 **This is it! Now you are done with the SBC setup :)**  Next Step : [OpenCR Setup](https://emanual.robotis.com/docs/en/platform/turtlebot3/opencr_setup/#opencr-setup)
+
+**Manual SBC Setup Instructions**
+
+Please be aware that this manual setup takes a lot more time than burning the recovery image file, but allows flexible choice of package installation. This instruction is not recommended for beginners.
+
+1. Download the proper Ubuntu 20.04.1(Focal) Preinstalled Server image on your PC.
+   * Ubuntu 20.04.1(Focal) Preinstalled Server for Raspberry Pi3(arm64)
+2. Extract the downloaded file.
+
+![](img/rpi_imager.gif)
+
+3. Burn the .img file to the microSD card. 
+
+4. Boot Up the Raspberry Pi
+   a. Connect the HDMI cable of the monitor to the HDMI port of Raspberry Pi.
+   b. Connect input devices to the USB port of Raspberry Pi.
+   c. Insert the microSD card.
+   d. Connect the power (either with USB or OpenCR) to turn on the Raspberry Pi.
+
+5. Configure the Raspberry Pi
+  a. Log in with the default username (ubuntu) and password (ubuntu). After logging in, system will ask you to change the password.
+  b. Open the automatic update settings file.
+
+```
+$ sudo nano /etc/apt/apt.conf.d/20auto-upgrades
+```
+
+6. Change the update settings as below.
+```
+APT::Periodic::Update-Package-Lists "0";
+APT::Periodic::Unattended-Upgrade "0";
+```
+a. Save the file with Ctrl+S and exit with Ctrl+X.
+
+7. Configure the WiFi network settings.
+```
+$ sudoedit /etc/netplan/50-cloud-init.yaml
+```
+
+8. When the editor is opened, append below contents at the end of the file.
+  * Replace the WIFI_SSID and WIFI_PASSWORD with your wifi SSID and password.
+
+![](img/ros2_sbc_netcfg.png)
+
+Save the file with Ctrl+S and exit with Ctrl+X.
+
+9. Reboot the Raspberry Pi.
+```
+$ sudo reboot
+```
+10.Set systemd to prevent boot-up delay even if there is no network at startup. Run the command below to mask the systemd process using the following command.
+```
+$ systemctl mask systemd-networkd-wait-online.service
+```
+
+11.Disable Suspend and Hibernation
+```
+$ sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+```
+
+12. After rebooting the Raspberry Pi, if you wish to work from the Remote PC using SSH, use the below command to log in from the remote PC terminal. The default password is ubuntu.
+```
+$ ssh ubuntu@{IP Address of Raspberry PI}
+```
+
+13. Install ROS Noetic Ninjemys Enter the below commands to the terminal one at a time.
+  * In order to check the details of the easy installation script, please refer to the script file.
+```
+$ sudo apt-get update
+$ sudo apt-get upgrade
+$ wget https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/install_ros_noetic_rpi.sh
+$ chmod 755 ./install_ros_noetic_rpi.sh
+$ bash ./install_ros_noetic_rpi.sh
+```
+   * If the above installation fails, please refer to the official ROS Noetic installation guide.
+
+14. Install and Build ROS Packages.
+```
+$ sudo apt install ros-noetic-rosserial-python ros-noetic-tf
+$ sudo apt install ros-noetic-hls-lfcd-lds-driver
+$ sudo apt install ros-noetic-turtlebot3-msgs
+$ sudo apt install ros-noetic-dynamixel-sdk
+$ cd ~/catkin_ws/src
+$ git clone -b noetic https://github.com/ROBOTIS-GIT/turtlebot3.git
+$ cd ~/catkin_ws/src/turtlebot3
+$ rm -r turtlebot3_description/ turtlebot3_teleop/ turtlebot3_navigation/ turtlebot3_slam/ turtlebot3_example/
+$ cd ~/catkin_ws/
+$ catkin_make -j1
+$ source ~/.bashrc
+```
+
+14. USB Port Settings
+```
+$ rosrun turtlebot3_bringup create_udev_rules
+```
+
+15. ROS Network Configuration Confirm the WiFi IP address and edit the .bashrc file
+```
+$ nano ~/.bashrc
+```
+
+Modify the IP addresses of ROS_MASTER_URI and ROS_HOSTNAME.
+```
+export ROS_MASTER_URI=http://{IP_ADDRESS_OF_REMOTE_PC}:11311
+export ROS_HOSTNAME={IP_ADDRESS_OF_RASPBERRY_PI_3}
+```
+Save the file and exit the nano editor.
+
+LDS Configuration The TurtleBot3 LDS has been updated include the LDS-02 since 2022.
+Please follow the instructions below on the SBC (Raspberry Pi) of the TurtleBot3 to configure the LDS.
+```
+$ sudo apt update
+$ sudo apt install libudev-dev
+$ cd ~/catkin_ws/src
+$ git clone -b noetic https://github.com/ROBOTIS-GIT/ld08_driver.git
+$ cd ~/catkin_ws && catkin_make
+```
+Export the LDS_MODEL in the bashrc file. Depending on your LDS model, use LDS-01 or LDS-02.
+```
+$ echo 'export LDS_MODEL=LDS-01' >> ~/.bashrc
+$ source ~/.bashrc
+```
+Apply changes with the command below.
+```
+$ source ~/.bashrc
+```
+
+
 
 Please refer to the Ubuntu Blog below for more useful information.
 
