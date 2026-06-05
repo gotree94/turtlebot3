@@ -27,7 +27,7 @@
 https://youtu.be/_-bv8VPwkZs?si=jakasqcERW7Cwk8L
 
 1. If `Bringup` is not running on the TurtleBot3 SBC, launch Bringup.
-  * Open a new terminal from Remote PC with `Ctrl+Alt+T` and connect to Raspberry Pi with its IP address. The default password `isubuntu`.
+  * Open a new terminal from Remote PC with `Ctrl+Alt+T` and connect to Raspberry Pi with its IP address. The default password is `ubuntu`.
   **[Remote PC]**
 ```
 $ ssh ubuntu@{IP_ADDRESS_OF_RASPBERRY_PI}
