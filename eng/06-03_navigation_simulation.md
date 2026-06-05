@@ -211,7 +211,6 @@ $ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/m
 2. Click on the map where the actual robot is located and drag the large green arrow toward the direction where the robot is facing.
 
 3. Repeat step 1 and 2 until the LDS sensor data is overlaid on the saved map. <br>
-![](img/tb3_navigation2_rviz_01.png)
 
 4. Launch keyboard teleoperation node to precisely locate the robot on the map. 
 ```
