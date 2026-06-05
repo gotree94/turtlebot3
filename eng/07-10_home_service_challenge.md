@@ -224,27 +224,56 @@ https://youtu.be/lnLHSz7mGIA?si=-Tz5UwLntrFPc3mP
 **[Remote PC]** Publish the following topics to test a navigation or manipulation feature.
 
 - Navigation
-- $rostopic pub-1/tb3_hsc/command std_msgs/String nav_start
+```
+$rostopic pub-1/tb3_hsc/command std_msgs/String nav_start
+```
 ![](img/mission_start.gif)
-- $rostopic pub-1/tb3_hsc/command std_msgs/String nav_ar_marker_0
+
+```
+$rostopic pub-1/tb3_hsc/command std_msgs/String nav_ar_marker_0
+```
 ![](img/mission_0.gif)
-- $rostopic pub-1/tb3_hsc/command std_msgs/String nav_ar_marker_1
+
+```
+$rostopic pub-1/tb3_hsc/command std_msgs/String nav_ar_marker_1
+```
 ![](img/mission_1.gif)
-- $rostopic pub-1/tb3_hsc/command std_msgs/String nav_ar_marker_2
+
+```
+$rostopic pub-1/tb3_hsc/command std_msgs/String nav_ar_marker_2
+```
 ![](img/mission_2.gif)
-- $rostopic pub-1/tb3_hsc/command std_msgs/String nav_ar_marker_3
+
+```
+$rostopic pub-1/tb3_hsc/command std_msgs/String nav_ar_marker_3
+```
 ![](img/mission_3.gif)
 
 - Manipulation
-- $rostopic pub-1/tb3_hsc/command std_msgs/String arm_home
+```
+$rostopic pub-1/tb3_hsc/command std_msgs/String arm_home
+```
 ![](img/hsc_arm_home.gif)
-- $rostopic pub-1/tb3_hsc/command std_msgs/String arm_joint
+
+```
+$rostopic pub-1/tb3_hsc/command std_msgs/String arm_joint
+```
 ![](img/hsc_arm_joint.gif)
-- $rostopic pub-1/tb3_hsc/command std_msgs/String arm_task
+
+```
+$rostopic pub-1/tb3_hsc/command std_msgs/String arm_task
+```
+
 ![](img/hsc_arm_task.gif)
-- $rostopic pub-1/tb3_hsc/command std_msgs/String open_gripper
+
+```
+$rostopic pub-1/tb3_hsc/command std_msgs/String open_gripper
+```
 ![](img/hsc_open_gripper.gif)
-- $rostopic pub-1/tb3_hsc/command std_msgs/String close_gripper
+
+```
+$rostopic pub-1/tb3_hsc/command std_msgs/String close_gripper
+```
 ![](img/hsc_close_gripper.gif)
 
 
