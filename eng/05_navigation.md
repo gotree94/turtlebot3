@@ -44,16 +44,16 @@ $ ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=$HOME/map.yaml
 ```
  
 **How to save the TURTLEBOT3_MODEL parameter?**
-* The $ export TURTLEBOT3_MODEL=${TB3_MODEL} command can be omitted if the TURTLEBOT3_MODEL parameter is predefined in your .bashrc file.
-* The .bashrc file is automatically loaded when a terminal window is created.
-  * Example defining TurtlBot3 Burger as the default model.
+* The `$ export TURTLEBOT3_MODEL=${TB3_MODEL}` command can be omitted if the TURTLEBOT3_MODEL parameter is predefined in your `.bashrc` file.
+* The `.bashrc` file is automatically loaded when a terminal window is created.
+  * Example defining `TurtlBot3 Burger` as the default model.
 **[Remote PC]**
 ```
 $ echo 'export TURTLEBOT3_MODEL=burger' >> ~/.bashrc
 $ source ~/.bashrc
 ```
 
-  * Example defining TurtlBot3 Waffle Pi as the default model.
+  * Example defining `TurtlBot3 Waffle Pi` as the default model.
 **[Remote PC]**
 ```
 $ echo 'export TURTLEBOT3_MODEL=waffle_pi' >> ~/.bashrc
