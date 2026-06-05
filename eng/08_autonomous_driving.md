@@ -115,6 +115,7 @@ $ rqt
 
 ![](img/humble_extrinsic_calibration.png)
 
+
 4. Navigate toPlugins>Configuration>Dynamic Reconfigure.
 
 5. Adjust the parameters in `/camera/image_projection` and `/camera/image_compensation` to tune the camera’s calibration. 
@@ -144,6 +145,8 @@ This method ensures that the extrinsic calibration parameters are correctly save
 
 ![](img/humble_projection_yaml.png)
 
+![](img/humble_compensation_yaml.png)
+
 turtlebot3_autorace_camera/calibration/extrinsic_calibration/projection.yaml(Left)   |   
   turtlebot3_autorace_camera/calibration/extrinsic_calibration/compensation.yaml(Right)
 
@@ -153,15 +156,28 @@ turtlebot3_autorace_camera/calibration/extrinsic_calibration/projection.yaml(Lef
 After completing the calibration process, follow the instructions below on the `Remote PC` to verify the calibration results.
 
 1. Stop the current extrinsic calibration process.If the extrinsic calibration was launched incalibration_mode:=True, stop the process by closing the terminal or pressingCtrl + C.
-2. **Launch the extrinsic calibration node without calibration mode.**  This ensures that the system applies the saved calibration parameters for verification. $ros2 launch turtlebot3_autorace_camera extrinsic_camera_calibration.launch.py
-3. Execute rqt and navigate **Plugins** > **Visualization** > **Image view** . $rqt
-4. With successful calibration settings, the bird-eye view image should appear like below when the `/camera/image_projected` topic is selected. ![](img/humble_camera_calibration_rqt_image_view.png)
+
+2. **Launch the extrinsic calibration node without calibration mode.**  This ensures that the system applies the saved calibration parameters for verification. 
+```
+$ ros2 launch turtlebot3_autorace_camera extrinsic_camera_calibration.launch.py
+```
+
+3. Execute rqt and navigate **Plugins** > **Visualization** > **Image view** .
+```
+$ rqt
+```
+
+4. With successful calibration settings, the bird-eye view image should appear like below when the `/camera/image_projected` topic is selected. 
+
+![](img/humble_camera_calibration_rqt_image_view.png)
 
 ![](img/humble_projection_yaml.png)
 
-## Lane Detection
+## 8.3 Lane Detection
 
 Lane detection allows the TurtleBot3 to recognize lane markings and follow them autonomously. The system processes camera images from either a real TurtleBot3 or Gazebo simulation, applies color filtering, and identifies lane boundaries.
+
+https://youtu.be/IqV4huXGBEk?si=Lq4xcuTwPKblm6iD
 
 This section explains how to launch the lane detection system, visualize the detected lane markings, and calibrate the parameters to ensure accurate tracking.
 
@@ -170,23 +186,17 @@ This section explains how to launch the lane detection system, visualize the det
 To begin, start the Gazebo simulation with a pre-defined lane-tracking course:
 
 ```
-$ 
-ros2 launch turtlebot3_gazebo turtlebot3_autorace_2020.launch.py
-
+$ ros2 launch turtlebot3_gazebo turtlebot3_autorace_2020.launch.py
 ```
 
 Next, run the camera calibration processes, which ensure that the detected lanes are accurately mapped to the robot’s perspective:
 
 ```
-$ 
-ros2 launch turtlebot3_autorace_camera intrinsic_camera_calibration.launch.py
-
+$ ros2 launch turtlebot3_autorace_camera intrinsic_camera_calibration.launch.py
 ```
 
 ```
-$ 
-ros2 launch turtlebot3_autorace_camera extrinsic_camera_calibration.launch.py
-
+$ ros2 launch turtlebot3_autorace_camera extrinsic_camera_calibration.launch.py
 ```
 
 These steps activate intrinsic and extrinsic calibration to correct any distortions in the camera feed.
@@ -194,11 +204,7 @@ These steps activate intrinsic and extrinsic calibration to correct any distorti
 Finally, launch the lane detection node in calibration mode to begin detecting lanes:
 
 ```
-$ 
-ros2 launch turtlebot3_autorace_detect detect_lane.launch.py calibration_mode:
-=
-True
-
+$ ros2 launch turtlebot3_autorace_detect detect_lane.launch.py calibration_mode:=True
 ```
 
 **Visualizing Lane Detection Output**
@@ -206,16 +212,20 @@ True
 To inspect the detected lanes, open rqt on `Remote PC` :
 
 ```
-$ 
-rqt
-
+$ rqt
 ```
 
 Then navigate to **Plugins** > **Visualization** > **Image View** and open three image viewers to display different lane detection results:
 
-- `/detect/image_lane/compressed`  ![](img/noetic_detect_image_lane.png)
-- `/detect/image_yellow_lane_marker/compressed` : a yellow range color filtered image.  ![](img/noetic_detect_yellow_lane.png)
-- `/detect/image_white_lane_marker/compressed` : a white range color filtered image.  ![](img/noetic_detect_white_lane.png)
+- `/detect/image_lane/compressed`  
+![](img/noetic_detect_image_lane.png)
+
+- `/detect/image_yellow_lane_marker/compressed` : a yellow range color filtered image.  
+![](img/noetic_detect_yellow_lane.png)
+
+- `/detect/image_white_lane_marker/compressed` : a white range color filtered image.  
+![](img/noetic_detect_white_lane.png)
+
 
 These visualizations help confirm that the lane detection algorithm is correctly identifying lane boundaries.
 
@@ -223,28 +233,29 @@ These visualizations help confirm that the lane detection algorithm is correctly
 
 For optimal accuracy, tuning detection parameters is necessary. Adjusting these parameters ensures the robot properly identifies lanes under different lighting and environmental conditions.
 
-1. Open the **lane.yaml** file located in **turtlebot3_autorace_detect/param/lane/** and write your modified values to this file. This will ensure the camera uses the modified parameters for future launches. $cd~/turtlebot3_ws/src/turtlebot3_autorace/turtlebot3_autorace_detect/param/lane$gedit lane.yaml Modified lane.yaml file
+1. Open the **lane.yaml** file located in **turtlebot3_autorace_detect/param/lane/** and write your modified values to this file. This will ensure the camera uses the modified parameters for future launches. ```
+```
+ $ cd ~/turtlebot3_ws/src/turtlebot3_autorace/turtlebot3_autorace_detect/param/lane
+ $ gedit lane.yaml
+```
+
+![](img/humble_lane_yaml.png)
 
 **Running Lane Tracking**
 
 Once calibration is complete, restart the lane detection node without the calibration option:
 
 ```
-$ 
-ros2 launch turtlebot3_autorace_detect detect_lane.launch.py
-
+$ ros2 launch turtlebot3_autorace_detect detect_lane.launch.py
 ```
 
 Then, launch the lane following control node, which enables TurtleBot3 to automatically follow the detected lanes:
 
 ```
-$ 
-ros2 launch turtlebot3_autorace_mission control_lane.launch.py
-
+$ ros2 launch turtlebot3_autorace_mission control_lane.launch.py
 ```
 
-
-## Traffic Sign Detection
+## 8.4 Traffic Sign Detection
 
 Traffic sign detection allows the TurtleBot3 to recognize and respond to traffic signs while driving autonomously.
 
