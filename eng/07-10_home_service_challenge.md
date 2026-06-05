@@ -169,6 +169,7 @@ Using the demo package, the process of moving objects in Home Service Challenge 
 
 > Home Service Challenge Stadium and Objects
 
+https://youtu.be/lnLHSz7mGIA?si=-Tz5UwLntrFPc3mP
 
 ### Getting Started
 
