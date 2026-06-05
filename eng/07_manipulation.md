@@ -520,134 +520,174 @@ $ roslaunch turtlebot3_bringup turtlebot3_robot.launch
 * Simulate TurtleBot3 Manipulation using Gazebo by following this section.
 
 ### 7.6.1 Run Gazebo
-Load the TurtleBot3 with OpenMANIPULATOR-X into Gazebo world with the following command.
-[Remote PC]
 
+* Load the TurtleBot3 with OpenMANIPULATOR-X into Gazebo world with the following command.
+**[Remote PC]**
+```
 $ roslaunch turtlebot3_manipulation_gazebo turtlebot3_manipulation_gazebo.launch
+```
 
+![](img/tb3_omx_gazebo.png)
 
-Run move_group Node
-In order to use the MoveIt feature, launch the move_group node.
-With a successful launch, “You can start planning now!” message will be printed on the terminal.
-[Remote PC]
-
+### 7.6.2 Run move_group Node
+  * In order to use the MoveIt feature, launch the move_group node.
+  * With a successful launch, “You can start planning now!” message will be printed on the terminal.
+**[Remote PC]**
+```
 $ roslaunch turtlebot3_manipulation_moveit_config move_group.launch
-Run RViz
-Use MoveIt in RViz by reading a moveit.rviz file where MoveIt environment data is configured.
-You can control the mounted manipulator using an interactive marker, and simulate the motion to a goal position, which helps preventing possible physical contact by simulating the motion in advance.
-[Remote PC]
+```
 
+### 7.6.3 Run RViz
+* Use MoveIt in RViz by reading a moveit.rviz file where MoveIt environment data is configured.
+* You can control the mounted manipulator using an interactive marker, and simulate the motion to a goal position, which helps preventing possible physical contact by simulating the motion in advance.
+**[Remote PC]**
+```
 $ roslaunch turtlebot3_manipulation_moveit_config moveit_rviz.launch
+```
 
+![](img/tb3_omx_rviz.png)
 
-Run ROBOTIS GUI Controller
-You can also use a GUI to control the OpenMANIPULATOR-X in Gazebo. The GUI supports Task Space and Joint Space controls.
-
-Task Space Control: Control based on valid gripping positions (represented as a small red cube between the grippers) of the end-effector of the OpenMANIPULATOR-X.
-Joint Space Control: Control based on each joint angle.
-[Remote PC]
+## 7.6.4 Run ROBOTIS GUI Controller
+* You can also use a GUI to control the OpenMANIPULATOR-X in Gazebo. The GUI supports Task Space and Joint Space controls.
+   * `Task Space Control` : Control based on valid gripping positions (represented as a small red cube between the grippers) of the end-effector of the OpenMANIPULATOR-X.
+   * `Joint Space Control` : Control based on each joint angle.
+**[Remote PC]**
+```
 $ roslaunch turtlebot3_manipulation_gui turtlebot3_manipulation_gui.launch
+```
 
+~[](img/tb3_omx_gui_controller.png)
 
-Operate the Actual OpenMANIPULATOR
-Follow the given instruction to operate your robot.
+## 7.7 Operate the Actual OpenMANIPULATOR
+* Follow the given instruction to operate your robot.
 
-Run roscore
-Run roscore to use ROS 1.
-[Remote PC]
-
+### 7.7.1 Run roscore
+* Run roscore to use ROS 1.
+**[Remote PC]**
+```
 $ roscore
-Run Bringup
-Run Bringup node for TurtleBot3, and start rosserial and LDS sensor using following command.
-[TurtleBot3 SBC]
+```
+### 7.7.2 Run Bringup
+1. Run Bringup node for TurtleBot3, and start rosserial and LDS sensor using following command.
+**[TurtleBot3 SBC]**
+```
 $ roslaunch turtlebot3_bringup turtlebot3_robot.launch
-Run Bringup node for OpenMANIPULATOR on TurtleBot3
-[Remote PC]
+```
+2. Run Bringup node for OpenMANIPULATOR on TurtleBot3
+**[Remote PC]**
+```
 $ roslaunch turtlebot3_manipulation_bringup turtlebot3_manipulation_bringup.launch
-Run move_group Node
-[Remote PC]
+```
 
+### 7.7.3 Run move_group Node
+**[Remote PC]**
+```
 $ roslaunch turtlebot3_manipulation_moveit_config move_group.launch
-Run RViz
+```
+
+### 7.7.4 Run RViz
 Run RViz to visualize data and to use the interactive marker.
-[Remote PC]
-
+**[Remote PC]**
+```
 $ roslaunch turtlebot3_manipulation_moveit_config moveit_rviz.launch
-Run ROBOTIS GUI Controller
-OpenMANIPULATOR can be controlled with using ROBOTIS GUI controller instead of RViz tool.
-[Remote PC]
+```
 
+### 7.7.5 Run ROBOTIS GUI Controller
+* OpenMANIPULATOR can be controlled with using ROBOTIS GUI controller instead of RViz tool.
+**[Remote PC]**
+```
 $ roslaunch turtlebot3_manipulation_gui turtlebot3_manipulation_gui.launch
-SLAM
-Be sure to read SLAM manual before use of the following instruction.
+```
 
+## 7.8. SLAM
+> Be sure to read SLAM manual before use of the following instruction.
 Use SLAM feature to update an unknown map with TurtleBot3 and OpenMANIPULATOR
 
-;
+![](img/open_manipulator_slam.png)
 
-Run roscore
+### 7.8.1 Run roscore
 Run roscore to use ROS 1.
-[Remote PC]
-
+**[Remote PC]**
+```
 $ roscore
-Run Bringup
-Run Bringup node for TurtleBot3, and start rosserial and LDS sensor using following command.
-[TurtleBot3 SBC]
+```
 
+### 7.8.2 Run Bringup
+Run Bringup node for TurtleBot3, and start rosserial and LDS sensor using following command.
+**[TurtleBot3 SBC]**
+```
 roslaunch turtlebot3_bringup turtlebot3_robot.launch
+```
+
 NOTE: As OpenMANIPULATOR on TurtleBot3 is not neccessory for SLAM, move_group and bringup nodes, which are the parameters to control OpenMANIPULATOR, are not important to use
 
-Run SLAM Node
+### 7.8.3 Run SLAM Node
 Run SLAM node for updating an unknown map with TurtleBot3. This node utilizes gmapping package.
-[Remote PC]
-
+**[Remote PC]**
+```
 $ roslaunch turtlebot3_manipulation_slam slam.launch
-Run turtlebot3_teleop_key Node
+```
+### 7.8.4 Run turtlebot3_teleop_key Node
 Update the map where TurtleBot3 will navigate using turtlebot3_teleop_key node.
-[Remote PC]
+**[Remote PC]**
+```
 $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
+```
+
 Once the map is completely updated, run the map_saver node to save the updated map.
-[Remote PC]
+**[Remote PC]**
+```
 $ rosrun map_server map_saver -f ~/map
-Navigation
-Be sure to read Navigation manual before use of the following instruction.
+```
+
+## 7.9 Navigation
+> Be sure to read Navigation manual before use of the following instruction.
 
 Send TurtleBot3 with OpenMANIPULATOR to the desired position in the map using Navigation node.
 
-Run roscore
-Run roscore to use ROS 1.
-[Remote PC]
-
+### 7.9.1 Run roscore
+   * Run roscore to use ROS 1.
+**[Remote PC]**
+```
 $ roscore
-Run Bringup
-Run Bringup node for TurtleBot3, and start rosserial and LDS sensor using following command.
-[TurtleBot3 SBC]
+```
 
+### 7.9.2 Run Bringup
+   * Run Bringup node for TurtleBot3, and start rosserial and LDS sensor using following command.
+**[TurtleBot3 SBC]**
+```
 $ roslaunch turtlebot3_bringup turtlebot3_robot.launch
-Run Navigation Node
-Run Navigation node with the following command, which will call Unified Robot Description Format (urdf) and configuration data of RViz to set GUI enviroment, parmeters for Navigation and updated map.
-[Remote PC]
+```
 
+### 7.9.3 Run Navigation Node
+   * Run Navigation node with the following command, which will call Unified Robot Description Format (urdf) and configuration data of RViz to set GUI enviroment, parmeters for Navigation and updated map.
+**[Remote PC]**
+```
 $ roslaunch turtlebot3_manipulation_navigation navigation.launch map_file:=$HOME/map.yaml 
+```
+![](img/tb3_omx_nav.png)
 
+### 7.9.4 How to Control OpenMANIPULATOR with Navigation
+  * You can run this node to control OpenMANIPULATOR on TurtleBot3 when TurtleBot3 is approaching to a goal position when Navigation node is running. However, when TurtleBot3 is in motion, the movement of OpenMANIPULATOR will be unstable by external influences, such as center of gravity, or vibration; so that it is recommended for the manipulator to be used when TurtleBot3 is not driving.
 
-How to Control OpenMANIPULATOR with Navigation
-You can run this node to control OpenMANIPULATOR on TurtleBot3 when TurtleBot3 is approaching to a goal position when Navigation node is running. However, when TurtleBot3 is in motion, the movement of OpenMANIPULATOR will be unstable by external influences, such as center of gravity, or vibration; so that it is recommended for the manipulator to be used when TurtleBot3 is not driving.
-
-Run Bringup node for OpenMANIPULATOR
-Run turtlebot3_manipulation_bringup node just as use of single OpenMANIPULATOR. This node contains arm_controller and gripper_controller.
-[Remote PC]
-
+#### 7.9.4.1 Run Bringup node for OpenMANIPULATOR
+  * Run turtlebot3_manipulation_bringup node just as use of single OpenMANIPULATOR. This node contains arm_controller and gripper_controller.
+**[Remote PC]**
+```
 $ roslaunch turtlebot3_manipulation_bringup turtlebot3_manipulation_bringup.launch
-Run move_group Node
-move_group node supports two interfaces to control OpenMANIPULATOR; MoveIt! and ROBOTIS GUI. Choose either of them according to your preference. In this section, GUI Controller is introduced only.
-[Remote PC]
+```
 
+#### 7.9.4.2 Run move_group Node
+    * move_group node supports two interfaces to control OpenMANIPULATOR; MoveIt! and ROBOTIS GUI. Choose either of them according to your preference. In this section, GUI Controller is introduced only.
+**[Remote PC]**
+```
 $ roslaunch turtlebot3_manipulation_moveit_config move_group.launch
-NOTE: Please refer to MoveIt! for more details.
+```
+> NOTE: Please refer to MoveIt! for more details.
 
-Run GUI Controller
+### 7.9.5 Run GUI Controller
 Using this interface, you can control OpenMANIPULATOR on TurtleBot3
-[Remote PC]
-
+**[Remote PC]**
+```
 $ roslaunch turtlebot3_manipulation_gui turtlebot3_manipulation_gui.launch
+```
