@@ -122,103 +122,34 @@ $ ros2 launch turtlebot3_manipulation_bringup hardware.launch.py
 > When the Turtlebot3 Manipulation bringup launches, **the OpenMANIPULATOR-X will move to the initial pose** .  It is recommended to put the OpenMANIPULATOR-X in a similar pose to the below image to avoid any physical damage during the initial movement.
 > ![](img/open_manipulator_gazebo_1.png)
 
-**NOTE** : Be sure that the OpenCR port is properly assigned in the [turtlebot3_core.launch](https://github.com/ROBOTIS-GIT/turtlebot3/blob/467c76bc4fa2e34162f57107388839d82d3bcc0e/turtlebot3_bringup/launch/turtlebot3_core.launch#L5) bringup file.
 
+## 7.6 Simulation
+* Simulate the TurtleBot3 Manipulation using Gazebo by following the instructions below.
 
-### Run roscore
-
-Run roscore to start ROS.  **[Remote PC]**
-
+### 7.6.1 Install Simulation Package
+* Install the packages for TurtleBot3 Manipulation Gazebo simulation.
+**[Remote PC]**
 ```
-$ 
-roscore
-
-```
-
-
-### Define TurtleBot3 Model
-
-Export your TurtleBot3 model ( `waffle` or `waffle_pi` ) if the **TURTLEBOT3_MODEL** is not defined in your `.bashrc` file.  **[TurtleBot3 SBC]**
-
-```
-$ 
-export 
-TURTLEBOT3_MODEL
-=
-waffle_pi
-
+$ cd ~/turtlebot3_ws/src/
+$ git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+$ cd ~/turtlebot3_ws && colcon build --symlink-install
 ```
 
-
-### Run Bringup
-
-Run the Bringup node for TurtleBot3, and start rosserial and LDS sensor using the following command.  **[TurtleBot3 SBC]**
-
-```
-$ 
-roslaunch turtlebot3_bringup turtlebot3_robot.launch
-
-```
-
-
-## Simulation
-
-Simulate the TurtleBot3 Manipulation using Gazebo by following the instructions below.
-
-
-### Install Simulation Package
-
-Install the packages for TurtleBot3 Manipulation Gazebo simulation.
-
+### 7.6.2 How to Run Gazebo
+* Bringup the TurtleBot3 with OpenMANIPULATOR-X in Gazebo world with the following command.
 **[Remote PC]**
 
 ```
-$ 
-cd
- ~/turtlebot3_ws/src/
-
-$ 
-git clone 
--b
- humble https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
-
-$ 
-cd
- ~/turtlebot3_ws 
-&&
- colcon build 
---symlink-install
-
-
-```
-
-
-### How to Run Gazebo
-
-Bringup the TurtleBot3 with OpenMANIPULATOR-X in Gazebo world with the following command.
-
-**[Remote PC]**
-
-```
-$ 
-ros2 launch turtlebot3_manipulation_gazebo gazebo.launch.py
-
+$ ros2 launch turtlebot3_manipulation_gazebo gazebo.launch.py
 ```
 
 ![](img/tb3_manipulation_ros2_gazebo.png)
 
-**TIP**
-
-In order to run with RViz, append the `start_rviz` parameter as below.  **[Remote PC]**
-
-```
-$ 
-ros2 launch turtlebot3_manipulation_gazebo gazebo.launch.py start_rviz:
-=
-true
-
-
-```
+> **TIP**
+> In order to run with RViz, append the `start_rviz` parameter as below.  **[Remote PC]**
+> ```
+> $ ros2 launch turtlebot3_manipulation_gazebo gazebo.launch.py start_rviz:=true
+> ```
 
 To control the TurtleBot3 in the Gazebo simulation, the servo server node of MoveIt must be launched first.  **[Remote PC]**
 
