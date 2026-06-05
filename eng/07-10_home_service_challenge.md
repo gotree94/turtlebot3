@@ -370,7 +370,7 @@ $ roslaunch turtlebot3_home_service_challenge_simulation competition.launch
 ```
 ![](img/simulation_gazebo.png)
 
-1. **[Remote PC]** Run a simulation demo for Gazebo. 
+2. **[Remote PC]** Run a simulation demo for Gazebo. 
 ```
 $ roslaunch turtlebot3_home_service_challenge_tools turtlebot3_home_service_challenge_demo_simulation.launch
 ```
