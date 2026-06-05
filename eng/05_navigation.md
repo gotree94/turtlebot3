@@ -123,7 +123,7 @@ The Navigation2 stack has many parameters to change performances for different r
 
 The optimal path for the robot to pass through obstacles is to take a median path between them. Setting a smaller value for this parameter will create a farther path from the obstacles.
 
-### 5.1.2 dwb_controller
+### 5.4.2 dwb_controller
 
 #### 5.4.2.1 max_vel_x
 - Defined in `turtlebot3_navigation2/param/${TB3_MODEL}.yaml`
