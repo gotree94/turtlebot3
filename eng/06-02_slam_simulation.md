@@ -178,12 +178,12 @@ In this tutorial, TurtleBot3 World will be used.  Specify your TurtleBot3 model 
 
 ```
 $ export TURTLEBOT3_MODEL=burger
-$ ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+$ roslaunch turtlebot3_gazebo turtlebot3_world.launch
 ```
 **Read more about How to load TurtleBot3 House** Specify your TurtleBot3 model (burger, waffle, waffle_pi) using the TURTLEBOT3_MODEL parameter.
 ```
 $ export TURTLEBOT3_MODEL=burger
-$ ros2 launch turtlebot3_gazebo turtlebot3_house.launch.py
+$ roslaunch turtlebot3_gazebo turtlebot3_house.launch
 ```
 
 ### 6.2.2 Run SLAM Node
@@ -193,7 +193,7 @@ Specify your TurtleBot3 model ( `burger` , `waffle` , `waffle_pi` ) using the `T
 
 ```
 $ export TURTLEBOT3_MODEL=burger
-$ ros2 launch turtlebot3_cartographer cartographer.launch.py use_sim_time:=True
+$ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping
 ```
 
 
@@ -204,7 +204,7 @@ Specify your TurtleBot3 model ( `burger` , `waffle` , `waffle_pi` ) using the `T
 
 ```
 $ export TURTLEBOT3_MODEL=burger
-$ ros2 run turtlebot3_teleop teleop_keyboard
+$ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 
  Control Your TurtleBot3!
  ---------------------------
@@ -228,7 +228,7 @@ When the map is has been created, open a new terminal on the Remote PC with `Ctr
 ![](img/virtual_slam.png)
 
 ```
-$ ros2 run nav2_map_server map_saver_cli -f ~/map
+$ rosrun map_server map_saver -f ~/map
 ```
 
 ![](img/map_1.png)
