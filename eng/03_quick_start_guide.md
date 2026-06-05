@@ -87,7 +87,7 @@ $sudoaptinstallros-humble-nav2-bringup
 ```
 
 
-### Install TurtleBot3 Packages
+### 3.1.4 Install TurtleBot3 Packages
 
 Install the required TurtleBot3 Packages.
 
@@ -107,7 +107,7 @@ $ echo 'source ~/turtlebot3_ws/install/setup.bash' >> ~/.bashrc
 $ source ~/.bashrc
 ```
 
-### Environment Configuration
+### 3.1.5 Environment Configuration
 
 1. Setup your ROS environment for the Remote PC.  **[Remote PC]**
 
@@ -144,6 +144,25 @@ https://youtu.be/2I_29m_Z3WA?si=VK5NZvZkM5J3OBsd
    * Please follow [the official ROS 2 documentation](https://docs.ros.org/en/jazzy/Installation.html) to install ROS 2 Jazzy.
    * For most Linux users, the [Debian package installation method](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html) is strongly recommended.
 
+**Details about How to install ROS 2.**
+
+1. Visit the [Debian package](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html) installation page.
+
+2. Copy the CLI commands located in the green box and paste into your terminal with (ctrl + shift + v)
+
+![](img/ros2_install1-.png)
+
+3. Generally, ros-humble-desktop is recommended for the Remote PC
+
+![](img/ros2_install2-.png)
+
+4. Add a line sourcing your environment to your bashrc. [Remote PC]
+
+```
+echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc  
+source ~/.bashrc  
+```
+
 ### 3.1.3 Install Dependent ROS 2 Packages
    * 1. Open the terminal with `Ctrl` + `Alt` + `T` on the **Remote PC** .
    * 2. Install Gazebo Sim  **[Remote PC]**
@@ -171,7 +190,7 @@ $ sudo apt install ros-jazzy-nav2-bringup
 ```
 
 
-### Install TurtleBot3 Packages
+### 3.1.4 Install TurtleBot3 Packages
 
 Install the required TurtleBot3 Packages.
 
@@ -191,7 +210,7 @@ $ echo 'source ~/turtlebot3_ws/install/setup.bash' >> ~/.bashrc
 $ source ~/.bashrc
 ```
 
-### Environment Configuration
+### 3.1.5 Environment Configuration
 
 1. Setup your ROS environment for the Remote PC.  **[Remote PC]**
 
