@@ -90,6 +90,7 @@ $ ros2 run turtlebot3_teleop teleop_keyboard
   * The root of the arrow is the `x` , `y` coordinate of the destination, and the angle `θ` is determined by the orientation of the arrow.
   * As soon as x, y, θ are set, the TurtleBot3 will start moving to the destination immediately.
 
+![](img/tb3_navigation2_rviz_01.png)
 ![](img/tb3_navigation2_rviz_02.png)
 
 https://youtu.be/dndO3_HvDtw?si=GtYLsHglnrKRYifT
