@@ -5,9 +5,10 @@
 
 # 목차
 
-- 1. [Humble](#humble)
-- 2. [Jazzy](#jazzy)
-- 3. [Noetic](#noetic)
+1. [Humble](#humble)
+2. [Jazzy](#jazzy)
+3. [Noetic](#noetic)
+
 ---
 
 # Humble
