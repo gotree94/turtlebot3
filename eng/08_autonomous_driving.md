@@ -2,10 +2,10 @@
 
 ---
 
-[TOC)(#toc)
+[TOC](#toc)
 
-1. [Humble)(#humble)
-2. [Noetic)(#Moetic)
+1. [Humble](#humble)
+2. [Noetic](#Moetic)
 
 ---
 
