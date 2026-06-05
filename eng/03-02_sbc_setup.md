@@ -3,9 +3,9 @@
 
 ---
 
-1. [Humble](# Humble)
-2. [Jazzy] (# Jazzy)
-3. Noetic (# Noetic)
+1. [Humble](#-Humble)
+2. [Jazzy](#-Jazzy)
+3. [Noetic](#-Noetic)
 ---
 
 # Humble
