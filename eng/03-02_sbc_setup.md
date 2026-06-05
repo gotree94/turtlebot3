@@ -880,7 +880,12 @@ $ rpi-imager
 
 In order to reduce the size of recovery image file and to decrease the time to burn the image onto microSD, the recovery partition is minimized.  Please resize the partition to use any available unallocated space.
 
-**Be careful not to select an incorrect disk or partition. Partitioning a system disk of your PC may cause serious system malfunctions.**
+> **Be careful not to select an incorrect disk or partition. Partitioning a system disk of your PC may cause serious system malfunctions.**
+
+<div style="background-color:red; color:white; padding:10px; border-radius:5px;">
+⚠️ <b>Be careful not to select an incorrect disk or partition.</b>
+Partitioning a system disk of your PC may cause serious system malfunctions.
+</div>
 
 [Download or install GParted GUI tool](https://gparted.org/download.php)
 
