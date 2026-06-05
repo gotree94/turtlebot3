@@ -7,7 +7,7 @@
 2. [Noetic](#noetic)
 
 ---
-
+[TOC](#toc)
 # Humble
 
 ## 7.10 TurtleBot3 Home Service Challenge
@@ -92,10 +92,10 @@ $ ros2 launch turtlebot3_home_service_challenge_core core_node.launch.py
 - describtion: Specifies the size of the ArUco markers used in the custom map. NOTE: core_node contains nodes for ArUco marker detection, parking, and manipulator control, which core_node uses to perform scenario integration control. The core_node performs and controls the behavior in the scenario sequence. After running core_node, we can see the TF of the ArUco marker in rviz and we can run the scenario. SeeMissionsfor more detailed descriptions and to run the scenario.
 
 
-### Missions
+### 7.10.4 Missions
 
 
-#### Commands
+#### 7.10.4.1 Commands
 
 Use the following commands during Home Service Challenge.  **[Remote PC]**  **Individual actions**
 
@@ -119,7 +119,7 @@ $SCENARIO_NAME
 **NOTE** : When using this command, be sure to include one of the scenario name from a `scenario.yaml` file. The provided scenario file contains `room1` through `room4` . For detailed information on the scenario, see [Details](https://emanual.robotis.com/docs/en/platform/turtlebot3/home_service_challenge#details-about-the-home-service-mission) description below at this section.
 
 
-#### Configuration
+#### 7.10.4.2 Configuration
 
 Modify data in configuration files according to the given environment.  **[Remote PC]**
 
@@ -139,7 +139,7 @@ Modify data in configuration files according to the given environment.  **[Remot
 </group_state>
 
 
-#### Details about the Home Service Mission
+#### 7.10.4.3 Details about the Home Service Mission
 
 The goal of the Home Service Challenge is to move four different objects from a living room to a specific place with given rules, and to return to the starting point. (Used topic for run demo : `/scenario_selection` )
 
@@ -153,12 +153,17 @@ Using the demo package, the process of moving objects in Home Service Challenge 
 5. Placing the object using the gripper.
 6. Returning to the starting point using the Nav2 package.
 
-**NOTE** :
+---
+[TOC](#toc)
+# Noetic
 
-- This instructions were tested on `Ubuntu 20.04` and `ROS1 Noetic Ninjemys` .
-- For more informationn, see [OpenMANIPULATOR e-Manual](https://emanual.robotis.com/docs/en/platform/openmanipulator/) and [[ROS 1] Turtlebot3 Manipulation](https://emanual.robotis.com/docs/en/platform/turtlebot3/manipulation)
-- Home Service Challenge noetic package is mainly tested under the **Gazebo simulation** .
-- The actual robot will also be tested and updated.
+## 7.10 TurtleBot3 Home Service Challenge
+
+> **NOTE** :
+> - This instructions were tested on `Ubuntu 20.04` and `ROS1 Noetic Ninjemys` .
+> - For more informationn, see [OpenMANIPULATOR e-Manual](https://emanual.robotis.com/docs/en/platform/openmanipulator/) and [[ROS 1] Turtlebot3 Manipulation](https://emanual.robotis.com/docs/en/platform/turtlebot3/manipulation)
+> - Home Service Challenge noetic package is mainly tested under the **Gazebo simulation** .
+> - The actual robot will also be tested and updated.
 
 ![](img/hsc_stadium_2.png)
 
