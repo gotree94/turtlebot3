@@ -244,23 +244,23 @@ In order to teleoperate the TurtleBot3 with the keyboard, launch the teleoperati
 ```
 $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 ```
- Read more about How to run Autonomous Collision Avoidance
+
+**Read more about How to run Autonomous Collision Avoidance**
 
 A simple collision avoidance node which keeps a safe distance from obstacles and makes turns to avoid collision is included with the provided TB3 packages. In order to autonomously drive a TurtleBot3 in the TurtleBot3 world simulation, please follow the instructions below.
 
-Terminate the turtlebot3_teleop_key node by entering Ctrl + C to the terminal running the teleop node.
-
-Enter the following command to the terminal.
-[Remote PC]
-
+1. Terminate the turtlebot3_teleop_key node by entering Ctrl + C to the terminal running the teleop node.
+2. Enter the following command to the terminal.
+**[Remote PC]**
+```
 $ roslaunch turtlebot3_gazebo turtlebot3_simulation.launch
- Read more about How to visualize Simulation data(RViz)
-
+```
+**Read more about How to visualize Simulation data(RViz)**
 RViz visualizes published topics while simulation is running. You can launch RViz in a new terminal window by entering the command below.
-[Remote PC]
-
+**[Remote PC]**
+```
 $ roslaunch turtlebot3_gazebo turtlebot3_gazebo_rviz.launch
-
+```
 ![](img/turtlebot3_gazebo_rviz.png)
 
 
