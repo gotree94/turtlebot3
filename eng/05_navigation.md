@@ -27,7 +27,7 @@
 https://youtu.be/_-bv8VPwkZs?si=jakasqcERW7Cwk8L
 
 1. If `Bringup` is not running on the TurtleBot3 SBC, launch Bringup.
-  * Open a new terminal from Remote PC with `Ctrl+Alt+T` and connect to Raspberry Pi with its IP address. The default password is `ubuntu`.
+  * Open a new terminal from Remote PC with `Ctrl+Alt+T` and connect to Raspberry Pi with its IP address. The default password is `ubuntu`.<br>
   **[Remote PC]**
 ```
 $ ssh ubuntu@{IP_ADDRESS_OF_RASPBERRY_PI}
@@ -36,7 +36,7 @@ $ ros2 launch turtlebot3_bringup robot.launch.py
 ```
 
 2. Open a new terminal from Remote PC with `Ctrl` + `Alt` + `T` and launch the Navigation node. ROS 2 uses [Navigation2](https://navigation.ros.org/) .
-  Specify your TurtleBot3 model ( `burger` , `waffle` , `waffle_pi` ) using the `TURTLEBOT3_MODEL` parameter. 
+  Specify your TurtleBot3 model ( `burger` , `waffle` , `waffle_pi` ) using the `TURTLEBOT3_MODEL` parameter. <br>
   **[Remote PC]**
 ```
 $ export TURTLEBOT3_MODEL=burger
@@ -46,14 +46,14 @@ $ ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=$HOME/map.yaml
 **How to save the TURTLEBOT3_MODEL parameter?**
 * The `$ export TURTLEBOT3_MODEL=${TB3_MODEL}` command can be omitted if the TURTLEBOT3_MODEL parameter is predefined in your `.bashrc` file.
 * The `.bashrc` file is automatically loaded when a terminal window is created.
-  * Example defining `TurtlBot3 Burger` as the default model.
+  * Example defining `TurtlBot3 Burger` as the default model.<br>
 **[Remote PC]**
 ```
 $ echo 'export TURTLEBOT3_MODEL=burger' >> ~/.bashrc
 $ source ~/.bashrc
 ```
 
-  * Example defining `TurtlBot3 Waffle Pi` as the default model.
+  * Example defining `TurtlBot3 Waffle Pi` as the default model.<br>
 **[Remote PC]**
 ```
 $ echo 'export TURTLEBOT3_MODEL=waffle_pi' >> ~/.bashrc
@@ -71,7 +71,7 @@ $ source ~/.bashrc
 3. Repeat step 1 and 2 until the LDS sensor data is overlayed on the saved map. 
 ![](img/tb3_navigation2_rviz_01.png)
 
-4. Launch the keyboard teleoperation node to precisely locate the robot on the map.  
+4. Launch the keyboard teleoperation node to precisely locate the robot on the map. <br> 
 **[Remote PC]** 
 ```
 $ ros2 run turtlebot3_teleop teleop_keyboard
@@ -222,7 +222,7 @@ https://youtu.be/_-bv8VPwkZs?si=jakasqcERW7Cwk8L
 > If you want to use the Twist type, set the enable_stamped_cmd_vel parameter to false in both the turtlebot3_bringup and turtlebot3_navigation2 packages.
 
 1. If `Bringup` is not running on the TurtleBot3 SBC, launch Bringup.
-  * Open a new terminal from Remote PC with `Ctrl+Alt+T` and connect to Raspberry Pi with its IP address. The default password is `ubuntu`.
+  * Open a new terminal from Remote PC with `Ctrl+Alt+T` and connect to Raspberry Pi with its IP address. The default password is `ubuntu`.<br>
   **[Remote PC]**
 ```
 $ ssh ubuntu@{IP_ADDRESS_OF_RASPBERRY_PI}
@@ -231,7 +231,7 @@ $ ros2 launch turtlebot3_bringup robot.launch.py
 ```
 
 2. Open a new terminal from Remote PC with `Ctrl` + `Alt` + `T` and launch the Navigation node. ROS 2 uses [Navigation2](https://navigation.ros.org/) .
-  Specify your TurtleBot3 model ( `burger` , `waffle` , `waffle_pi` ) using the `TURTLEBOT3_MODEL` parameter. 
+  Specify your TurtleBot3 model ( `burger` , `waffle` , `waffle_pi` ) using the `TURTLEBOT3_MODEL` parameter. <br>
   **[Remote PC]**
 ```
 $ export TURTLEBOT3_MODEL=burger
@@ -241,14 +241,14 @@ $ ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=$HOME/map.yaml
 **How to save the TURTLEBOT3_MODEL parameter?**
 * The `$ export TURTLEBOT3_MODEL=${TB3_MODEL}` command can be omitted if the TURTLEBOT3_MODEL parameter is predefined in your `.bashrc` file.
 * The `.bashrc` file is automatically loaded when a terminal window is created.
-  * Example defining `TurtlBot3 Burger` as the default model.
+  * Example defining `TurtlBot3 Burger` as the default model.<br>
 **[Remote PC]**
 ```
 $ echo 'export TURTLEBOT3_MODEL=burger' >> ~/.bashrc
 $ source ~/.bashrc
 ```
 
-  * Example defining `TurtlBot3 Waffle Pi` as the default model.
+  * Example defining `TurtlBot3 Waffle Pi` as the default model.<br>
 **[Remote PC]**
 ```
 $ echo 'export TURTLEBOT3_MODEL=waffle_pi' >> ~/.bashrc
@@ -266,7 +266,7 @@ $ source ~/.bashrc
 3. Repeat step 1 and 2 until the LDS sensor data is overlayed on the saved map. 
 ![](img/tb3_navigation2_rviz_01.png)
 
-4. Launch the keyboard teleoperation node to precisely locate the robot on the map.  
+4. Launch the keyboard teleoperation node to precisely locate the robot on the map.  <br>
 **[Remote PC]** 
 ```
 $ ros2 run turtlebot3_teleop teleop_keyboard
@@ -414,7 +414,7 @@ The optimal path for the robot to pass through obstacles is to take a median pat
 https://youtu.be/_-bv8VPwkZs?si=jakasqcERW7Cwk8L
 
 1. If `Bringup` is not running on the TurtleBot3 SBC, launch Bringup.
-  * Open a new terminal from Remote PC with `Ctrl+Alt+T` and connect to Raspberry Pi with its IP address. The default password is `ubuntu`.
+  * Open a new terminal from Remote PC with `Ctrl+Alt+T` and connect to Raspberry Pi with its IP address. The default password is `ubuntu`.<br>
   **[Remote PC]**
 ```
 $ ssh ubuntu@{IP_ADDRESS_OF_RASPBERRY_PI}
@@ -423,7 +423,7 @@ $ ros2 launch turtlebot3_bringup robot.launch.py
 ```
 
 2. Open a new terminal from Remote PC with `Ctrl` + `Alt` + `T` and launch the Navigation node. ROS 2 uses [Navigation2](https://navigation.ros.org/) .
-  Specify your TurtleBot3 model ( `burger` , `waffle` , `waffle_pi` ) using the `TURTLEBOT3_MODEL` parameter. 
+  Specify your TurtleBot3 model ( `burger` , `waffle` , `waffle_pi` ) using the `TURTLEBOT3_MODEL` parameter. <br>
   **[Remote PC]**
 ```
 $ export TURTLEBOT3_MODEL=burger
@@ -433,14 +433,14 @@ $ ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=$HOME/map.yaml
 **How to save the TURTLEBOT3_MODEL parameter?**
 * The `$ export TURTLEBOT3_MODEL=${TB3_MODEL}` command can be omitted if the TURTLEBOT3_MODEL parameter is predefined in your `.bashrc` file.
 * The `.bashrc` file is automatically loaded when a terminal window is created.
-  * Example defining `TurtlBot3 Burger` as the default model.
+  * Example defining `TurtlBot3 Burger` as the default model.<br>
 **[Remote PC]**
 ```
 $ echo 'export TURTLEBOT3_MODEL=burger' >> ~/.bashrc
 $ source ~/.bashrc
 ```
 
-  * Example defining `TurtlBot3 Waffle Pi` as the default model.
+  * Example defining `TurtlBot3 Waffle Pi` as the default model.<br>
 **[Remote PC]**
 ```
 $ echo 'export TURTLEBOT3_MODEL=waffle_pi' >> ~/.bashrc
@@ -458,7 +458,7 @@ $ source ~/.bashrc
 3. Repeat step 1 and 2 until the LDS sensor data is overlayed on the saved map. 
 ![](img/tb3_navigation2_rviz_01.png)
 
-4. Launch the keyboard teleoperation node to precisely locate the robot on the map.  
+4. Launch the keyboard teleoperation node to precisely locate the robot on the map.  <br>
 **[Remote PC]** 
 ```
 $ ros2 run turtlebot3_teleop teleop_keyboard
