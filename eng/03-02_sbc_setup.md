@@ -3,9 +3,11 @@
 
 ---
 
-1. [Humble](#-Humble)
-2. [Jazzy](#-Jazzy)
-3. [Noetic](#-Noetic)
+# 목차
+
+- [Humble](#humble)
+- [Jazzy](#jazzy)
+- [Noetic](#noetic)
 ---
 
 # Humble
