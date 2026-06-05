@@ -212,7 +212,7 @@ Three simulation environments are prepared for TurtleBot3. Please select one of 
 
 Please make sure to completely terminate any other Simulation world before launching a new world.
 
-1. Empty World
+1. Empty World <br>
 ![](img/turtlebot3_empty_world.png)
 [Remote PC]
 ```
@@ -220,7 +220,7 @@ $ export TURTLEBOT3_MODEL=burger
 $ roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch
 ```
 
-3. TurtleBot3 World
+3. TurtleBot3 World <br>
 ![](img/turtlebot3_world_bugger.png)
 [Remote PC]
 ```
@@ -228,7 +228,7 @@ $ export TURTLEBOT3_MODEL=waffle
 $ roslaunch turtlebot3_gazebo turtlebot3_world.launch
 ```
 
-4. TurtleBot3 House
+4. TurtleBot3 House <br>
 ![](img/turtlebot3_house.png)
 [Remote PC]
 ```
