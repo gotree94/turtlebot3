@@ -171,8 +171,6 @@ $ rqt
 
 ![](img/humble_camera_calibration_rqt_image_view.png)
 
-![](img/humble_projection_yaml.png)
-
 ## 8.3 Lane Detection
 
 Lane detection allows the TurtleBot3 to recognize lane markings and follow them autonomously. The system processes camera images from either a real TurtleBot3 or Gazebo simulation, applies color filtering, and identifies lane boundaries.
