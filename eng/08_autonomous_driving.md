@@ -2,7 +2,7 @@
 
 ---
 
-[TOC](#toc)
+# TOC
 
 1. [Humble](#humble)
 2. [Noetic](#Noetic)
