@@ -1,8 +1,11 @@
-# Autonomous Driving
-
 > **Source**: [https://emanual.robotis.com/docs/en/platform/turtlebot3/autonomous_driving](https://emanual.robotis.com/docs/en/platform/turtlebot3/autonomous_driving)
 
 ---
+
+
+
+---
+
 
 ![](img/autorace_rbiz_challenge_2017_robots_1.png)
 
@@ -12,80 +15,69 @@
 
 ## Getting Started
 
-**NOTE**
+> **NOTE**
+> - The Autorace package was developed for `Ubuntu 22.04` running `ROS 2 Humble Hawksbill` .
+> - The Autorace package has only been comprehensively tested for operation in the Gazebo simulator.
+> - Instructions for correct simulation setup are available in the [Simulation](https://emanual.robotis.com/docs/en/platform/turtlebot3/simulation/) section of the manual.
 
-- The Autorace package was developed for `Ubuntu 22.04` running `ROS 2 Humble Hawksbill` .
-- The Autorace package has only been comprehensively tested for operation in the Gazebo simulator.
-- Instructions for correct simulation setup are available in the [Simulation](https://emanual.robotis.com/docs/en/platform/turtlebot3/simulation/) section of the manual.
+> For ROS2 Humble, our Autonomous Driving package has only been tested in simulation.
 
-For ROS2 Humble, our Autonomous Driving package has only been tested in simulation.
-
-
-### Prerequisites
+### 8.1.1 Prerequisites
 
 `Remote PC`
 
 - ROS 2 Humble installed on a Laptop or desktop PC.
 
 
-### Install Autorace Packages
+### 8.1.2 Install Autorace Packages
 
-1. Install the AutoRace meta package on the `Remote PC` . $cd~/turtlebot3_ws/src/$git clone https://github.com/ROBOTIS-GIT/turtlebot3_autorace.git$cd~/turtlebot3_ws&&colcon build--symlink-install
-2. Install additional dependent packages on the `Remote PC` . $sudoaptinstallros-humble-image-transport ros-humble-cv-bridge ros-humble-vision-opencv python3-opencv libopencv-dev ros-humble-image-pipeline
+1. Install the AutoRace meta package on the `Remote PC` . 
+```
+$ cd ~/turtlebot3_ws/src/
+$ git clone https://github.com/ROBOTIS-GIT/turtlebot3_autorace.git
+$ cd ~/turtlebot3_ws && colcon build --symlink-install
+```
 
+2. Install additional dependent packages on the `Remote PC` . 
+```
+$ sudo apt install ros-humble-image-transport ros-humble-cv-bridge ros-humble-vision-opencv python3-opencv libopencv-dev ros-humble-image-pipeline
+```
 
-### Setting World Plugin
+### 8.1.3 Setting World Plugin
 
 Add an export line to your ~/.bashrc, put your workspace name in {your_ws}. This plugin allows you to animate dynamic environments in your world.
 
 ```
-$ 
-echo
- 
-'export GAZEBO_PLUGIN_PATH=$HOME/{your_ws}/build/turtlebot3_gazebo:$GAZEBO_PLUGIN_PATH'
- 
->>
- ~/.bashrc
-
+$ echo 'export GAZEBO_PLUGIN_PATH=$HOME/{your_ws}/build/turtlebot3_gazebo:$GAZEBO_PLUGIN_PATH' >> ~/.bashrc
 ```
 
-
-### Setting TurtleBot3 Model
+### 8.1.4 Setting TurtleBot3 Model
 
 Add an export line to your ~/.bashrc. Autorace only supports the burger_cam model.
 
 ```
-$ 
-echo
- 
-'export TURTLEBOT3_MODEL=burger_cam'
- 
->>
- ~/.bashrc
-
+$ echo 'export TURTLEBOT3_MODEL=burger_cam' >> ~/.bashrc
 ```
 
 
-## Camera Calibration
+## 8.2 Camera Calibration
 
 Camera calibration is crucial for autonomous driving as it ensures the camera provides accurate data about the robot’s environment. Although the Gazebo simulation simplifies some calibration steps, understanding the calibration process is important for transitioning to a real-world robot. 
 Camera calibration typically consists of two steps: **intrinsic calibration** , which deals with the internal camera properties, and **extrinsic calibration** , which aligns the camera’s view with the robot’s coordinate system. In Gazebo, these steps are not required because the simulation uses predefined camera parameters, but these instructions will help you understand the overall process for real hardware deployment.
 
 
-### Camera Imaging Calibration
+### 8.2.1 Camera Imaging Calibration
 
 In the Gazebo simulation, camera imaging calibration is unnecessary because the simulated camera does not have lens distortion.
 
 To begin, launch the Gazebo simulation on the Remote PC by running the following command:
 
 ```
-$ 
-ros2 launch turtlebot3_gazebo turtlebot3_autorace_2020.launch.py
-
+$ ros2 launch turtlebot3_gazebo turtlebot3_autorace_2020.launch.py
 ```
 
 
-### Intrinsic Camera Calibration
+### 8.2.2 Intrinsic Camera Calibration
 
 Intrinsic calibration focuses on correcting lens distortion and determining the camera’s internal properties, such as focal length and optical center.
 In real robots, this process is essential, but in a Gazebo simulation, intrinsic calibration is not required because the simulated camera is already distortion-free and provides an ideal image. However, this step is included to help users understand the process for real hardware deployment.
@@ -93,9 +85,7 @@ In real robots, this process is essential, but in a Gazebo simulation, intrinsic
 To execute the intrinsic calibration process as it would run on real hardware, launch:
 
 ```
-$ 
-ros2 launch turtlebot3_autorace_camera intrinsic_camera_calibration.launch.py
-
+$ ros2 launch turtlebot3_autorace_camera intrinsic_camera_calibration.launch.py
 ```
 
 This step will not modify the image output but ensures that the correct topics ( `/camera/image_rect` or `/camera/image_rect_color/compressed` ) are available for subsequent processing.
