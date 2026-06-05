@@ -149,7 +149,7 @@ $ ros2 run turtlebot3_teleop teleop_keyboard
 1. Click the `Navigation2 Goal` button in the RViz2 menu.
 2. Click on the map to set the destination of the robot and drag the green arrow toward the direction where the robot will be facing.
    * This green arrow is a marker that can specify the destination of the robot.
-   * The root of the arrow isx,ycoordinate of the destination, and the angle `θ` is determined by the orientation of the arrow.
+   * The root of the arrow is `x` ,`y` coordinate of the destination, and the angle `θ` is determined by the orientation of the arrow.
    * As soon as x, y, θ are set, TurtleBot3 will start moving to the destination immediately.
 
 ![](img/tb3_navigation2_rviz_02.png)
