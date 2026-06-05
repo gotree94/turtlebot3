@@ -257,28 +257,26 @@ $ ros2 launch turtlebot3_autorace_mission control_lane.launch.py
 
 Traffic sign detection allows the TurtleBot3 to recognize and respond to traffic signs while driving autonomously.
 
+https://youtu.be/DhSZo3dGW6A?si=zIEix-k61qo8slP-
+
 This feature uses the `SIFT` (Scale-Invariant Feature Transform) algorithm, which detects key feature points in an image and compares them to a stored reference image for recognition. Signs with more distinct edges tend to yield better recognition results.
 
 This section explains how to capture and store traffic sign images, configure detection parameters, and run the detection process in the Gazebo simulation.
 
-**NOTE** : More and better defined edges in the traffic sign increase recognition results from the SIFT algorithm.  Please refer to [this SIFT documentation](https://docs.opencv.org/master/da/df5/tutorial_py_sift_intro.html) for additional information.
+> **NOTE** : More and better defined edges in the traffic sign increase recognition results from the SIFT algorithm.  Please refer to [this SIFT documentation](https://docs.opencv.org/master/da/df5/tutorial_py_sift_intro.html) for additional information.
 
 **Launching Traffic Sign Detection in Simulation**
 
 Start the Autorace Gazebo simulation to set up the environment:
 
 ```
-$ 
-ros2 launch turtlebot3_gazebo turtlebot3_autorace_2020.launch
-
+$ ros2 launch turtlebot3_gazebo turtlebot3_autorace_2020.launch
 ```
 
 Then, control the TurtleBot3 manually using the keyboard to navigate the vehicle toward traffic signs:
 
 ```
-$ 
-ros2 run turtlebot3_teleop teleop_keyboard
-
+$ ros2 run turtlebot3_teleop teleop_keyboard
 ```
 
 Position the robot so that traffic signs are clearly visible in the camera feed.
@@ -306,17 +304,20 @@ If recognition performance is inconsistent with the default images, manually cap
 Before launching the detection node, run the camera calibration processes to ensure the camera feed is properly aligned:
 
 ```
-$ 
-ros2 launch turtlebot3_autorace_camera intrinsic_camera_calibration.launch.py
-
-$ 
-ros2 launch turtlebot3_autorace_camera extrinsic_camera_calibration.launch.py
-
+$ ros2 launch turtlebot3_autorace_camera intrinsic_camera_calibration.launch.py
+$ ros2 launch turtlebot3_autorace_camera extrinsic_camera_calibration.launch.py
 ```
 
 Then, launch the traffic sign detection node, specifying the mission type:  A specific mission for the **mission** argument must be selected from the following options:
 
-- `intersection` , `construction` , `parking` , `level_crossing` , `tunnel` $ros2 launch turtlebot3_autorace_detect detect_sign.launch.py mission:=SELECT_MISSION This command starts the detection process and allows TurtleBot3 to recognize and respond to the selected traffic sign. NOTE: Replace theSELECT_MISSIONkeyword with one of the available options above.
+- `intersection` , `construction` , `parking` , `level_crossing` , `tunnel`
+
+```
+$ ros2 launch turtlebot3_autorace_detect detect_sign.launch.py mission:=SELECT_MISSION
+```
+
+This command starts the detection process and allows TurtleBot3 to recognize and respond to the selected traffic sign. 
+> NOTE: Replace theSELECT_MISSIONkeyword with one of the available options above.
 
 **Visualizing Detection Results**
 
@@ -346,12 +347,12 @@ Detecting the Tunnel, and Level Crossing signs (mission:=level_crossing,mission:
 AutoRace is a competition for autonomous driving robot platforms designed to provide varied test conditions for autonomous robotics development. The provided open source libraries are based on ROS and are intended to be used as a base for further competitor development. Join Autorace and show off your development skill! **WARNING** : Be sure to read [Autonomous Driving](https://emanual.robotis.com/docs/en/platform/turtlebot3/autonomous_driving#autonomous-driving) in order to start missions.
 
 
-### Traffic Lights
+### 8.5 Traffic Lights
 
 This section describes how to complete the traffic light mission by having TurtleBot3 recognize the traffic lights and complete the course.
 
 
-##### Traffic Lights detection process
+##### 8.5.1 Traffic Lights detection process
 
 1. Filter the image to extract the red, yellow, green color mask images.
 2. Locate the circle in the region of interest(RoI) for each masked image.
@@ -360,11 +361,31 @@ This section describes how to complete the traffic light mission by having Turtl
 
 ##### Traffic Lights Detection
 
-1. Open a new terminal and launch Autorace Gazebo simulation. $ros2 launch turtlebot3_gazebo turtlebot3_autorace_2020.launch.py
-2. Open a new terminal and launch the intrinsic calibration node. $ros2 launch turtlebot3_autorace_camera intrinsic_camera_calibration.launch.py
-3. Open a new terminal and launch the extrinsic calibration node. $ros2 launch turtlebot3_autorace_camera extrinsic_camera_calibration.launch.py
-4. Open a new terminal and launch the traffic light detection node with a calibration option. $ros2 launch turtlebot3_autorace_detect detect_traffic_light.launch.py calibration_mode:=True
-5. Execute rqt on `Remote PC` . $rqt
+1. Open a new terminal and launch Autorace Gazebo simulation. 
+```
+$ ros2 launch turtlebot3_gazebo turtlebot3_autorace_2020.launch.py
+```
+
+2. Open a new terminal and launch the intrinsic calibration node. 
+```
+$ ros2 launch turtlebot3_autorace_camera intrinsic_camera_calibration.launch.py
+```
+
+3. Open a new terminal and launch the extrinsic calibration node. 
+```
+$ ros2 launch turtlebot3_autorace_camera extrinsic_camera_calibration.launch.py
+```
+
+4. Open a new terminal and launch the traffic light detection node with a calibration option. 
+```
+$ ros2 launch turtlebot3_autorace_detect detect_traffic_light.launch.py calibration_mode:=True
+```
+
+5. Execute rqt on `Remote PC`.
+```
+$ rqt
+```
+
 6. Navigate toPlugins>Visualization>Image view. Create two image view windows.
 7. In one window, select the/detect/image_traffic_light/compressedtopic. In another window, select one of the four topics to view the masked images:/detect/image_red_light,/detect/image_yellow_light,/detect/image_green_light,/detect/image_traffic_light. Detecting the Yellow light. The image on the right displays/detect/image_yellow_lighttopic. Detecting the Yellow light. The image on the right displays/detect/image_yellow_lighttopic. Detecting the Red light. The image on the right displays/detect/image_red_lighttopic.
 8. Navigate to **Plugins** > **Configuration** > **Dynamic Reconfigure** .
