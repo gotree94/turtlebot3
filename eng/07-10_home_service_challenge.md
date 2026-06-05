@@ -171,7 +171,7 @@ Using the demo package, the process of moving objects in Home Service Challenge 
 
 https://youtu.be/lnLHSz7mGIA?si=-Tz5UwLntrFPc3mP
 
-### Getting Started
+### 7.10.1 Getting Started
 
 **NOTE** : Be sure to complete the following instructions before installing Home Service Challenge packages in the pc.
 
@@ -180,7 +180,7 @@ https://youtu.be/lnLHSz7mGIA?si=-Tz5UwLntrFPc3mP
 - [OpenMANIPULATOR-X](https://emanual.robotis.com/docs/en/platform/openmanipulator_x/quick_start_guide/#install-ros-packages) packages
 
 
-#### Prerequisites
+#### 7.10.1.1 Prerequisites
 
 `Remote PC`
 
@@ -188,28 +188,28 @@ https://youtu.be/lnLHSz7mGIA?si=-Tz5UwLntrFPc3mP
 - This instruction is based on Gazebo simulation.
 
 
-#### Remote PC Setup
+#### 7.10.1.2 Remote PC Setup
 
 1. **[Remote PC]** Install Home Service Challenge packages. $cd~/catkin_ws/src/$git clone-bnoetic https://github.com/ROBOTIS-GIT/turtlebot3_home_service_challenge.git$git clone-bnoetic-devel https://github.com/machinekoder/ar_track_alvar$cd~/catkin_ws&&catkin_make
 2. **[Remote PC]** Load the TurtleBot3 Waffle (or Waffle Pi) with OpenMANIPULATOR on RViz. $exportTURTLEBOT3_MODEL=${TB3_MODEL}$roslaunch turtlebot3_manipulation_description turtlebot3_manipulation_view.launch use_gui:=true NOTE: Specify${TB3_MODEL}:waffle,waffle_pibefore excuting the command. Set the permanent export setting by followingExport TURTLEBOT3_MODELinstruction. Rviz View. Specify ${TB3_MODEL} : waffle_pi
 
 
-### Ready for actual robots
+### 7.10.2 Ready for actual robots
 
 **NOTE** : Actual robots are supported starting with ROS 2 Humble.
 
 
-### Missions
+### 7.10.3 Missions
 
 
-#### Run a Demo and Manager Pacakge
+#### 7.10.3.1 Run a Demo and Manager Pacakge
 
 1. **[Remote PC]** Run the Gazebo Simulation. $roslaunch turtlebot3_home_service_challenge_simulation competition.launch
 2. **[Remote PC]** Run a simulation demo for Gazebo. $roslaunch turtlebot3_home_service_challenge_tools turtlebot3_home_service_challenge_demo_simulation.launch
 3. **[Remote PC]** Run the manager package used to carry out Home Service Challenge’s mission. $roslaunch turtlebot3_home_service_challenge_manager manager.launch
 
 
-#### Commands
+#### 7.10.3.2 Commands
 
 **[Remote PC]** Use the following commands during Home Service Challenge.
 
@@ -219,12 +219,33 @@ https://youtu.be/lnLHSz7mGIA?si=-Tz5UwLntrFPc3mP
 - **Restart** : TurtleBot3 will restart a mission by a given scenario. $rostopic pub-1/tb3_hsc/command std_msgs/String restart_mission:SCENARIO_NAME NOTE: When using this command, be sure to include one of the senario name from ascenario.yamlfile. For detailed information on the scenario, seeConfigurationdescription below at this section.
 
 
-#### Operation Test
+#### 7.10.3.3 Operation Test
 
 **[Remote PC]** Publish the following topics to test a navigation or manipulation feature.
 
-- Navigation $rostopic pub-1/tb3_hsc/command std_msgs/String nav_start $rostopic pub-1/tb3_hsc/command std_msgs/String nav_ar_marker_0 $rostopic pub-1/tb3_hsc/command std_msgs/String nav_ar_marker_1 $rostopic pub-1/tb3_hsc/command std_msgs/String nav_ar_marker_2 $rostopic pub-1/tb3_hsc/command std_msgs/String nav_ar_marker_3
-- Manipulation $rostopic pub-1/tb3_hsc/command std_msgs/String arm_home $rostopic pub-1/tb3_hsc/command std_msgs/String arm_joint $rostopic pub-1/tb3_hsc/command std_msgs/String arm_task $rostopic pub-1/tb3_hsc/command std_msgs/String open_gripper $rostopic pub-1/tb3_hsc/command std_msgs/String close_gripper
+- Navigation
+- $rostopic pub-1/tb3_hsc/command std_msgs/String nav_start
+![](img/mission_start.gif)
+- $rostopic pub-1/tb3_hsc/command std_msgs/String nav_ar_marker_0
+![](img/mission_0.gif)
+- $rostopic pub-1/tb3_hsc/command std_msgs/String nav_ar_marker_1
+![](img/mission_1.gif)
+- $rostopic pub-1/tb3_hsc/command std_msgs/String nav_ar_marker_2
+![](img/mission_2.gif)
+- $rostopic pub-1/tb3_hsc/command std_msgs/String nav_ar_marker_3
+![](img/mission_3.gif)
+
+- Manipulation
+- $rostopic pub-1/tb3_hsc/command std_msgs/String arm_home
+![](img/hsc_arm_home.gif)
+- $rostopic pub-1/tb3_hsc/command std_msgs/String arm_joint
+![](img/hsc_arm_joint.gif)
+- $rostopic pub-1/tb3_hsc/command std_msgs/String arm_task
+![](img/hsc_arm_task.gif)
+- $rostopic pub-1/tb3_hsc/command std_msgs/String open_gripper
+![](img/hsc_open_gripper.gif)
+- $rostopic pub-1/tb3_hsc/command std_msgs/String close_gripper
+![](img/hsc_close_gripper.gif)
 
 
 #### Configuration
