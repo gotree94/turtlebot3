@@ -78,7 +78,7 @@ $ ros2 run turtlebot3_teleop teleop_keyboard
 ```
 
 5. Move the robot back and forth a bit to collect the surrounding environment information and narrow down the estimated location of the TurtleBot3 on the map (displayed with tiny green arrows).  
-![](img/tb3_amcl_particle_01.png)
+![](img/tb3_amcl_particle_01.png) ![](img/tb3_amcl_particle_02.png)
 
 6. Terminate the keyboard teleoperation node with `Ctrl` + `C` to prevent different **cmd_vel** values from being published from multiple nodes during Navigation.
 
@@ -90,7 +90,6 @@ $ ros2 run turtlebot3_teleop teleop_keyboard
   * The root of the arrow is the `x` , `y` coordinate of the destination, and the angle `θ` is determined by the orientation of the arrow.
   * As soon as x, y, θ are set, the TurtleBot3 will start moving to the destination immediately.
 
-![](img/tb3_navigation2_rviz_01.png)
 ![](img/tb3_navigation2_rviz_02.png)
 
 https://youtu.be/dndO3_HvDtw?si=GtYLsHglnrKRYifT
