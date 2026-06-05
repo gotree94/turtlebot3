@@ -102,53 +102,34 @@ For more details about each options, please refer to [the Cartographer ROS offic
 
 
 ### 4.3.1 MAP_BUILDER.use_trajectory_builder_2d
-
-This option sets the type of SLAM.
-
+   * This option sets the type of SLAM.
 
 ### 4.3.2 TRAJECTORY_BUILDER_2D.min_range
-
-This option sets the minimum usable range of the lidar sensor.
-
+   * This option sets the minimum usable range of the lidar sensor.
 
 ### 4.3.3 TRAJECTORY_BUILDER_2D.max_range
-
-This option sets the maximum usable range of the lidar sensor.
-
+   * This option sets the maximum usable range of the lidar sensor.
 
 ### 4.3.4 TRAJECTORY_BUILDER_2D.missing_data_ray_length
-
-In 2D, Cartographer replaces ranges further than max_range with TRAJECTORY_BUILDER_2D.missing_data_ray_length .
-
+   * In 2D, Cartographer replaces ranges further than max_range with TRAJECTORY_BUILDER_2D.missing_data_ray_length .
 
 ### 4.3.5 TRAJECTORY_BUILDER_2D.use_imu_data
-
-If you use 2D SLAM, range data can be handled in real-time without an additional source of information so you can choose whether you’d like Cartographer to use an IMU or not.
-
+   * If you use 2D SLAM, range data can be handled in real-time without an additional source of information so you can choose whether you’d like Cartographer to use an IMU or not.
 
 ### 4.3.6 TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching
-
-**Local SLAM** : The RealTimeCorrelativeScanMatcher can be toggled depending on the reliability of the sensor.
-
+   * **Local SLAM** : The RealTimeCorrelativeScanMatcher can be toggled depending on the reliability of the sensor.
 
 ### 4.3.7 TRAJECTORY_BUILDER_2D.motion_filter.max_angle_radians
-
-**Local SLAM** : To avoid inserting too many scans per submaps, A scan is dropped if the motion does not exceed a certain angle.
-
+   * **Local SLAM** : To avoid inserting too many scans per submaps, A scan is dropped if the motion does not exceed a certain angle.
 
 ### 4.3.8 POSE_GRAPH.optimize_every_n_nodes
-
-**Global SLAM** : Setting POSE_GRAPH.optimize_every_n_nodes to 0 is a handy way to disable global SLAM and concentrate on the behavior of local SLAM.
-
+   * **Global SLAM** : Setting POSE_GRAPH.optimize_every_n_nodes to 0 is a handy way to disable global SLAM and concentrate on the behavior of local SLAM.
 
 ### 4.3.9 POSE_GRAPH.constraint_builder.min_score
-
-**Global SLAM** : Threshold for the scan match score below which a match is not considered. Low scores indicate that the scan and map do not look similar.
-
+   * **Global SLAM** : Threshold for the scan match score below which a match is not considered. Low scores indicate that the scan and map do not look similar.
 
 ### 4.3.10 POSE_GRAPH.constraint_builder.global_localization_min_score
-
-**Global SLAM** : Threshold below which global localizations are not trusted.
+   * **Global SLAM** : Threshold below which global localizations are not trusted.
 
 > **NOTE** : Constraints can be visualized in RViz, it is very handy to tune global SLAM. One can also toggle POSE_GRAPH.constraint_builder.log_matches to get regular reports of the constraints builder formatted as histograms.
 
@@ -273,53 +254,34 @@ For more details about each options, please refer to [the Cartographer ROS offic
 
 
 ### 4.3.1 MAP_BUILDER.use_trajectory_builder_2d
-
-This option sets the type of SLAM.
-
+   * This option sets the type of SLAM.
 
 ### 4.3.2 TRAJECTORY_BUILDER_2D.min_range
-
-This option sets the minimum usable range of the lidar sensor.
-
+   * This option sets the minimum usable range of the lidar sensor.
 
 ### 4.3.3 TRAJECTORY_BUILDER_2D.max_range
-
-This option sets the maximum usable range of the lidar sensor.
-
+   * This option sets the maximum usable range of the lidar sensor.
 
 ### 4.3.4 TRAJECTORY_BUILDER_2D.missing_data_ray_length
-
-In 2D, Cartographer replaces ranges further than max_range with TRAJECTORY_BUILDER_2D.missing_data_ray_length .
-
+   * In 2D, Cartographer replaces ranges further than max_range with TRAJECTORY_BUILDER_2D.missing_data_ray_length .
 
 ### 4.3.5 TRAJECTORY_BUILDER_2D.use_imu_data
-
-If you use 2D SLAM, range data can be handled in real-time without an additional source of information so you can choose whether you’d like Cartographer to use an IMU or not.
-
+   * If you use 2D SLAM, range data can be handled in real-time without an additional source of information so you can choose whether you’d like Cartographer to use an IMU or not.
 
 ### 4.3.6 TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching
-
-**Local SLAM** : The RealTimeCorrelativeScanMatcher can be toggled depending on the reliability of the sensor.
-
+   * **Local SLAM** : The RealTimeCorrelativeScanMatcher can be toggled depending on the reliability of the sensor.
 
 ### 4.3.7 TRAJECTORY_BUILDER_2D.motion_filter.max_angle_radians
-
-**Local SLAM** : To avoid inserting too many scans per submaps, A scan is dropped if the motion does not exceed a certain angle.
-
+   * **Local SLAM** : To avoid inserting too many scans per submaps, A scan is dropped if the motion does not exceed a certain angle.
 
 ### 4.3.8 POSE_GRAPH.optimize_every_n_nodes
-
-**Global SLAM** : Setting POSE_GRAPH.optimize_every_n_nodes to 0 is a handy way to disable global SLAM and concentrate on the behavior of local SLAM.
-
+   * **Global SLAM** : Setting POSE_GRAPH.optimize_every_n_nodes to 0 is a handy way to disable global SLAM and concentrate on the behavior of local SLAM.
 
 ### 4.3.9 POSE_GRAPH.constraint_builder.min_score
-
-**Global SLAM** : Threshold for the scan match score below which a match is not considered. Low scores indicate that the scan and map do not look similar.
-
+   * **Global SLAM** : Threshold for the scan match score below which a match is not considered. Low scores indicate that the scan and map do not look similar.
 
 ### 4.3.10 POSE_GRAPH.constraint_builder.global_localization_min_score
-
-**Global SLAM** : Threshold below which global localizations are not trusted.
+   * **Global SLAM** : Threshold below which global localizations are not trusted.
 
 > **NOTE** : Constraints can be visualized in RViz, it is very handy to tune global SLAM. One can also toggle POSE_GRAPH.constraint_builder.log_matches to get regular reports of the constraints builder formatted as histograms.
 
@@ -444,53 +406,34 @@ For more details about each options, please refer to [the Cartographer ROS offic
 
 
 ### 4.3.1 MAP_BUILDER.use_trajectory_builder_2d
-
-This option sets the type of SLAM.
-
+   * This option sets the type of SLAM.
 
 ### 4.3.2 TRAJECTORY_BUILDER_2D.min_range
-
-This option sets the minimum usable range of the lidar sensor.
-
+   * This option sets the minimum usable range of the lidar sensor.
 
 ### 4.3.3 TRAJECTORY_BUILDER_2D.max_range
-
-This option sets the maximum usable range of the lidar sensor.
-
+   * This option sets the maximum usable range of the lidar sensor.
 
 ### 4.3.4 TRAJECTORY_BUILDER_2D.missing_data_ray_length
-
-In 2D, Cartographer replaces ranges further than max_range with TRAJECTORY_BUILDER_2D.missing_data_ray_length .
-
+   * In 2D, Cartographer replaces ranges further than max_range with TRAJECTORY_BUILDER_2D.missing_data_ray_length .
 
 ### 4.3.5 TRAJECTORY_BUILDER_2D.use_imu_data
-
-If you use 2D SLAM, range data can be handled in real-time without an additional source of information so you can choose whether you’d like Cartographer to use an IMU or not.
-
+   * If you use 2D SLAM, range data can be handled in real-time without an additional source of information so you can choose whether you’d like Cartographer to use an IMU or not.
 
 ### 4.3.6 TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching
-
-**Local SLAM** : The RealTimeCorrelativeScanMatcher can be toggled depending on the reliability of the sensor.
-
+   * **Local SLAM** : The RealTimeCorrelativeScanMatcher can be toggled depending on the reliability of the sensor.
 
 ### 4.3.7 TRAJECTORY_BUILDER_2D.motion_filter.max_angle_radians
-
-**Local SLAM** : To avoid inserting too many scans per submaps, A scan is dropped if the motion does not exceed a certain angle.
-
+   * **Local SLAM** : To avoid inserting too many scans per submaps, A scan is dropped if the motion does not exceed a certain angle.
 
 ### 4.3.8 POSE_GRAPH.optimize_every_n_nodes
-
-**Global SLAM** : Setting POSE_GRAPH.optimize_every_n_nodes to 0 is a handy way to disable global SLAM and concentrate on the behavior of local SLAM.
-
+   * **Global SLAM** : Setting POSE_GRAPH.optimize_every_n_nodes to 0 is a handy way to disable global SLAM and concentrate on the behavior of local SLAM.
 
 ### 4.3.9 POSE_GRAPH.constraint_builder.min_score
-
-**Global SLAM** : Threshold for the scan match score below which a match is not considered. Low scores indicate that the scan and map do not look similar.
-
+   * **Global SLAM** : Threshold for the scan match score below which a match is not considered. Low scores indicate that the scan and map do not look similar.
 
 ### 4.3.10 POSE_GRAPH.constraint_builder.global_localization_min_score
-
-**Global SLAM** : Threshold below which global localizations are not trusted.
+   * **Global SLAM** : Threshold below which global localizations are not trusted.
 
 > **NOTE** : Constraints can be visualized in RViz, it is very handy to tune global SLAM. One can also toggle POSE_GRAPH.constraint_builder.log_matches to get regular reports of the constraints builder formatted as histograms.
 
