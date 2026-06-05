@@ -82,7 +82,7 @@ $ ros2 run turtlebot3_teleop teleop_keyboard
 
 6. Terminate the keyboard teleoperation node with `Ctrl` + `C` to prevent different **cmd_vel** values from being published from multiple nodes during Navigation.
 
-## Set Navigation Goal
+## 5.3 Set Navigation Goal
 
 1. Click the `Navigation2 Goal` button in the RViz2 menu.
 2. Click on the map to set the destination of the robot and drag the green arrow toward the direction where the robot will be facing. This green arrow is a marker to can specify the destination of the robot.The root of the arrow is thex,ycoordinate of the destination, and the angleθis determined by the orientation of the arrow.As soon as x, y, θ are set, the TurtleBot3 will start moving to the destination immediately.
@@ -94,46 +94,24 @@ $ ros2 run turtlebot3_teleop teleop_keyboard
 2. Click on the map to set the destination of the robot and drag the green arrow toward the direction where the robot will be facing. This green arrow is a marker to specify the destination of the robot.The root of the arrow is thex,ycoordinate of the destination, and the angleθis determined by the orientation of the arrow.As soon as x, y, θ are set, the TurtleBot3 will start moving to the destination immediately.
 
 
-## Tuning Guide
-
-The Navigation2 stack has many parameters to change performances for different robots. Although it’s similar to ROS1 Navigation, please refer to the [Configuration Guide of Navigation2](https://navigation.ros.org/configuration/index.html) or [ROS Navigation Tuning Guide by Kaiyu Zheng](http://kaiyuzheng.me/documents/navguide.pdf) for more details.
-
-
-### Costmap Parameters
-
-
-#### inflation_layer.inflation_radius
-
-- Defined in `turtlebot3_navigation2/param/${TB3_MODEL}.yaml`
-- This parameter defines an inflation area of inaccesability around detected obstacles. Generated paths will be planned not to cross this area. It is safe to set this value to be slightly bigger than robot radius. For more information, please refer to [costmap_2d wiki](http://wiki.ros.org/costmap_2d#Inflation) .
-
-![](img/tuning_inflation_radius.png)
-
-
-#### inflation_layer.cost_scaling_factor
-
-- Defined in `turtlebot3_navigation2/param/${TB3_MODEL}.yaml`
-- This is an inverse proportional factor that is multiplied by the value of the costmap. If this parameter is increased, the value of the costmap is decreased.
-
-![](img/tuning_cost_scaling_factor.png)
-
-The optimal path for the robot to pass through obstacles is to take a median path between them. Setting a smaller value for this parameter will create a farther path from the obstacles.
-
-
-
+## 5.4 Tuning Guide
 
 The Navigation2 stack has many parameters to change performances for different robots. Although it’s similar to ROS1 Navigation, please refer to the [Configuration Guide of Navigation2](https://navigation.ros.org/configuration/index.html) or [ROS Navigation Tuning Guide by Kaiyu Zheng](http://kaiyuzheng.me/documents/navguide.pdf) for more details.
 
 
 ### 5.4.1 Costmap Parameters
 
+
 #### 5.4.1.1 inflation_layer.inflation_radius
+
 - Defined in `turtlebot3_navigation2/param/${TB3_MODEL}.yaml`
 - This parameter defines an inflation area of inaccesability around detected obstacles. Generated paths will be planned not to cross this area. It is safe to set this value to be slightly bigger than robot radius. For more information, please refer to [costmap_2d wiki](http://wiki.ros.org/costmap_2d#Inflation) .
 
 ![](img/tuning_inflation_radius.png)
 
+
 #### 5.4.1.2 inflation_layer.cost_scaling_factor
+
 - Defined in `turtlebot3_navigation2/param/${TB3_MODEL}.yaml`
 - This is an inverse proportional factor that is multiplied by the value of the costmap. If this parameter is increased, the value of the costmap is decreased.
 
