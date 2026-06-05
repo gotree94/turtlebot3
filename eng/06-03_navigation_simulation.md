@@ -62,7 +62,7 @@ $ ros2 run turtlebot3_teleop teleop_keyboard
 ```
 
 5. Move the robot back and forth a bit to collect the surrounding environment information and narrow down the estimated location of the TurtleBot3 on the map which is displayed with tiny green arrows. <br> 
-![](img/tb3_amcl_particle_01.png)
+![](img/tb3_amcl_particle_01.png) ![](img/tb3_amcl_particle_02.png)
 
 6. Terminate the keyboard teleoperation node by entering `Ctrl` + `C` to the teleop node terminal in order to prevent different **cmd_vel** values are published from multiple nodes during Navigation.
 
