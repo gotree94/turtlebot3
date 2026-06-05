@@ -896,14 +896,32 @@ In order to reduce the size of recovery image file and to decrease the time to b
 
 ### 3.2.6 Configure the WiFi Network Setting
 
-1. Open a terminal window with `Alt` + `Ctrl` + `T` and go to the netplan directory on the microSD card.  Start editing the `50-cloud-init.yaml` file with superuser permissions.  **[Remote PC]** $cd/media/$USER/writable/etc/netplan$sudoedit 50-cloud-init.yaml Replace theWIFI_SSIDandWIFI_PASSWORDwith your wifi SSID and password.Save the file withCtrl+Sand exit withCtrl+X.
+1. Open a terminal window with `Alt` + `Ctrl` + `T` and go to the netplan directory on the microSD card.
+  * Start editing the `50-cloud-init.yaml` file with superuser permissions.
+  **[Remote PC]**
+```
+$cd/media/$USER/writable/etc/netplan$sudoedit 50-cloud-init.yaml
+```
+* Replace the `WIFI_SSID` and `WIFI_PASSWOR` Dwith your wifi SSID and password.
 
-If “No such file or directory” is returned, make sure the microSD is mounted correctly
+![](img/ros2_sbc_netcfg.png)
 
-1. Boot Up the Raspberry Pi  a. Connect the HDMI cable of the monitor to the HDMI port of the Raspberry Pi.  b. Connect the input devices to the USB port of Raspberry Pi.
-  c. Insert the microSD card.  d. Connect power (either with USB or the OpenCR) to turn on the Raspberry Pi.  e. Login with ID `ubuntu` and PASSWORD `turtlebot` .`  ![](img/sbc_setup3.png)
+* Save the file withCtrl+Sand exit withCtrl+X.
 
-The HDMI cable has to be connected before powering on the Raspberry Pi, or else the HDMI port of the Raspberry Pi will be disabled.
+![](img/network_setup.gif)
+
+* If “No such file or directory” is returned, make sure the microSD is mounted correctly
+
+1. Boot Up the Raspberry Pi
+  a. Connect the HDMI cable of the monitor to the HDMI port of the Raspberry Pi.
+  b. Connect the input devices to the USB port of Raspberry Pi.
+  c. Insert the microSD card.
+  d. Connect power (either with USB or the OpenCR) to turn on the Raspberry Pi.
+  e. Login with ID `ubuntu` and PASSWORD `turtlebot` .`
+
+![](img/sbc_setup3.png)
+
+> The HDMI cable has to be connected before powering on the Raspberry Pi, or else the HDMI port of the Raspberry Pi will be disabled.
 
 
 ### 3.2.7 ROS Network Configuration
