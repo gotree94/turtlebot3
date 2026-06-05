@@ -25,37 +25,23 @@ In the previous [SLAM](https://emanual.robotis.com/docs/en/platform/turtlebot3/s
 Specify your TurtleBot model ( `burger` , `waffle` , `waffle_pi` ) using the `TURTLEBOT3_MODEL` parameter.
 
 ```
-$ 
-export 
-TURTLEBOT3_MODEL
-=
-burger
-
-$ 
-ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
-
+$ export TURTLEBOT3_MODEL=burger
+$ ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
 ```
 
+**Read more about How to load TurtleBot3 House**
+```
+$ export TURTLEBOT3_MODEL=burger
+$ ros2 launch turtlebot3_gazebo turtlebot3_house.launch.py
+```
 
 ### 6.3.2 Run Navigation Node
 
 Open a new terminal from Remote PC with `Ctrl` + `Alt` + `T` and run the Navigation2 node.
 
 ```
-$ 
-export 
-TURTLEBOT3_MODEL
-=
-burger
-
-$ 
-ros2 launch turtlebot3_navigation2 navigation2.launch.py use_sim_time:
-=
-True map:
-=
-$HOME
-/map.yaml
-
+$ export TURTLEBOT3_MODEL=burger
+$ ros2 launch turtlebot3_navigation2 navigation2.launch.py use_sim_time:=True map:=$HOME/map.yaml
 ```
 
 
@@ -64,10 +50,20 @@ $HOME
 **Initial Pose Estimation** must be performed before running Navigation as this process initializes the AMCL parameters that are critical for accurate Navigation. TurtleBot3 has to be correctly located on the map with the LDS sensor data that neatly overlaps the displayed map.
 
 1. Click the `2D Pose Estimate` button in the RViz2 menu.
+
 2. Click on the map where the actual robot is located and drag the large green arrow toward the direction where the robot is facing.
-3. Repeat step 1 and 2 until the LDS sensor data is overlaid on the saved map. ![](img/tb3_navigation2_rviz_01.png)
-4. Launch keyboard teleoperation node to precisely locate the robot on the map. $ros2 run turtlebot3_teleop teleop_keyboard
-5. Move the robot back and forth a bit to collect the surrounding environment information and narrow down the estimated location of the TurtleBot3 on the map which is displayed with tiny green arrows.  ![](img/tb3_amcl_particle_01.png)
+
+3. Repeat step 1 and 2 until the LDS sensor data is overlaid on the saved map. <br>
+![](img/tb3_navigation2_rviz_01.png)
+
+4. Launch keyboard teleoperation node to precisely locate the robot on the map. 
+```
+$ ros2 run turtlebot3_teleop teleop_keyboard
+```
+
+5. Move the robot back and forth a bit to collect the surrounding environment information and narrow down the estimated location of the TurtleBot3 on the map which is displayed with tiny green arrows. <br> 
+![](img/tb3_amcl_particle_01.png)
+
 6. Terminate the keyboard teleoperation node by entering `Ctrl` + `C` to the teleop node terminal in order to prevent different **cmd_vel** values are published from multiple nodes during Navigation.
 
 
