@@ -556,7 +556,7 @@ $ roslaunch turtlebot3_manipulation_moveit_config moveit_rviz.launch
 $ roslaunch turtlebot3_manipulation_gui turtlebot3_manipulation_gui.launch
 ```
 
-~[](img/tb3_omx_gui_controller.png)
+![](img/tb3_omx_gui_controller.png)
 
 ## 7.7 Operate the Actual OpenMANIPULATOR
 * Follow the given instruction to operate your robot.
