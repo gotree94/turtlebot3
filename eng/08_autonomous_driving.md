@@ -5,7 +5,7 @@
 [TOC](#toc)
 
 1. [Humble](#humble)
-2. [Noetic](#Moetic)
+2. [Noetic](#Mnetic)
 
 ---
 
