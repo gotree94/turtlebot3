@@ -3,12 +3,12 @@
 ---
 # TOC
 
-1. [Humble)(#humble)
-2. [Jazzy)(#jazzy)
-3. [Noetic)(#noetic)
+1. [Humble](#humble)
+2. [Jazzy](#jazzy)
+3. [Noetic](#noetic)
 
 ---
-[TOC)(#toc)
+[TOC](#toc)
 # Humble
 
 ## 6.4 Fake Node Simulation
