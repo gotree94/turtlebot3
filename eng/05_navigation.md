@@ -97,7 +97,7 @@ https://youtu.be/dndO3_HvDtw?si=GtYLsHglnrKRYifT
 **Read more about Navigation2**
   * The robot will create a path to reach the Navigation2 Goal based on the global path planner. Then, the robot moves along the path. If an obstacle is placed in the path, Navigation2 will use local path planner to avoid the obstacle.
   * Setting a Navigation2 Goal might fail if the path to the Navigation2 Goal cannot be created. If you wish to stop the robot before it reaches to the goal position, set the current position of TurtleBot3 as a Navigation2 Goal.
-  * Official ROS2 Navigation2 Wiki
+  * [Official ROS2 Navigation2 Wiki](https://navigation.ros.org/)
 
 ## 5.4 Tuning Guide
 
@@ -218,6 +218,9 @@ The optimal path for the robot to pass through obstacles is to take a median pat
 
 https://youtu.be/_-bv8VPwkZs?si=jakasqcERW7Cwk8L
 
+> From the Jazzy version, the cmd_vel topic uses the TwistStamped type.
+> If you want to use the Twist type, set the enable_stamped_cmd_vel parameter to false in both the turtlebot3_bringup and turtlebot3_navigation2 packages.
+
 1. If `Bringup` is not running on the TurtleBot3 SBC, launch Bringup.
   * Open a new terminal from Remote PC with `Ctrl+Alt+T` and connect to Raspberry Pi with its IP address. The default password is `ubuntu`.
   **[Remote PC]**
@@ -289,7 +292,7 @@ https://youtu.be/dndO3_HvDtw?si=GtYLsHglnrKRYifT
 **Read more about Navigation2**
   * The robot will create a path to reach the Navigation2 Goal based on the global path planner. Then, the robot moves along the path. If an obstacle is placed in the path, Navigation2 will use local path planner to avoid the obstacle.
   * Setting a Navigation2 Goal might fail if the path to the Navigation2 Goal cannot be created. If you wish to stop the robot before it reaches to the goal position, set the current position of TurtleBot3 as a Navigation2 Goal.
-  * Official ROS2 Navigation2 Wiki
+  * [Official ROS2 Navigation2 Wiki](https://navigation.ros.org/)
 
 ## 5.4 Tuning Guide
 
@@ -474,7 +477,7 @@ $ ros2 run turtlebot3_teleop teleop_keyboard
   * The root of the arrow is the `x` , `y` coordinate of the destination, and the angle `θ` is determined by the orientation of the arrow.
   * As soon as x, y, θ are set, the TurtleBot3 will start moving to the destination immediately.
 
-![](img/tb3_navigation2_rviz_02.png)
+![](img/2d_nav_goal.png)
 
 https://youtu.be/dndO3_HvDtw?si=GtYLsHglnrKRYifT
 
