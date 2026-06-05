@@ -374,7 +374,7 @@ $ roslaunch turtlebot3_home_service_challenge_simulation competition.launch
 ```
 $ roslaunch turtlebot3_home_service_challenge_tools turtlebot3_home_service_challenge_demo_simulation.launch
 ```
-~[](img/simulation_rviz.png)
+![](img/simulation_rviz.png)
 
 3. **[Remote PC]** Run Home Service Manager. 
 ```
