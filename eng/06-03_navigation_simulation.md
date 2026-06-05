@@ -206,6 +206,8 @@ $ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/m
 
 1. Click the `2D Pose Estimate` button in the RViz2 menu.
 
+![](img/2d_pose_button.png)
+
 2. Click on the map where the actual robot is located and drag the large green arrow toward the direction where the robot is facing.
 
 3. Repeat step 1 and 2 until the LDS sensor data is overlaid on the saved map. <br>
