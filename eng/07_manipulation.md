@@ -349,3 +349,305 @@ $ ros2 launch turtlebot3_manipulation_navigation2 navigation2.launch.py map_yaml
 ```
 
 ![](img/open_manipulator_navigation.png)
+
+---
+[TOC](#toc)
+# Noetic
+
+# 7. Manipulation
+
+> **NOTE** :
+> - These instructions were tested on `Ubuntu 20.04` and `ROS Noetic Ninjemys` .
+> - If you want more specific information about OpenMANIPULATOR-X operation, please refer to the [OpenMANIPULATOR-X](https://emanual.robotis.com/docs/en/platform/openmanipulator/) eManual page.
+
+> The contents in e-Manual are subject to change without prior notice. Some included video instructions may differ from the contents in the e-Manual.
+
+## 7.1 TurtleBot3 with OpenMANIPULATOR
+
+![](img/tb3_with_opm_logo.png)
+
+* The OpenMANIPULATOR-X from ROBOTIS is a low cost manipulator using DYNAMIXEL actuators with 3D printable parts and support for ROS.
+* The OpenMANIPULATOR-X is compatible with the TurtleBot3 Waffle as a `mobile manipulator` with the SLAM and Navigation capabilities integral to the TurtleBot3 platform.
+
+* https://youtu.be/Qhvk5cnX2hM?si=N09xJREjiwpTyI6Y
+* https://youtu.be/P82pZsqpBg0?si=Jtp8AgJPRxLTSid1
+* https://youtu.be/DLOq8yNcCoE?si=jKO8w2JORBJhm9sJ
+
+> The contents in e-Manual are subject to change without notice. Some video content may differ from the contents in the eManual.
+
+## 7.2 Software Setup
+
+NOTE: Before installing the `turtlebot3_manipulation` package, ensure that the `turtlebot3` and `open_manipulator` packages are installed on the Remote PC.
+
+1. Download and build the package using the following commands. [Remote PC]
+
+```
+$ cd ~/catkin_ws/src/
+$ git clone -b noetic https://github.com/ROBOTIS-GIT/turtlebot3_manipulation.git
+$ git clone -b noetic https://github.com/ROBOTIS-GIT/turtlebot3_manipulation_simulations.git
+$ git clone -b noetic https://github.com/ROBOTIS-GIT/open_manipulator_dependencies.git
+$ sudo apt install ros-noetic-ros-control* ros-noetic-control* ros-noetic-moveit* ros-noetic-dwa-local-planner
+$ cd ~/catkin_ws && catkin_make
+```
+
+* If catkin_make completes without any errors, the OpenMANIPULATOR package has successfully been installed. You can then load a TurtleBot3 Waffle or Waffle Pi with an attached OpenMANIPULATOR in RViz. –> <!–
+
+```
+$ cd ~/catkin_ws && catkin_make
+$ cd ~/catkin_ws/src/
+$ git clone https://github.com/ROBOTIS-GIT/open_manipulator_with_tb3.git
+$ git clone https://github.com/ROBOTIS-GIT/open_manipulator_with_tb3_msgs.git
+$ git clone https://github.com/ROBOTIS-GIT/open_manipulator_with_tb3_simulations.git
+$ git clone https://github.com/ROBOTIS-GIT/open_manipulator_perceptions.git
+$ sudo apt-get install ros-melodic-smach* ros-melodic-ar-track-alvar ros-melodic-ar-track-alvar-msgs
+$ cd ~/catkin_ws && catkin_make
+```
+
+## 7.3 Hardware Assembly
+
+- [CAD files](http://www.robotis.com/service/download.php?no=767) (TurtleBot3 Waffle Pi + OpenMANIPULATOR)
+
+![](img/hardware_setup.png)
+
+1. Remove the `LDS-01` or `LDS-02` LiDAR sensor and install it on the front of TurtleBot3.  Red circles indicate recommended bolt holes.
+2. Install the `OpenMANIPULATOR-X` on the TurtleBot3.  Yellow circles indicate recommended bolt holes.
+
+![](img/assemble_points.png)
+
+![](img/assemble.png)
+
+
+## 7.4 OpenCR Setup
+
+> **NOTE** : To use the OpenMANIPULATOR-X, you need to upload specific firmware to the OpenCR by using either a **shell script** or the **Arduino IDE** .
+> 1. The **Shell script** is recommended to upload the firmware as it uses a pre-built binary file
+> 2. The **Arduino IDE** builds from the provided source code and uploads the generated binary file. The OpenCR Arduino board manager does not support ARM based processors such as Raspberry Pi or Jetson Nano.
+
+> **WARNING**  Please connect all DYNAMIXEL motors to the OpenCR before uploading the OpenCR firmware.
+
+* After the OpenMANIPULATOR-X is properly mounted on TurtleBot3, the OpenCR firmware needs to be updated to control the connected DYNAMIXELs. Please follow the firmware update instructions below.
+
+1. Download the OpenCR firmware file on the Raspberry Pi (SBC) and upload the correct firmware with the following commands.  
+**[TurtleBot3 SBC]** 
+```
+$ export OPENCR_PORT=/dev/ttyACM0
+$ export OPENCR_MODEL=om_with_tb3_noetic
+$ rm -rf ./opencr_update.tar.bz2
+$ wget https://github.com/ROBOTIS-GIT/OpenCR-Binaries/raw/master/turtlebot3/ROS1/latest/opencr_update.tar.bz2
+$ tar -xvf opencr_update.tar.bz2
+$ cd ./opencr_update
+$ ./update.sh $OPENCR_PORT $OPENCR_MODEL.opencr
+```
+
+2. When the firmware is successfully uploaded to the OpenCR, **jump_to_fw** will be printed to the terminal used to upload the firmware.
+
+
+### 7.4.1 Arduino IDE
+
+> Please be aware that OpenCR board manager **does not support Arduino IDE on ARM based SBC such as Raspberry Pi or NVidia Jetson** .  In order to upload the OpenCR firmware using Arduino IDE, please follow the below instructions on your PC.
+
+> **NOTE** : To use the OpenMANIPULATOR-X, you will need to upload dedicated firmware to the OpenCR by using either a **shell script** or the **Arduino IDE** .
+
+**about the firmware upload using Arduino IDE**
+
+1. If you are using Linux, please configure the USB port for the OpenCR. For other OS(OSX or Windows), you can skip to the step 2 “Install Arduino IDE”.
+```
+$ wget https://raw.githubusercontent.com/ROBOTIS-GIT/OpenCR/master/99-opencr-cdc.rules
+$ sudo cp ./99-opencr-cdc.rules /etc/udev/rules.d/
+$ sudo udevadm control --reload-rules
+$ sudo udevadm trigger
+$ sudo apt install libncurses5-dev:i386
+```
+2. Install Arduino IDE.
+  * Download the latest Arduino IDE
+3. After completing the installation, run Arduino IDE.
+4. Press `Ctrl` + `,` to open the Preferences menu
+5. Enter below addresses in the Additional Boards Manager URLs.
+```
+https://raw.githubusercontent.com/ROBOTIS-GIT/OpenCR/master/arduino/opencr_release/package_opencr_index.json
+```
+![](img/ide1.png)
+
+6. Select Sketch > Include Library > Manage Libraries... to install the DYNAMIXEL2Arduino library. 
+
+![](img/library_manager_01.png)
+
+7. Search for DYNAMIXEL2Arduino from the Library Manager and install the library. 
+
+![](img/library_manager_02.png)
+
+8.Open the TurtleBot3 Manipulation example.
+  * File > Examples > turtlebot3 > turtlebot3_manipulation > turtlebot3_manipulation
+9. Connect the micro USB of the OpenCR to the PC and select Tools > Board > OpenCR > OpenCR Board in the Arduino IDE.
+10. Select the port connected to the OpenCR from the Tools > Port menu.
+11. Upload the TurtleBot3 firmware sketch with Ctrl + U or the upload icon.
+
+![](img/o3.png)
+
+12. If firmware upload fails, try uploading the firmware in recovery mode. the following sequence activates the recovery mode of the OpenCR. When in recovery mode, the STATUS led of the OpenCR will blink periodically.
+  * Hold down the PUSH SW2 button.
+  * Press the Reset button.
+  * Release the Reset button.
+  * Release the PUSH SW2 button.
+
+![](img/bootloader_19.png)
+
+## 7.5 Bringup
+
+> NOTE: Be sure that the OpenCR port is properly assigned in the [turtlebot3_core.launch](https://github.com/ROBOTIS-GIT/turtlebot3/blob/467c76bc4fa2e34162f57107388839d82d3bcc0e/turtlebot3_bringup/launch/turtlebot3_core.launch#L5) bringup file.
+
+### 7.5.1 Run roscore
+Run roscore to start ROS.
+**[Remote PC]**
+```
+$ roscore
+```
+### 7.5.2 Define TurtleBot3 Model
+Export your TurtleBot3 model (`waffle` or `waffle_pi`) if the TURTLEBOT3_MODEL is not defined in your `.bashrc` file.
+**[TurtleBot3 SBC]**
+```
+$ export TURTLEBOT3_MODEL=waffle_pi
+```
+
+### 7.5.3 Run Bringup
+Run the Bringup node for TurtleBot3, and start rosserial and LDS sensor using the following command.
+**[TurtleBot3 SBC]**
+```
+$ roslaunch turtlebot3_bringup turtlebot3_robot.launch
+```
+
+## 7.6 Simulation
+* Simulate TurtleBot3 Manipulation using Gazebo by following this section.
+
+### 7.6.1 Run Gazebo
+Load the TurtleBot3 with OpenMANIPULATOR-X into Gazebo world with the following command.
+[Remote PC]
+
+$ roslaunch turtlebot3_manipulation_gazebo turtlebot3_manipulation_gazebo.launch
+
+
+Run move_group Node
+In order to use the MoveIt feature, launch the move_group node.
+With a successful launch, “You can start planning now!” message will be printed on the terminal.
+[Remote PC]
+
+$ roslaunch turtlebot3_manipulation_moveit_config move_group.launch
+Run RViz
+Use MoveIt in RViz by reading a moveit.rviz file where MoveIt environment data is configured.
+You can control the mounted manipulator using an interactive marker, and simulate the motion to a goal position, which helps preventing possible physical contact by simulating the motion in advance.
+[Remote PC]
+
+$ roslaunch turtlebot3_manipulation_moveit_config moveit_rviz.launch
+
+
+Run ROBOTIS GUI Controller
+You can also use a GUI to control the OpenMANIPULATOR-X in Gazebo. The GUI supports Task Space and Joint Space controls.
+
+Task Space Control: Control based on valid gripping positions (represented as a small red cube between the grippers) of the end-effector of the OpenMANIPULATOR-X.
+Joint Space Control: Control based on each joint angle.
+[Remote PC]
+$ roslaunch turtlebot3_manipulation_gui turtlebot3_manipulation_gui.launch
+
+
+Operate the Actual OpenMANIPULATOR
+Follow the given instruction to operate your robot.
+
+Run roscore
+Run roscore to use ROS 1.
+[Remote PC]
+
+$ roscore
+Run Bringup
+Run Bringup node for TurtleBot3, and start rosserial and LDS sensor using following command.
+[TurtleBot3 SBC]
+$ roslaunch turtlebot3_bringup turtlebot3_robot.launch
+Run Bringup node for OpenMANIPULATOR on TurtleBot3
+[Remote PC]
+$ roslaunch turtlebot3_manipulation_bringup turtlebot3_manipulation_bringup.launch
+Run move_group Node
+[Remote PC]
+
+$ roslaunch turtlebot3_manipulation_moveit_config move_group.launch
+Run RViz
+Run RViz to visualize data and to use the interactive marker.
+[Remote PC]
+
+$ roslaunch turtlebot3_manipulation_moveit_config moveit_rviz.launch
+Run ROBOTIS GUI Controller
+OpenMANIPULATOR can be controlled with using ROBOTIS GUI controller instead of RViz tool.
+[Remote PC]
+
+$ roslaunch turtlebot3_manipulation_gui turtlebot3_manipulation_gui.launch
+SLAM
+Be sure to read SLAM manual before use of the following instruction.
+
+Use SLAM feature to update an unknown map with TurtleBot3 and OpenMANIPULATOR
+
+;
+
+Run roscore
+Run roscore to use ROS 1.
+[Remote PC]
+
+$ roscore
+Run Bringup
+Run Bringup node for TurtleBot3, and start rosserial and LDS sensor using following command.
+[TurtleBot3 SBC]
+
+roslaunch turtlebot3_bringup turtlebot3_robot.launch
+NOTE: As OpenMANIPULATOR on TurtleBot3 is not neccessory for SLAM, move_group and bringup nodes, which are the parameters to control OpenMANIPULATOR, are not important to use
+
+Run SLAM Node
+Run SLAM node for updating an unknown map with TurtleBot3. This node utilizes gmapping package.
+[Remote PC]
+
+$ roslaunch turtlebot3_manipulation_slam slam.launch
+Run turtlebot3_teleop_key Node
+Update the map where TurtleBot3 will navigate using turtlebot3_teleop_key node.
+[Remote PC]
+$ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
+Once the map is completely updated, run the map_saver node to save the updated map.
+[Remote PC]
+$ rosrun map_server map_saver -f ~/map
+Navigation
+Be sure to read Navigation manual before use of the following instruction.
+
+Send TurtleBot3 with OpenMANIPULATOR to the desired position in the map using Navigation node.
+
+Run roscore
+Run roscore to use ROS 1.
+[Remote PC]
+
+$ roscore
+Run Bringup
+Run Bringup node for TurtleBot3, and start rosserial and LDS sensor using following command.
+[TurtleBot3 SBC]
+
+$ roslaunch turtlebot3_bringup turtlebot3_robot.launch
+Run Navigation Node
+Run Navigation node with the following command, which will call Unified Robot Description Format (urdf) and configuration data of RViz to set GUI enviroment, parmeters for Navigation and updated map.
+[Remote PC]
+
+$ roslaunch turtlebot3_manipulation_navigation navigation.launch map_file:=$HOME/map.yaml 
+
+
+How to Control OpenMANIPULATOR with Navigation
+You can run this node to control OpenMANIPULATOR on TurtleBot3 when TurtleBot3 is approaching to a goal position when Navigation node is running. However, when TurtleBot3 is in motion, the movement of OpenMANIPULATOR will be unstable by external influences, such as center of gravity, or vibration; so that it is recommended for the manipulator to be used when TurtleBot3 is not driving.
+
+Run Bringup node for OpenMANIPULATOR
+Run turtlebot3_manipulation_bringup node just as use of single OpenMANIPULATOR. This node contains arm_controller and gripper_controller.
+[Remote PC]
+
+$ roslaunch turtlebot3_manipulation_bringup turtlebot3_manipulation_bringup.launch
+Run move_group Node
+move_group node supports two interfaces to control OpenMANIPULATOR; MoveIt! and ROBOTIS GUI. Choose either of them according to your preference. In this section, GUI Controller is introduced only.
+[Remote PC]
+
+$ roslaunch turtlebot3_manipulation_moveit_config move_group.launch
+NOTE: Please refer to MoveIt! for more details.
+
+Run GUI Controller
+Using this interface, you can control OpenMANIPULATOR on TurtleBot3
+[Remote PC]
+
+$ roslaunch turtlebot3_manipulation_gui turtlebot3_manipulation_gui.launch
