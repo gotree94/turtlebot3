@@ -3,6 +3,11 @@
 
 ---
 
+1. [Humble](# Humble)
+2. [Jazzy] (# Jazzy)
+3. Noetic (# Noetic)
+---
+
 # Humble
 
 ## 3.2 SBC Setup
