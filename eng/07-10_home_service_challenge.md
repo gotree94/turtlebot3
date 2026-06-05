@@ -360,7 +360,7 @@ Using the demo package, the process of moving objects in Home Service Challenge 
 8. Returning to the starting point using the navigation package.
 ![](img/demo_4.png)
 
-### Simulation
+### 7.10.4 Simulation
 
 Simulate TurtleBot3 with OpenMANIPULATOR-X in Gazebo.
 
