@@ -230,7 +230,7 @@ $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 
 2. Click on the map to set the destination of the robot and drag the green arrow toward the direction where the robot will be facing.
    * This green arrow is a marker that can specify the destination of the robot.
-   * The root of the arrow isx,ycoordinate of the destination, and the angle `θ` is determined by the orientation of the arrow.
+   * The root of the arrow is `x`, `y` coordinate of the destination, and the angle `θ` is determined by the orientation of the arrow.
    * As soon as x, y, θ are set, TurtleBot3 will start moving to the destination immediately.
 
 ![](img/2d_nav_goal.png)
