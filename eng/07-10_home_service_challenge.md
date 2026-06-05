@@ -50,14 +50,14 @@ Simulate TurtleBot3 with OpenMANIPULATOR-X in Gazebo.  **[Remote PC]**
 ```
 $ ros2 launch turtlebot3_manipulation_gazebo turtlebot3_home_service_challenge.launch.py
 ```
-![](img/gazebo_simulation.PNG)
+![](img/gazebo_simulation.png)
 
 
 2. Run a Nav2 for Gazebo and set `2D Pose Estimate` in Rviz.
 ```
 $ ros2 launch turtlebot3_home_service_challenge_tools navigation2.launch.py
 ```
-![](img/navigation2_rviz.PNG)
+![](img/navigation2_rviz.png)
 
 3. Run the core package used to carry out Home Service Challenge’s mission. 
 ```
