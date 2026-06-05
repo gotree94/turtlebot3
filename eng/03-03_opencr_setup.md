@@ -1,13 +1,15 @@
 > **Source**: [https://emanual.robotis.com/docs/en/platform/turtlebot3/opencr_setup](https://emanual.robotis.com/docs/en/platform/turtlebot3/opencr_setup)
 
 ---
-#TOC
+# TOC
 
 1. [Humble](#humble)
 2. [Jazzy](#jazzy)
 3. [Noetic](#noetic)
 
 ---
+[TOC](#toc)
+
 # Humble
 
 ## 3.3 OpenCR Setup
@@ -121,6 +123,8 @@ You can use `PUSH SW 1` and `PUSH SW 2` buttons to see whether your robot has be
 4. Press and hold `PUSH SW 2` for a few seconds to command the robot to rotate 180 degrees in place.
 
 ---
+[TOC](#toc)
+
 # Jazzy
 
 ## 3.3 OpenCR Setup
@@ -148,6 +152,7 @@ You can use `PUSH SW 1` and `PUSH SW 2` buttons to see whether your robot has be
 4. Press and hold `PUSH SW 2` for a few seconds to command the robot to rotate 180 degrees in place.
 
 ---
+[TOC](#toc)
 
 # Noetic
 
