@@ -1,28 +1,30 @@
-# Manipulation
-
 > **Source**: [https://emanual.robotis.com/docs/en/platform/turtlebot3/manipulation](https://emanual.robotis.com/docs/en/platform/turtlebot3/manipulation)
 
 ---
 
 
-# Manipulation
 
-**NOTE** :
+---
 
-- These instructions were tested on `Ubuntu 22.04` and `ROS2 Humble Hawksbill` .
-- If you want more specific information about OpenMANIPULATOR-X operation, please refer to the [OpenMANIPULATOR-X](https://emanual.robotis.com/docs/en/platform/openmanipulator/) eManual page.
+# 7. Manipulation
 
-The contents in e-Manual are subject to change without prior notice. Some included video instructions may differ from the contents in the e-Manual.
+> **NOTE** :
+> - These instructions were tested on `Ubuntu 22.04` and `ROS2 Humble Hawksbill` .
+> - If you want more specific information about OpenMANIPULATOR-X operation, please refer to the [OpenMANIPULATOR-X](https://emanual.robotis.com/docs/en/platform/openmanipulator/) eManual page.
 
-**NOTE** :
+> The contents in e-Manual are subject to change without prior notice. Some included video instructions may differ from the contents in the e-Manual.
 
-- These instructions were tested on `Ubuntu 20.04` and `ROS Noetic Ninjemys` .
-- If you want more specific information about OpenMANIPULATOR-X operation, please refer to the [OpenMANIPULATOR-X](https://emanual.robotis.com/docs/en/platform/openmanipulator/) eManual page.
+## 7.1 TurtleBot3 with OpenMANIPULATOR
 
-The contents in e-Manual are subject to change without prior notice. Some included video instructions may differ from the contents in the e-Manual.
+![](img/tb3_with_opm_logo.png)
 
+* The OpenMANIPULATOR-X from ROBOTIS is a low cost manipulator using DYNAMIXEL actuators with 3D printable parts and support for ROS.
+* The OpenMANIPULATOR-X is compatible with the TurtleBot3 Waffle as a `mobile manipulator` with the SLAM and Navigation capabilities integral to the TurtleBot3 platform.
 
-## TurtleBot3 with OpenMANIPULATOR
+* https://youtu.be/Qhvk5cnX2hM?si=kdWlSmFP9ta3l5Jv
+* https://youtu.be/P82pZsqpBg0?si=0775bFW_WgB71_zu
+
+> The contents in e-Manual are subject to change without notice. Some video content may differ from the contents in the eManual.
 
 ![](img/tb3_with_opm_logo.png)
 
@@ -32,16 +34,8 @@ The OpenMANIPULATOR-X is compatible with the TurtleBot3 Waffle as a `mobile mani
 
 The contents in e-Manual are subject to change without notice. Some video content may differ from the contents in the eManual.
 
-![](img/tb3_with_opm_logo.png)
 
-The OpenMANIPULATOR-X from ROBOTIS is a low cost manipulator using DYNAMIXEL actuators with 3D printable parts and support for ROS.
-
-The OpenMANIPULATOR-X is compatible with the TurtleBot3 Waffle as a `mobile manipulator` with the SLAM and Navigation capabilities integral to the TurtleBot3 platform.
-
-The contents in e-Manual are subject to change without notice. Some video content may differ from the contents in the eManual.
-
-
-## Software Setup
+## 7.2 Software Setup
 
 **NOTE** : TurtleBot3 Manipulation for ROS2 Humble requires the `turtlebot3_manipulation` package. Follow the instructions below to install the required package and its dependencies.
 
@@ -59,7 +53,7 @@ The contents in e-Manual are subject to change without notice. Some video conten
 <!– $cd~/catkin_ws&&catkin_make$cd~/catkin_ws/src/$git clone https://github.com/ROBOTIS-GIT/open_manipulator_with_tb3.git$git clone https://github.com/ROBOTIS-GIT/open_manipulator_with_tb3_msgs.git$git clone https://github.com/ROBOTIS-GIT/open_manipulator_with_tb3_simulations.git$git clone https://github.com/ROBOTIS-GIT/open_manipulator_perceptions.git$sudoapt-getinstallros-melodic-smach*ros-melodic-ar-track-alvar ros-melodic-ar-track-alvar-msgs$cd~/catkin_ws&&catkin_make
 
 
-## Hardware Assembly
+## 7.3 Hardware Assembly
 
 - [CAD files](http://www.robotis.com/service/download.php?no=767) (TurtleBot3 Waffle Pi + OpenMANIPULATOR)
 
@@ -73,7 +67,7 @@ The contents in e-Manual are subject to change without notice. Some video conten
 ![](img/assemble.png)
 
 
-## OpenCR Setup
+## 7.4 OpenCR Setup
 
 **NOTE** : To use the OpenMANIPULATOR-X, you need to upload specific firmware to the OpenCR by using either a **shell script** or the **Arduino IDE** .
 
@@ -88,7 +82,7 @@ After the OpenMANIPULATOR-X is properly mounted on TurtleBot3, the OpenCR firmwa
 2. When the firmware is successfully uploaded to the OpenCR, **jump_to_fw** will be printed to the terminal used to upload the firmware.
 
 
-### Arduino IDE
+### 7.4.1 Arduino IDE
 
 Please be aware that OpenCR board manager **does not support Arduino IDE on ARM based SBC such as Raspberry Pi or NVidia Jetson** .  In order to upload the OpenCR firmware using Arduino IDE, please follow the below instructions on your PC.
 
@@ -118,7 +112,7 @@ When the firmware is successfully uploaded, the OpenCR board will reboot and **t
 Please be aware that OpenCR board manager **does not support Arduino IDE on ARM based SBC such as Raspberry Pi or NVidia Jetson** .  In order to upload the OpenCR firmware using Arduino IDE, please follow the below instructions on your PC.
 
 
-## Bringup
+## 7.5 Bringup
 
 In order to run a TurtleBot3 Manipulation simulation using Gazebo, please skip to the [Simulation](https://emanual.robotis.com/docs/en/platform/turtlebot3/manipulation#simulation) section.
 The following command will bringup the actual TurtleBot3 hardware with OpenMANIPULATOR-X on it.
