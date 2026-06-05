@@ -59,45 +59,55 @@ $ ./update.sh $OPENCR_PORT $OPENCR_MODEL.opencr
    * Release thePUSH SW2button.
 
 
- Click here to expand more details about firmware uploads using the Arduino IDE
+**firmware uploads using the Arduino IDE**
 
-Please be aware that the OpenCR board manager does not support Arduino IDE on ARM based SBCs such as Raspberry Pi or NVidia Jetson.
-In order to upload the OpenCR firmware using the Arduino IDE, please follow the below instructions on your PC.
+> Please be aware that the OpenCR board manager does not support Arduino IDE on ARM based SBCs such as Raspberry Pi or NVidia Jetson.
+> In order to upload the OpenCR firmware using the Arduino IDE, please follow the below instructions on your PC.
 
-If you are using Linux, please configure the USB ports for OpenCR use. For other operating systems (OSX or Windows), you can skip this step.
+1. If you are using Linux, please configure the USB ports for OpenCR use. For other operating systems (OSX or Windows), you can skip this step.
+```
 $ wget https://raw.githubusercontent.com/ROBOTIS-GIT/OpenCR/master/99-opencr-cdc.rules
 $ sudo cp ./99-opencr-cdc.rules /etc/udev/rules.d/
 $ sudo udevadm control --reload-rules
 $ sudo udevadm trigger
 $ sudo apt install libncurses5-dev:i386
-Install Arduino IDE.
-Download the latest Arduino IDE
-After completing installation, run the Arduino IDE.
+```
+2. Install Arduino IDE.
+   * [Download the latest Arduino IDE](https://www.arduino.cc/en/software)
 
-Press Ctrl + , to open the Preferences menu
+3. After completing installation, run the Arduino IDE.
 
-Enter the below address in the Additional Boards Manager URLs.
+4. Press Ctrl + , to open the Preferences menu
+
+5. Enter the below address in the Additional Boards Manager URLs.
+```
 https://raw.githubusercontent.com/ROBOTIS-GIT/OpenCR/master/arduino/opencr_release/package_opencr_index.json
+```
+![](img/ide1.png)
 
+6. Open the TurtleBot3 firmware. Please select the correct firmware, depending on your specific model .
+  * Burger : File > Examples > Turtlebot3 ROS2 > turtlebot3_burger
+  * Waffle/Waffle Pi : File > Examples > Turtlebot3 ROS2 > turtlebot3_waffle
+7. Connect the OpenCR to the PC and Select OpenCR > OpenCR Board from the Tools > Board menu.
 
-Open the TurtleBot3 firmware. Please select the correct firmware, depending on your specific model .
-Burger : File > Examples > Turtlebot3 ROS2 > turtlebot3_burger
-Waffle/Waffle Pi : File > Examples > Turtlebot3 ROS2 > turtlebot3_waffle
-Connect the OpenCR to the PC and Select OpenCR > OpenCR Board from the Tools > Board menu.
+8. Select the USB port with the OpenCR connected from the Tools > Port menu.
 
-Select the USB port with the OpenCR connected from the Tools > Port menu.
+9. Upload the TurtleBot3 firmware sketch with Ctrl + U or the upload icon.
 
-Upload the TurtleBot3 firmware sketch with Ctrl + U or the upload icon.
+![](img/o2.png)
 
+![](img/o3.png)
 
+10. If the firmware upload fails, try uploading again through recovery mode according to the following instructions. While in recovery mode, the `STATUS` led of the [OpenCR](https://emanual.robotis.com/docs/en/parts/controller/opencr10/) will blink periodically.
+   * Hold down the PUSH SW2 button.
+   * Press the Reset button.
+   * Release the Reset button.
 
-If the firmware upload fails, try uploading again through recovery mode according to the following instructions. While in recovery mode, the STATUS led of the OpenCR will blink periodically.
-Hold down the PUSH SW2 button.
-Press the Reset button.
-Release the Reset button.
-Release the PUSH SW2 button. 
+![](img/bootloader_19.png)
+   
+   * Release the PUSH SW2 button. 
 
-### 3.2.1 OpenCR Test
+### 3.3.1 OpenCR Test
 
 > **NOTE** : If the wheels do not move while performing the OpenCR Test, refer to the” **TurtleBot3 DYNAMIXEL setup instructions** ” to update the DYNAMIXEL’s configuration.
 
@@ -111,8 +121,9 @@ You can use `PUSH SW 1` and `PUSH SW 2` buttons to see whether your robot has be
 4. Press and hold `PUSH SW 2` for a few seconds to command the robot to rotate 180 degrees in place.
 
 ---
+# Jazzy
 
-## OpenCR Setup
+## 3.3 OpenCR Setup
 
 1. Connect the [OpenCR](https://emanual.robotis.com/docs/en/parts/controller/opencr10/) to the Rasbperry Pi using a micro USB cable.  ![](img/opencr_setup.png)
 2. Install the required packages on the Raspberry Pi in order to upload the [OpenCR](https://emanual.robotis.com/docs/en/parts/controller/opencr10/) firmware.  **[TurtleBot3 SBC]** $sudodpkg--add-architecturearmhf$sudoapt-get update$sudoapt-getinstalllibc6:armhf
@@ -123,7 +134,7 @@ You can use `PUSH SW 1` and `PUSH SW 2` buttons to see whether your robot has be
 7. If the firmware upload fails, try uploading again through recovery mode according to the following instructions. While in recovery mode, the `STATUS` led of the [OpenCR](https://emanual.robotis.com/docs/en/parts/controller/opencr10/) will blink periodically. Hold down thePUSH SW2button.Press theResetbutton.Release theResetbutton.Release thePUSH SW2button.
 
 
-### OpenCR Test
+### 3.3.1 OpenCR Test
 
 **NOTE** : If the wheels do not move while performing the OpenCR Test, refer to the” **TurtleBot3 DYNAMIXEL setup instructions** ” to update the DYNAMIXEL’s configuration.
 
@@ -138,7 +149,9 @@ You can use `PUSH SW 1` and `PUSH SW 2` buttons to see whether your robot has be
 
 ---
 
-## OpenCR Setup
+# Noetic
+
+## 3.3 OpenCR Setup
 
 1. Connect the [OpenCR](https://emanual.robotis.com/docs/en/parts/controller/opencr10/) to the Rasbperry Pi using a micro USB cable.  ![](img/opencr_setup.png)
 2. Install the required packages on the Raspberry Pi in order to upload the [OpenCR](https://emanual.robotis.com/docs/en/parts/controller/opencr10/) firmware.  **[TurtleBot3 SBC]** $sudodpkg--add-architecturearmhf$sudoapt-get update$sudoapt-getinstalllibc6:armhf
@@ -149,7 +162,7 @@ You can use `PUSH SW 1` and `PUSH SW 2` buttons to see whether your robot has be
 7. If the firmware upload fails, try uploading again through recovery mode according to the following instructions. While in recovery mode, the `STATUS` led of the [OpenCR](https://emanual.robotis.com/docs/en/parts/controller/opencr10/) will blink periodically. Hold down thePUSH SW2button.Press theResetbutton.Release theResetbutton.Release thePUSH SW2button.
 
 
-### OpenCR Test
+### 3.3.1 OpenCR Test
 
 **NOTE** : If the wheels do not move while performing the OpenCR Test, refer to the” **TurtleBot3 DYNAMIXEL setup instructions** ” to update the DYNAMIXEL’s configuration.
 
