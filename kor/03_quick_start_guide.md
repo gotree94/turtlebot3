@@ -139,10 +139,28 @@ https://youtu.be/2I_29m_Z3WA?si=VK5NZvZkM5J3OBsd
    * 2. 아래 지침에 따라 Ubuntu를 설치하세요.
        [Install Ubuntu desktop](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview)
 
-
 ### 3.1.2 Remote PC에 ROS 2 설치
    * [공식 ROS 2 문서](https://docs.ros.org/en/jazzy/Installation.html)를 따라 ROS 2 Jazzy를 설치하세요.
    * 대부분의 Linux 사용자에게는 [Debian 패키지 설치 방법](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)을 적극 권장합니다.
+
+**ROS 2 설치 방법 상세**
+
+1. [Debian 패키지](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html) 설치 페이지를 방문하세요.
+
+2. 초록색 상자에 있는 CLI 명령어를 복사하여 터미널에 붙여넣으세요 (ctrl + shift + v)
+
+![](img/ros2_install1-.png)
+
+3. 일반적으로 Remote PC에는 ros-humble-desktop이 권장됩니다.
+
+![](img/ros2_install2-.png)
+
+4. 환경 설정을 bashrc에 추가하세요. **[Remote PC]**
+
+```
+echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc  
+source ~/.bashrc  
+```
 
 ### 3.1.3 종속 ROS 2 패키지 설치
    * 1. **Remote PC**에서 `Ctrl` + `Alt` + `T`로 터미널을 엽니다.
