@@ -40,8 +40,9 @@ $ ros2 run turtlebot3_teleop teleop_keyboard
 [TOC)(#toc)
 # Jazzy
 
-> **NOTE** : This feature is available for Humble and Noetic.
+## 6.4 Fake Node Simulation
 
+> **NOTE** : This feature is available for Humble and Noetic.
 
 ---
 [TOC)(#toc)
