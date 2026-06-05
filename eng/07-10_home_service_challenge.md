@@ -340,17 +340,21 @@ The goal of the Home Service Challenge is to move four different objects from a 
 Using the demo package, the process of moving objects in Home Service Challenge is as follows.
 
 1. Navigating to a target in the living room. Find a target, and reach it using a Navigation package.
+
 ![](img/demo_1.png)
 
 2. Approaching the target. For the approach to the target with precise, TurtleBot3 wheels are directly controlled by computing target’s location from AR marker. (Used Topic :/tb3_hsc/cmd_vel). To produce a reliable performance, Closed-loop and control system can be used for the specified number of times.
+
 ![](img/demo_2.png)
 
 3. Picking the target with OpenMANIPULATOR-X’s gripper. Pick the target object using the moveit package (Joint space control, Task space control and Gripper control) MoveIt Diagram
+
 ![](img/manipulation_diagram.png)
 
 4. Leaving for the next room to place the object (Used Topic : `/tb3_hsc/cmd_vel` ) When moving back from the target, the wheels are directly controlled by the manager program using/tb3_hsc/cmd_veltopic.
 
 5. Navigating to the place where the object will be placed. Find a next target, and reach it using a Navigation package.
+
 ![](img/demo_3.png)
 
 6. Approaching the target.
@@ -358,6 +362,7 @@ Using the demo package, the process of moving objects in Home Service Challenge 
 7. Placing the object using the gripper.
 
 8. Returning to the starting point using the navigation package.
+
 ![](img/demo_4.png)
 
 ### 7.10.4 Simulation
