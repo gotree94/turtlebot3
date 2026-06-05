@@ -1,5 +1,3 @@
-# TurtleBot3
-
 > **Source**: [https://emanual.robotis.com/docs/en/platform/turtlebot3/fakenode_simulation](https://emanual.robotis.com/docs/en/platform/turtlebot3/fakenode_simulation)
 
 ---
