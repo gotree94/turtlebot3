@@ -339,8 +339,12 @@ Below are examples of successfully detected traffic signs for different missions
 
 noetic_detect_intersection.png
 
-![](img/noetic_detect_intersection.png) noetic_detect_left.png
-noetic_detect_right.png
+<p align="center">
+  <img src="img/noetic_detect_intersection.png" width="45%">
+  <img src="img/noetic_detect_left.png" width="45%">
+</p>
+
+![](img/noetic_detect_right.png)
 
 Detecting Intersection, Left, and Right signs (mission:=intersection)
 
