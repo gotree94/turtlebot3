@@ -347,10 +347,15 @@ Detecting Construction, and Parking signs (mission:=construction,mission:=parkin
 
 ![](img/noetic_detect_level_crossing.png) ![](img/noetic_detect_tunnel.png)
 
+<p align="center">
+  <img src="img/noetic_detect_level_crossing.png" width="45%">
+  <img src="img/noetic_detect_tunnel.png" width="45%">
+</p>
+
 Detecting the Tunnel, and Level Crossing signs (mission:=level_crossing,mission:=tunnel)
 
 
-## Missions
+## 8.5 Missions
 
 > AutoRace is a competition for autonomous driving robot platforms designed to provide varied test conditions for autonomous robotics development. The provided open source libraries are based on ROS and are intended to be used as a base for further competitor development. Join Autorace and show off your development skill! **WARNING** : Be sure to read [Autonomous Driving](https://emanual.robotis.com/docs/en/platform/turtlebot3/autonomous_driving#autonomous-driving) in order to start missions.
 
