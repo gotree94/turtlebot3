@@ -367,7 +367,7 @@ noetic_detect_intersection.png
 </p>
 
 <p align="center">
-    <bDetecting the Tunnel, and Level Crossing signs (mission:=level_crossing,mission:=tunnel)</b>
+    <b>Detecting the Tunnel, and Level Crossing signs (mission:=level_crossing,mission:=tunnel)</b>
 </p>
 
 
