@@ -130,6 +130,7 @@ $ rqt
   * Adjust/camera/image_compensationto fine-tune the/camera/image_projectedbird’s-eye view.rqt_reconfigure
 
 ![](img/humble_extrinsic_calibration_reconfigure.png)
+> rqt_reconfigure
 
 **Saving Calibration Data**
 
@@ -244,6 +245,7 @@ For optimal accuracy, tuning detection parameters is necessary. Adjusting these 
 ```
 
 ![](img/humble_lane_yaml.png)
+> Modified lane.yaml file
 
 **Running Lane Tracking**
 
@@ -350,15 +352,16 @@ Detecting the Tunnel, and Level Crossing signs (mission:=level_crossing,mission:
 
 ## Missions
 
-AutoRace is a competition for autonomous driving robot platforms designed to provide varied test conditions for autonomous robotics development. The provided open source libraries are based on ROS and are intended to be used as a base for further competitor development. Join Autorace and show off your development skill! **WARNING** : Be sure to read [Autonomous Driving](https://emanual.robotis.com/docs/en/platform/turtlebot3/autonomous_driving#autonomous-driving) in order to start missions.
+> AutoRace is a competition for autonomous driving robot platforms designed to provide varied test conditions for autonomous robotics development. The provided open source libraries are based on ROS and are intended to be used as a base for further competitor development. Join Autorace and show off your development skill! **WARNING** : Be sure to read [Autonomous Driving](https://emanual.robotis.com/docs/en/platform/turtlebot3/autonomous_driving#autonomous-driving) in order to start missions.
 
 
-### 8.5 Traffic Lights
+### 8.5.1 Traffic Lights
 
 This section describes how to complete the traffic light mission by having TurtleBot3 recognize the traffic lights and complete the course.
 
+https://youtu.be/SaU8PjXT5lA?si=jmpXFMQJWpsNsnxW
 
-##### 8.5.1 Traffic Lights detection process
+##### Traffic Lights detection process
 
 1. Filter the image to extract the red, yellow, green color mask images.
 2. Locate the circle in the region of interest(RoI) for each masked image.
@@ -393,37 +396,76 @@ $ rqt
 ```
 
 6. Navigate toPlugins>Visualization>Image view. Create two image view windows.
-7. In one window, select the/detect/image_traffic_light/compressedtopic. In another window, select one of the four topics to view the masked images:/detect/image_red_light,/detect/image_yellow_light,/detect/image_green_light,/detect/image_traffic_light. Detecting the Yellow light. The image on the right displays/detect/image_yellow_lighttopic. Detecting the Yellow light. The image on the right displays/detect/image_yellow_lighttopic. Detecting the Red light. The image on the right displays/detect/image_red_lighttopic.
-8. Navigate to **Plugins** > **Configuration** > **Dynamic Reconfigure** .
-9. Adjust the parameters in/detect/traffic_lightto adjust the configuration of each masked image topic. Traffic light reconfigure
+7. In one window, select the `/detect/image_traffic_light/compressed` topic. In another window, select one of the four topics to view the masked images:`/detect/image_red_light`,`/detect/image_yellow_light`,`/detect/image_green_light`,`/detect/image_traffic_light`. <br>
+![](img/noetic_detect_traffic_light_green.png) <br>
+> Detecting the Yellow light. The image on the right displays/detect/image_yellow_lighttopic. 
 
+![](img/noetic_detect_traffic_light_yellow.png) <br>
+> Detecting the Yellow light. The image on the right displays/detect/image_yellow_lighttopic. 
+
+![](img/noetic_detect_traffic_light_red.png) <br>
+> Detecting the Red light. The image on the right displays/detect/image_red_lighttopic.
+
+8. Navigate to **Plugins** > **Configuration** > **Dynamic Reconfigure** .
+9. Adjust the parameters in `/detect/traffic_light` to adjust the configuration of each masked image topic. Traffic light reconfigure
+
+![](img/noetic_traffic_light_reconfigure.png)
 
 ##### Saving Calibration Data
 
-1. Open the `traffic_light.yaml` file located at **turtlebot3_autorace_detect/param/traffic_light/** . $gedit ~/turtlebot3_ws/src/turtlebot3_autorace_2020/turtlebot3_autorace_detect/param/traffic_light/traffic_light.yaml turtlebot3_autorace_detect/param/traffic_light/’traffic_light.yaml’
+1. Open the `traffic_light.yaml` file located at **turtlebot3_autorace_detect/param/traffic_light/** . 
+```
+$ gedit ~/turtlebot3_ws/src/turtlebot3_autorace_2020/turtlebot3_autorace_detect/param/traffic_light/traffic_light.yaml
+```
+
+![](img/humble_traffic_light_yaml.png)
+> turtlebot3_autorace_detect/param/traffic_light/’traffic_light.yaml’
+
+
 2. Write the modified values and save the file to keep your changes.
 
 
 ##### Testing Traffic Light Detection
 
-1. Close all terminals or terminate them withCtrl+C
-2. Open a new terminal and launch Autorace Gazebo simulation. $ros2 launch turtlebot3_gazebo turtlebot3_autorace_2020.launch.py
-3. Open a new terminal and launch the intrinsic calibration node. $ros2 launch turtlebot3_autorace_camera intrinsic_camera_calibration.launch.py
-4. Open a new terminal and launch the extrinsic calibration node. $ros2 launch turtlebot3_autorace_camera extrinsic_camera_calibration.launch.py
-5. Open a new terminal and launch the traffic light detection node. $ros2 launch turtlebot3_autorace_detect detect_traffic_light.launch.py
-6. Open a new terminal and execute the rqt_image_view. $rqt
+1. Close all terminals or terminate them with `Ctrl + C`
+2. Open a new terminal and launch Autorace Gazebo simulation. 
+```
+$ ros2 launch turtlebot3_gazebo turtlebot3_autorace_2020.launch.p
+```
+
+3. Open a new terminal and launch the intrinsic calibration node. 
+```
+$ ros2 launch turtlebot3_autorace_camera intrinsic_camera_calibration.launch.py
+```
+
+4. Open a new terminal and launch the extrinsic calibration node. 
+```
+$ ros2 launch turtlebot3_autorace_camera extrinsic_camera_calibration.launch.py
+```
+
+5. Open a new terminal and launch the traffic light detection node. 
+```
+$ ros2 launch turtlebot3_autorace_detect detect_traffic_light.launch.py
+```
+
+6. Open a new terminal and execute the rqt_image_view.
+```
+$ rqt
+```
+
 7. Check each topics: `/detect/image_red_light` , `/detect/image_yellow_light` , `/detect/image_green_light` .
 
 
 ### Intersection
 
-This mission does not have any associated example code.
+> This mission does not have any associated example code.
 
 
 ### Construction
 
 This section describes how to complete the construction mission. If the TurtleBot encounters an object while following a lane, it will swerve into the opposite lane to avoid the object before returning to its original lane.
 
+https://youtu.be/eMk39rIGiPc?si=3QS5lWOStUy4JbRQ
 
 ##### Construction avoidance process
 
@@ -434,11 +476,27 @@ This section describes how to complete the construction mission. If the TurtleBo
 
 ##### How to Run Construction Mission
 
-1. Close all terminals or terminate them withCtrl+C
-2. Open a new terminal and launch the Autorace Gazebo simulation. $ros2 launch turtlebot3_gazebo turtlebot3_autorace_2020.launch.py
-3. Open a new terminal and launch the intrinsic calibration node. $ros2 launch turtlebot3_autorace_camera intrinsic_camera_calibration.launch.py
-4. Open a new terminal and launch the extrinsic calibration node. $ros2 launch turtlebot3_autorace_camera extrinsic_camera_calibration.launch.py
-5. Open a new terminal and launch the construction mission node. $ros2 launch turtlebot3_autorace_mission mission_construction.launch.py
+1. Close all terminals or terminate them with `Ctrl + C`
+2. Open a new terminal and launch the Autorace Gazebo simulation. 
+```
+$ ros2 launch turtlebot3_gazebo turtlebot3_autorace_2020.launch.py
+```
+
+3. Open a new terminal and launch the intrinsic calibration node. 
+```
+$ ros2 launch turtlebot3_autorace_camera intrinsic_camera_calibration.launch.py
+```
+
+4. Open a new terminal and launch the extrinsic calibration node. 
+```
+$ ros2 launch turtlebot3_autorace_camera extrinsic_camera_calibration.launch.py
+```
+
+5. Open a new terminal and launch the construction mission node. 
+```
+$ ros2 launch turtlebot3_autorace_mission mission_construction.launch.py
+```
+
 6. On the image window, you can watch the LiDAR visualization. The detected lidar points, and danger zone are displayed.
 
 ![](img/humble_construction_image_window.png)
