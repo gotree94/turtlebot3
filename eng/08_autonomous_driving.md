@@ -672,31 +672,34 @@ $ gedit ~/turtlebot3_ws/src/turtlebot3_autorace/turtlebot3_autorace_mission/para
 ## 8.1 Getting Started
 
 > **NOTE**
-> - The Autorace package was developed for `Ubuntu 22.04` running `ROS 2 Humble Hawksbill` .
+> - The Autorace package was developed for `Ubuntu 20.04` running `ROS1 Noetic Ninjemys` .
 > - The Autorace package has only been comprehensively tested for operation in the Gazebo simulator.
 > - Instructions for correct simulation setup are available in the [Simulation](https://emanual.robotis.com/docs/en/platform/turtlebot3/simulation/) section of the manual.
 
-> For ROS2 Humble, our Autonomous Driving package has only been tested in simulation.
+> Tip: If you have an actual TurtleBot3, you can perform up to [Lane Detection](https://emanual.robotis.com/docs/en/platform/turtlebot3/autonomous_driving/#lane-detection) from our Autonomous Driving package with your physical robot. For more details, click the expansion note (Click to expand: ) at the end of the content in each sub section.
+
+> The contents of the e-Manual are subject to change without prior notice. Therefore, some video content may differ from the content in the e-Manual.
 
 ### 8.1.1 Prerequisites
 
 `Remote PC`
 
-- ROS 2 Humble installed on a Laptop or desktop PC.
+- ROS 1 Noetic installed on your Laptop or desktop PC.
+- These instructions are intended for use in a Gazebo simulation, but can be ported to the actual robot later.
 
 
 ### 8.1.2 Install Autorace Packages
 
-1. Install the AutoRace meta package on the `Remote PC` . 
+1. Install the AutoRace 2020 meta package on the `Remote PC` . 
 ```
-$ cd ~/turtlebot3_ws/src/
-$ git clone https://github.com/ROBOTIS-GIT/turtlebot3_autorace.git
-$ cd ~/turtlebot3_ws && colcon build --symlink-install
+$ cd ~/catkin_ws/src/
+$ git clone -b noetic https://github.com/ROBOTIS-GIT/turtlebot3_autorace_2020.git
+$ cd ~/catkin_ws && catkin_make
 ```
 
 2. Install additional dependent packages on the `Remote PC` . 
 ```
-$ sudo apt install ros-humble-image-transport ros-humble-cv-bridge ros-humble-vision-opencv python3-opencv libopencv-dev ros-humble-image-pipeline
+$ sudo apt install ros-noetic-image-transport ros-noetic-cv-bridge ros-noetic-vision-opencv python3-opencv libopencv-dev ros-noetic-image-proc
 ```
 
 ### 8.1.3 Setting World Plugin
