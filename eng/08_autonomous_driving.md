@@ -1341,34 +1341,57 @@ $ gedit ~/turtlebot3_ws/src/turtlebot3_autorace/turtlebot3_autorace_detect/param
 
 ##### Testing Level Crossing Detection
 
-1. Close all terminals or terminate them with `Ctrl + C`
-2. Open a new terminal and launch Autorace Gazebo simulation. 
+1.Close all terminals or terminate them with `Ctrl + C`
+2. Open a new terminal and launch Autorace Gazebo simulation. Launch `roscore` with the roslaunch command.
 ```
-$ ros2 launch turtlebot3_gazebo turtlebot3_autorace_2020.launch.py
+$ roslaunch turtlebot3_gazebo turtlebot3_autorace_2020.launch
 ```
-
-3. Open a new terminal and launch the intrinsic calibration node. 
+3. Open a new terminal and launch the intrinsic calibration node.
 ```
-$ ros2 launch turtlebot3_autorace_camera intrinsic_camera_calibration.launch.py
+$ roslaunch turtlebot3_autorace_camera intrinsic_camera_calibration.launch
 ```
-
-4. Open a new terminal and launch the extrinsic calibration node. 
+4. Open a new terminal and launch the extrinsic calibration node.
 ```
-$ ros2 launch turtlebot3_autorace_camera extrinsic_camera_calibration.launch.py
+$ roslaunch turtlebot3_autorace_camera extrinsic_camera_calibration.launch
 ```
-
-5. Open a new terminal and launch the level crossing detection node. 
+5. Open a new terminal and launch the level crossing detection node.
 ```
-$ ros2 launch turtlebot3_autorace_detect detect_level_crossing.launch.py
+$ roslaunch turtlebot3_autorace_detect detect_level_crossing.launch
 ```
-
 6. Open a new terminal and execute the rqt_image_view.
 ```
-$ rqt
+$ rqt_image_view
 ```
+7. Check the image topic: `/detect/image_level/compressed`.
 
-7. Check the image topic: `/detect/image_level/compressed` on Image View Plugin.
+##### How to Run Level Crossing Mission
 
+1. Close all terminals or terminate them with `Ctrl + C`
+2. Open a new terminal and launch Autorace Gazebo simulation. Lauch `roscore` with the roslaunch command.
+```
+$ roslaunch turtlebot3_gazebo turtlebot3_autorace_2020.launch
+```
+3. Open a new terminal and launch the intrinsic calibration node.
+```
+$ roslaunch turtlebot3_autorace_camera intrinsic_camera_calibration.launch
+```
+4. Open a new terminal and launch the keyboard teleoperation node.
+Drive the TurtleBot3 along the lane and stop before the stop traffic sign.
+```
+$ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
+```
+5. Open a new terminal and launch the autorace core node with a specific mission name.
+```
+$ roslaunch turtlebot3_autorace_core turtlebot3_autorace_core.launch mission:=level_crossing
+```
+6. Open a new terminal and launch the Gazebo mission node.
+```
+$ roslaunch turtlebot3_autorace_core turtlebot3_autorace_mission.launch
+```
+7. Open a new terminal and enter the command below. This will prepare to run the level crossing mission by setting the decided_mode to 2.
+```
+$ rostopic pub -1 /core/decided_mode std_msgs/UInt8 "data: 2"
+```
 
 ### 8.5.6 Tunnel
 
