@@ -1374,13 +1374,15 @@ $ rqt
 
 Tunnel is the sixth mission of TurtleBot3 AutoRace 2020. The TurtleBot3 must avoid obstacles in the unexplored tunnel and exit successfully.
 
+https://youtu.be/Qx3vbgoSNO8?si=zgZigMIInJ6pUWpr
 
 **How to Run Tunnel Mission**
+
 > **NOTE**: Change the navigation parameters in the turtlebot3/turtlebot3_navigation/param/ file. If you slam and make a new map, Place the new map in the turtlebot3_autorace package you’ve placed in /turtlebot3_autorace/turtlebot3_autorace_driving/maps/.
 
-1. Close all terminals or terminate them with Ctrl + C
+1. Close all terminals or terminate them with `Ctrl + C`
 
-2. Open a new terminal and launch Autorace Gazebo simulation. Launch roscore with the roslaunch command.
+2. Open a new terminal and launch Autorace Gazebo simulation. Launch `roscore` with the roslaunch command.
 ```
 $ roslaunch turtlebot3_gazebo turtlebot3_autorace_2020.launch
 ```
