@@ -1372,40 +1372,36 @@ $ rqt
 
 ### 8.5.6 Tunnel
 
-This section describes how to complete the tunnel mission. The TurtleBot must use maps and navigation to proceed through obstacle areas with no lanes.
+Tunnel is the sixth mission of TurtleBot3 AutoRace 2020. The TurtleBot3 must avoid obstacles in the unexplored tunnel and exit successfully.
 
-https://youtu.be/pPS3tM90gAc?si=SSkRh1aCL2pdvHYn
 
-##### How to Run Tunnel Mission
+**How to Run Tunnel Mission**
+> **NOTE**: Change the navigation parameters in the turtlebot3/turtlebot3_navigation/param/ file. If you slam and make a new map, Place the new map in the turtlebot3_autorace package you’ve placed in /turtlebot3_autorace/turtlebot3_autorace_driving/maps/.
 
-> **NOTE** : Change the navigation parameters in the **turtlebot3/turtlebot3_navigation2/param/buger_cam** file. If you slam and make a new map, Place the new map in the turtlebot3_autorace package at **/turtlebot3_autorace/turtlebot3_autorace_tunnel/map/** .
+1. Close all terminals or terminate them with Ctrl + C
 
-1. Close all terminals or terminate them with `Ctrl + C`
-
-2. Open a new terminal and launch the Autorace Gazebo simulation. 
+2. Open a new terminal and launch Autorace Gazebo simulation. Launch roscore with the roslaunch command.
 ```
-$ ros2 launch turtlebot3_gazebo turtlebot3_autorace_2020.launch.py
+$ roslaunch turtlebot3_gazebo turtlebot3_autorace_2020.launch
 ```
 
-3. Open a new terminal and launch the tunnel mission node. This node runs the navigation and specifies the initial and target locations. 
+3. Open a new terminal and launch the intrinsic calibration node.
 ```
-$ ros2 launch turtlebot3_autorace_mission mission_tunnel.launch.py
-```
-
-4. On the Rviz2 screen, you can watch the TurtleBot generate and follow a path in real-time.
-
-![](img/humble_tunnel_rviz.png)
-
-
-##### Set Initial Position and Goal Position
-
-You can modify the initial position and goal position to fit your plan.
-
-1. Open the `navigation.yaml` file located at **turtlebot3_autorace_mission/param/** . 
-```
-$ gedit ~/turtlebot3_ws/src/turtlebot3_autorace/turtlebot3_autorace_mission/param/navigation.yaml
+$ roslaunch turtlebot3_autorace_camera intrinsic_camera_calibration.launch
 ```
 
-![](img/humble_tunnel_yaml.png)
+4 Open a new terminal and launch the keyboard teleoperation node.
+Drive the TurtleBot3 along the lane and stop before the tunnel traffic sign.
+```
+$ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
+```
 
-2. Write modified values and save the file.
+5. Open a new terminal and launch the autorace core node with a specific mission name.
+```
+$ roslaunch turtlebot3_autorace_core turtlebot3_autorace_core.launch mission:=tunnel
+```
+
+6. Open a new terminal and enter the command below. This will prepare to run the tunnel mission by setting the decided_mode to 2.
+```
+$ rostopic pub -1 /core/decided_mode std_msgs/UInt8 "data: 2"
+```
