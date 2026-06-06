@@ -337,15 +337,19 @@ This will display the result of traffic sign detection in real-time. The detecte
 
 Below are examples of successfully detected traffic signs for different missions:
 
-![](img/noetic_detect_intersection.png)
+noetic_detect_intersection.png
+
+![](img/noetic_detect_intersection.png) noetic_detect_left.png
+noetic_detect_right.png
 
 Detecting Intersection, Left, and Right signs (mission:=intersection)
 
-![](img/noetic_detect_construction.png) ![](img/noetic_detect_parking.png)
+<p align="center">
+  <img src="img/noetic_detect_construction.png" width="45%">
+  <img src="img/noetic_detect_parking.png" width="45%">
+</p>
 
 Detecting Construction, and Parking signs (mission:=construction,mission:=parking)
-
-![](img/noetic_detect_level_crossing.png) ![](img/noetic_detect_tunnel.png)
 
 <p align="center">
   <img src="img/noetic_detect_level_crossing.png" width="45%">
