@@ -344,23 +344,32 @@ noetic_detect_intersection.png
   <img src="img/noetic_detect_left.png" width="45%">
 </p>
 
-![](img/noetic_detect_right.png)
+<p align="center">
+    <img src="img/noetic_detect_right.png" width="50%">
+</p>
 
-Detecting Intersection, Left, and Right signs (mission:=intersection)
+<p align="center">
+    <b>Detecting Intersection, Left, and Right signs (mission:=intersection)</b>
+</p>
 
 <p align="center">
   <img src="img/noetic_detect_construction.png" width="45%">
   <img src="img/noetic_detect_parking.png" width="45%">
 </p>
 
-Detecting Construction, and Parking signs (mission:=construction,mission:=parking)
+<p align="center">
+    <b>Detecting Construction, and Parking signs (mission:=construction,mission:=parking)</b>
+</p>
 
 <p align="center">
   <img src="img/noetic_detect_level_crossing.png" width="45%">
   <img src="img/noetic_detect_tunnel.png" width="45%">
 </p>
 
-Detecting the Tunnel, and Level Crossing signs (mission:=level_crossing,mission:=tunnel)
+<p align="center">
+    <bDetecting the Tunnel, and Level Crossing signs (mission:=level_crossing,mission:=tunnel)</b>
+</p>
+
 
 
 ## 8.5 Missions
