@@ -456,12 +456,12 @@ $ rqt
 7. Check each topics: `/detect/image_red_light` , `/detect/image_yellow_light` , `/detect/image_green_light` .
 
 
-### Intersection
+### 8.5.2 Intersection
 
 > This mission does not have any associated example code.
 
 
-### Construction
+### 8.5.3 Construction
 
 This section describes how to complete the construction mission. If the TurtleBot encounters an object while following a lane, it will swerve into the opposite lane to avoid the object before returning to its original lane.
 
@@ -502,12 +502,12 @@ $ ros2 launch turtlebot3_autorace_mission mission_construction.launch.py
 ![](img/humble_construction_image_window.png)
 
 
-### Parking
+### 8.5.4 Parking
 
 This mission does not have any associated example code.
 
 
-### Level Crossing
+### 8.5.5 Level Crossing
 
 This section describes how you can detect a traffic bar. TurtleBot should detect the stop sign and wait for the crossing gate to open.
 
