@@ -511,6 +511,7 @@ This mission does not have any associated example code.
 
 This section describes how you can detect a traffic bar. TurtleBot should detect the stop sign and wait for the crossing gate to open.
 
+https://youtu.be/sy8LAX8KEY0?si=MzTXCEHDUQqu_8DE
 
 ##### Level Crossing detection process
 
@@ -522,26 +523,78 @@ This section describes how you can detect a traffic bar. TurtleBot should detect
 
 ##### Level Crossing Detection
 
-1. Close all terminals or terminate them withCtrl+C
-2. Open a new terminal and launch Autorace Gazebo simulation. $ros2 launch turtlebot3_gazebo turtlebot3_autorace_2020.launch.py
-3. Open a new terminal and launch the intrinsic calibration node. $ros2 launch turtlebot3_autorace_camera intrinsic_camera_calibration.launch.py
-4. Open a new terminal and launch the extrinsic calibration node. $ros2 launch turtlebot3_autorace_camera extrinsic_camera_calibration.launch.py
-5. Open a new terminal and launch the level crossing detection node with a calibration option. $ros2 launch turtlebot3_autorace_detect detect_level_crossing.launch.py calibration_mode:=True
-6. Open a new terminal and execute rqt. $rqt
+1. Close all terminals or terminate them with `Ctrl + C` 
+2. Open a new terminal and launch Autorace Gazebo simulation. 
+```
+$ ros2 launch turtlebot3_gazebo turtlebot3_autorace_2020.launch.py
+```
+
+3. Open a new terminal and launch the intrinsic calibration node. 
+```
+$ ros2 launch turtlebot3_autorace_camera intrinsic_camera_calibration.launch.py
+```
+
+4. Open a new terminal and launch the extrinsic calibration node. 
+```
+$ ros2 launch turtlebot3_autorace_camera extrinsic_camera_calibration.launch.py
+```
+
+5. Open a new terminal and launch the level crossing detection node with a calibration option. 
+```
+$ ros2 launch turtlebot3_autorace_detect detect_level_crossing.launch.py calibration_mode:=True
+```
+
+6. Open a new terminal and execute rqt.
+```
+$ rqt
+```
+
 7. Select two topics on Image View Plugin:/detect/image_level_color_filtered/compressed,/detect/image_level/compressed.
+
+![](img/noetic_detect_level.png)
+
 8. Adjust parameters in thedetect_level_crossingon Dynamic Reconfigure Plugin
-9. Open `level.yaml` file located at **turtlebot3_autorace_detect/param/level/** . $gedit ~/turtlebot3_ws/src/turtlebot3_autorace/turtlebot3_autorace_detect/param/level/level.yaml
+
+![](img/noetic_level_reconfigure.png)
+
+9. Open `level.yaml` file located at **turtlebot3_autorace_detect/param/level/** . 
+```
+$ gedit ~/turtlebot3_ws/src/turtlebot3_autorace/turtlebot3_autorace_detect/param/level/level.yaml
+```
+
+![](img/humble_level_yaml.png)
+
 10. Write modified values to the file and save.
 
 
 ##### Testing Level Crossing Detection
 
-1. Close all terminals or terminate them withCtrl+C
-2. Open a new terminal and launch Autorace Gazebo simulation. $ros2 launch turtlebot3_gazebo turtlebot3_autorace_2020.launch.py
-3. Open a new terminal and launch the intrinsic calibration node. $ros2 launch turtlebot3_autorace_camera intrinsic_camera_calibration.launch.py
-4. Open a new terminal and launch the extrinsic calibration node. $ros2 launch turtlebot3_autorace_camera extrinsic_camera_calibration.launch.py
-5. Open a new terminal and launch the level crossing detection node. $ros2 launch turtlebot3_autorace_detect detect_level_crossing.launch.py
-6. Open a new terminal and execute the rqt_image_view. $rqt
+1. Close all terminals or terminate them with `Ctrl + C`
+2. Open a new terminal and launch Autorace Gazebo simulation. 
+```
+$ ros2 launch turtlebot3_gazebo turtlebot3_autorace_2020.launch.py
+```
+
+3. Open a new terminal and launch the intrinsic calibration node. 
+```
+$ ros2 launch turtlebot3_autorace_camera intrinsic_camera_calibration.launch.py
+```
+
+4. Open a new terminal and launch the extrinsic calibration node. 
+```
+$ ros2 launch turtlebot3_autorace_camera extrinsic_camera_calibration.launch.py
+```
+
+5. Open a new terminal and launch the level crossing detection node. 
+```
+$ ros2 launch turtlebot3_autorace_detect detect_level_crossing.launch.py
+```
+
+6. Open a new terminal and execute the rqt_image_view.
+```
+$ rqt
+```
+
 7. Check the image topic: `/detect/image_level/compressed` on Image View Plugin.
 
 
@@ -555,7 +608,7 @@ https://youtu.be/pPS3tM90gAc?si=SSkRh1aCL2pdvHYn
 
 > **NOTE** : Change the navigation parameters in the **turtlebot3/turtlebot3_navigation2/param/buger_cam** file. If you slam and make a new map, Place the new map in the turtlebot3_autorace package at **/turtlebot3_autorace/turtlebot3_autorace_tunnel/map/** .
 
-1. Close all terminals or terminate them withCtrl+C
+1. Close all terminals or terminate them with `Ctrl + C`
 
 2. Open a new terminal and launch the Autorace Gazebo simulation. 
 ```
